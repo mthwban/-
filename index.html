@@ -3,69 +3,127 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohamed Thwban Imijine | Operations & Business Analysis Professional</title>
-    <meta name="description" content="Professional portfolio of Mohamed Thwban Imijine, specializing in Business Analysis, Field Operations, and Strategic Growth." />
+    <title>محمد ثوبان إميجن | محلل أعمال ومصمم مواقع ومبدع مرئي</title>
+    
+    <!-- Advanced SEO & Social Meta (Open Graph) -->
+    <meta name="description" content="الملف المهني لمحمد ثوبان إميجن: خبير تحليل أعمال، مصمم ومطور مواقع، ومنتج مرئي معتمد. متخصص في تحسين العمليات والحلول الرقمية." />
+    <meta name="keywords" content="محمد إميجن, محلل أعمال, مطور مواقع, مكة, السعودية, إدارة مشاريع, PMP, تصوير احترافي, مونتاج, جامعة كولورادو" />
+    <meta property="og:title" content="محمد ثوبان إميجن | الملف المهني المتكامل" />
+    <meta property="og:description" content="محلل أعمال استراتيجي ومطور مواقع متخصص في بناء الهويات الرقمية والإنتاج المرئي الاحترافي." />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
+    <meta property="og:url" content="https://mohamed-imijine.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
+
+    <!-- PWA & Mobile Integration -->
+    <meta name="theme-color" content="#006233" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="محمد إميجن" />
+    <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts -->
+    <!-- Fonts: Plus Jakarta Sans & IBM Plex Sans Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --color-primary: #006233; /* Imagine Deep Green */
-            --color-secondary: #c29b40; /* Imagine Gold */
+            --color-primary: #006233; /* Deep Green */
+            --color-secondary: #c29b40; /* Gold */
             --color-bg: #070912;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
         }
+
         body {
             font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
             background-color: var(--color-bg);
             color: #f8fafc;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-        [dir="rtl"] { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+
+        [dir="rtl"] { 
+            font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', sans-serif; 
+        }
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .section-glow::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(194, 155, 64, 0.05) 0%, transparent 70%);
-            pointer-events: none;
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(194, 155, 64, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
         }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(194, 155, 64, 0.15);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
         @media print {
             .no-print { display: none !important; }
             body { background: white !important; color: black !important; }
         }
     </style>
 
-    <!-- Import Map for Dependencies -->
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-    
-    <!-- Babel Standalone for JSX -->
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+        "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
@@ -79,37 +137,35 @@
             ShieldCheck, Award, LineChart, Briefcase, Mail, 
             Linkedin, MapPin, GraduationCap, ArrowRight, 
             ChevronDown, Sparkles, User, FileDown, ExternalLink, 
-            Zap, ArrowUpRight, Play, Bot, X, Send, Loader2, 
-            MessageSquare, Home, Menu, CheckCircle2
+            Zap, ArrowUpRight, Bot, X, Send, Loader2, 
+            MessageSquare, Home, Menu, CheckCircle2, Globe, Camera, Clock,
+            FileText, PlayCircle, Laptop, Film, Code, Layers
         } from 'lucide-react';
         import { GoogleGenAI } from "@google/genai";
 
-        // --- CONSTANTS & DATA ---
         const CONTACT_INFO = {
-            phone: "+966566162529",
             whatsapp: "966566162529",
             email: "M.THWBAN@GMAIL.COM",
-            linkedin: "https://www.linkedin.com/in/mohamed-imijine-32093b362"
+            linkedin: "https://www.linkedin.com/in/mohamed-imijine-32093b362",
+            resume: "https://drive.google.com/file/d/1qYKnm4ZJH2ABGWys8hMkZkKCjD82cnCG/view?usp=sharing"
         };
-
-        const BRAND_COLORS = { primary: "#006233", secondary: "#c29b40" };
 
         const UI_STRINGS = {
             nav: {
                 about: { en: "About", ar: "نبذة" },
-                services: { en: "Expertise", ar: "الخبرات" },
                 experience: { en: "Career", ar: "المسيرة" },
+                portfolio: { en: "Portfolio", ar: "المعرض" },
                 certifications: { en: "Credentials", ar: "الشهادات" },
-                skills: { en: "Skills", ar: "المهارات" },
+                skills: { en: "Expertise", ar: "المهارات" },
                 contact: { en: "Contact", ar: "تواصل" }
             },
             hero: {
-                status: { en: "Operations and Business Analysis Professional", ar: "محترف تحليل أعمال وتشغيل" },
+                status: { en: "Operations & Business Analysis Professional", ar: "محترف تحليل أعمال وتشغيل ومطور مواقع" },
                 nameFirst: { en: "Mohamed Thwban", ar: "محمد ثوبان" },
                 nameLast: { en: "Imijine", ar: "إميجن" },
                 headline: { 
-                    en: "Business Analyst | Field Operations Lead | Content Strategist | Economist", 
-                    ar: "محلل أعمال | قائد عمليات ميدانية | استراتيجي محتوى | اقتصادي" 
+                    en: "Business Analyst | Field Operations Lead | Web Designer & Developer | Content Strategist | Economist", 
+                    ar: "محلل أعمال | قائد عمليات ميدانية | مصمم ومطور مواقع | استراتيجي محتوى | اقتصادي" 
                 },
                 ctaExplore: { en: "View Expertise", ar: "استكشاف الخبرات" },
                 ctaContact: { en: "Start Collaboration", ar: "بدء التعاون" }
@@ -118,111 +174,190 @@
                 badge: { en: "Professional Profile", ar: "الملف المهني" },
                 title: { en: "Precision in Analysis. Excellence in Execution.", ar: "الدقة في التحليل. التميز في التنفيذ." },
                 p1: { 
-                    en: "A professional in business and operations analysis, with extensive field experience in performance optimization and operational efficiency. My academic background in Economics has shaped my analytical methodology and my understanding of the deep connection between processes and outcomes. This enables me to conduct comprehensive Business Analysis that supports strategic, data-driven decision-making in diverse field environments.", 
-                    ar: "خبير في تحليل الأعمال والعمليات، بخبرة ميدانية واسعة في تحسين الأداء ورفع الكفاءة التشغيلية. لقد صقلت دراستي للاقتصاد منهجيتي التحليلية وعمقت فهمي للارتباط الوثيق بين سير العمليات والنتائج المحققة، مما يمكنني من تقديم تحليل أعمال شامل يدعم اتخاذ القرارات الاستراتيجية القائمة على البيانات في مختلف البيئات الميدانية." 
+                    en: "A multi-disciplinary professional specializing in business operations, modern web development, and certified media production. I combine my economic background with field expertise to drive operational efficiency and build powerful digital identities. My methodology focuses on the seamless bridge between strategic data and high-quality deliverables.", 
+                    ar: "محترف متعدد التخصصات في عمليات الأعمال، تطوير المواقع الحديثة، والإنتاج المرئي المعتمد. أجمع بين خلفيتي الاقتصادية وخبرتي الميدانية لتحسين الكفاءة التشغيلية وبناء هويات رقمية قوية. تركز منهجيتي على الربط السلس بين البيانات الاستراتيجية والمخرجات عالية الجودة." 
                 },
                 p2: { 
-                    en: "Born in Makkah, Saudi Arabia. Whether overseeing Hajj site operations or leading multi-national election logistics, I am committed to delivering high-quality results and contributing to excellence-driven organizations.", 
-                    ar: "مواليد مكة المكرمة، المملكة العربية السعودية. سواء كنت أشرف على عمليات مواقع الحج أو أقود لوجستيات انتخابات دولية، فأنا ملتزم بتقديم نتائج عالية الجودة والمساهمة في المؤسسات التي تسعى للتميز." 
+                    en: "Born in Makkah, Saudi Arabia. Committed to delivering results that align with international standards, whether leading global field logistics or crafting high-performance interactive platforms.", 
+                    ar: "مواليد مكة المكرمة، المملكة العربية السعودية. ملتزم بتقديم نتائج تتماشى مع المعايير الدولية، سواء في قيادة اللوجستيات الميدانية العالمية أو بناء المنصات التفاعلية عالية الأداء." 
                 },
-                origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" }
+                origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" },
+                edu: { en: "Economics - UQU", ar: "اقتصاد - جامعة أم القرى" }
+            },
+            portfolio: {
+                badge: { en: "Selected Works", ar: "أعمال مختارة" },
+                title: { en: "Featured Works", ar: "أبرز الأعمال" },
+                tabWeb: { en: "Web Projects", ar: "مشاريع المواقع" },
+                tabMedia: { en: "Media & Visuals", ar: "الميديا والإنتاج" },
+                tabAnalysis: { en: "Operational Reports", ar: "التقارير التشغيلية" },
+                futureWeb: { en: "Future Project: Digital Solution", ar: "مشروع مستقبلي: حلول رقمية" },
+                futureMedia: { en: "Future Work: Media Showcase", ar: "عمل مستقبلي: معرض وسائط" },
+                futureReport: { en: "Future Case: Strategic Analysis", ar: "دراسة مستقبلية: تحليل استراتيجي" },
+                viewDetails: { en: "View Details", ar: "عرض التفاصيل" },
+                privacyNote: { 
+                    en: "Note: Professional samples are anonymized to protect data privacy and confidentiality.", 
+                    ar: "ملاحظة: تم إخفاء هوية العينات المهنية لحماية خصوصية البيانات وسريتها." 
+                }
+            },
+            ai: {
+                tooltip: {
+                    en: "Explore my roles as an Analyst, Web Developer, and Media Specialist. Start a chat to discover how I add value!",
+                    ar: "اكتشف أدواري كمحلل، مطور مواقع، ومنتج ميديا. ابدأ المحادثة لمعرفة كيف يمكنني إضافة قيمة!"
+                },
+                greeting: {
+                    en: "Welcome! I'm Mohamed's Strategic Assistant. How can I help you learn about his expertise in analysis, web design, or media?",
+                    ar: "أهلاً بك! أنا المساعد الاستراتيجي لمحمد. كيف يمكنني مساعدتك في استكشاف خبراته في التحليل، تطوير المواقع، أو الميديا؟"
+                },
+                status: { en: "Online & Ready", ar: "متاح الآن" },
+                thinking: { en: "Analysing...", ar: "جاري التحليل..." }
             },
             certs: {
-                badge: { en: "Validation", ar: "الاعتمادات" },
-                title: { en: "Professional Certifications", ar: "الشهادات المهنية" },
-                cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" },
-                verify: { en: "Verify Credential", ar: "تحقق من الشهادة" },
-                inProgressTitle: { en: "Professional Development", ar: "التطوير المهني" },
-                expectedSoon: { en: "Currently In Progress (Expected soon)", ar: "قيد التنفيذ حالياً (الموعد المتوقع قريباً)" }
+              cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" },
+              verify: { en: "Verify Credential", ar: "تحقق من الشهادة" }
             }
         };
 
-        const EXPERIENCES = [
+        const FEATURED_WORKS = {
+            web: [
+                { title: UI_STRINGS.portfolio.futureWeb, desc: { en: "Developing high-performance responsive web architectures.", ar: "تطوير بنية مواقع متجاوبة عالية الأداء." }, icon: <Laptop /> },
+                { title: { en: "Modern Interactive UI", ar: "واجهة مستخدم تفاعلية حديثة" }, desc: { en: "Seamless user experience design for enterprise solutions.", ar: "تصميم تجربة مستخدم سلسة للحلول المؤسسية." }, icon: <Code /> },
+                { title: { en: "Corporate Identity Platform", ar: "منصة الهوية المؤسسية" }, desc: { en: "Building robust digital footprints for professional organizations.", ar: "بناء بصمة رقمية قوية للمؤسسات الاحترافية." }, icon: <Globe /> }
+            ],
+            media: [
+                { title: UI_STRINGS.portfolio.futureMedia, desc: { en: "Professional visual documentation and cinematography.", ar: "توثيق مرئي احترافي وتصوير سينمائي." }, icon: <Camera /> },
+                { title: { en: "Certified Video Production", ar: "إنتاج الفيديو المعتمد" }, desc: { en: "High-end montage and post-production storytelling.", ar: "مونتاج متقدم وصناعة قصص بصرية ما بعد الإنتاج." }, icon: <Film /> },
+                { title: { en: "Field Media Ops", ar: "عمليات الميديا الميدانية" }, desc: { en: "International media coordination and strategic capture.", ar: "تنسيق ميديا دولي وتوثيق استراتيجي ميداني." }, icon: <Video /> }
+            ],
+            analysis: [
+                { title: UI_STRINGS.portfolio.futureReport, desc: { en: "Operational gap analysis and workflow optimization.", ar: "تحليل فجوات التشغيل وتحسين سير العمل." }, icon: <BarChart3 /> },
+                { title: { en: "Strategic Efficiency Report", ar: "تقرير الكفاءة الاستراتيجي" }, desc: { en: "Data-driven performance evaluation for large-scale sites.", ar: "تقييم أداء قائم على البيانات للمواقع واسعة النطاق." }, icon: <LineChart /> },
+                { title: { en: "PMP-Aligned Planning", ar: "تخطيط متوافق مع معايير PMP" }, desc: { en: "Methodical resource allocation and project governance.", ar: "توزيع منهجي للموارد وحوكمة المشاريع." }, icon: <Target /> }
+            ]
+        };
+
+        const CAREER_JOURNEY = [
             {
-                title: { en: "Business Analyst – Operations & Maintenance", ar: "محلل أعمال – التشغيل والصيانة" },
-                company: { en: "Manasik Al-Mulabbi Co. – King Abdulaziz Project (Royal Commission)", ar: "شركة مناسك الملبي – مشروع الملك عبدالعزيز (الهيئة الملكية)" },
-                period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" },
+                title: { en: "Photographer", ar: "مصور فوتوغرافي" },
+                company: { en: "Union of OIC Broadcasting (OIC-IBU)", ar: "اتحاد إذاعات دول منظمة التعاون الإسلامي (OIC-IBU)" },
+                period: { en: "10/2025 – Present", ar: "١٠/٢٠٢٥ – الحالي" },
                 description: [
-                    { en: "Oversaw year-round site operations and maintenance for Hady and Adah projects.", ar: "الإشراف على عمليات الموقع وصيانته طوال العام لمشاريع الهدي والأضاحي." },
-                    { en: "Ensured workflow continuity and team communication during the Hajj season through structured planning.", ar: "ضمان استمرارية سير العمل وتواصل الفرق خلال موسم الحج من خلال التخطيط الهيكلي." },
-                    { en: "Managed real-time daily reporting and identified operational efficiency gaps.", ar: "إدارة التقارير اليومية الفورية وتحديد فجوات الكفاءة التشغيلية." }
+                    { en: "Overseeing international media capture and documentation with strategic focus.", ar: "الإشراف على التوثيق المرئي والتغطيات الدولية بتركيز استراتيجي." },
+                    { en: "Coordinating multi-national broadcasting missions through high-end production.", ar: "تنسيق بعثات البث الدولي من خلال الإنتاج عالي الجودة." }
                 ],
-                tags: [{ en: "Business Analysis", ar: "تحليل أعمال" }, { en: "Field Ops", ar: "عمليات ميدانية" }]
+                highlight: { en: "Media Strategy", ar: "استراتيجية الميديا" },
+                icon: <Camera className="w-6 h-6" />
             },
             {
-                title: { en: "Committee Member – Presidential Elections", ar: "عضو لجنة – الانتخابات الرئاسية" },
-                company: { en: "Mauritanian Consulate, Jeddah", ar: "القنصلية الموريتانية بجدة" },
+                title: { en: "Site Operations & Business Analyst", ar: "محلل أعمال وعمليات ميدانية" },
+                company: { en: "Manasik Al-Mullabi (Royal Commission Project)", ar: "شركة مناسك الملبي (مشروع الهيئة الملكية)" },
+                period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" },
+                description: [
+                    { en: "Directed site logistics for the King Abdulaziz Project (Adahi), focusing on performance efficiency.", ar: "إدارة لوجستيات الموقع لمشروع الملك عبدالعزيز (أضاحي) مع التركيز على كفاءة الأداء." },
+                    { en: "Implemented rigorous reporting and operational auditing to ensure excellence.", ar: "تفعيل التقارير الصارمة والتدقيق التشغيلي لضمان التميز." }
+                ],
+                highlight: { en: "Operational Efficiency", ar: "الكفاءة التشغيلية" },
+                icon: <Briefcase className="w-6 h-6" />
+            },
+            {
+                title: { en: "Steering Committee Member", ar: "عضو لجنة تنظيمية" },
+                company: { en: "Mauritanian Consulate in Jeddah (Presidential Elections)", ar: "القنصلية الموريتانية بجدة (الانتخابات الرئاسية)" },
                 period: { en: "04/2023 – 08/2023", ar: "٠٤/٢٠٢٣ – ٠٨/٢٠٢٣" },
                 description: [
-                    { en: "Organized voter registration and electoral lists with transparency and accuracy.", ar: "تنظيم تسجيل الناخبين والقوائم الانتخابية بشفافية ودقة." },
-                    { en: "Coordinated election operations and ensured compliance with official high-responsibility standards.", ar: "تنسيق عمليات الانتخابات وضمان الامتثال للمعايير الرسمية عالية المسؤولية." }
+                    { en: "Supervised electronic voter registration and managed result audit transparency.", ar: "الإشراف على تسجيل الناخبين إلكترونياً وإدارة شفافية تدقيق النتائج." }
                 ],
-                tags: [{ en: "Organization", ar: "تنظيم" }, { en: "Compliance", ar: "امتثال" }]
+                highlight: { en: "Governance", ar: "الحوكمة" },
+                icon: <ShieldCheck className="w-6 h-6" />
             },
             {
                 title: { en: "Marketing Specialist", ar: "أخصائي تسويق" },
-                company: { en: "Construction & Transportation Companies", ar: "شركات الإنشاءات والنقل" },
+                company: { en: "Contracting & Transport Sectors", ar: "قطاعات المقاولات والنقل" },
                 period: { en: "2020 – 2023", ar: "٢٠٢٠ – ٢٠٢٣" },
                 description: [
-                    { en: "Developed digital marketing initiatives to increase brand awareness.", ar: "تطوير مبادرات التسويق الرقمي لزيادة الوعي بالعلامة التجارية." },
-                    { en: "Explored effective online communication strategies to enhance market presence.", ar: "استكشاف استراتيجيات تواصل فعالة عبر الإنترنت لتعزيز التواجد في السوق." }
+                    { en: "Deployed digital strategies to increase reach and strengthen corporate brand identity.", ar: "تفعيل الاستراتيجيات الرقمية لزيادة الوصول وتعزيز الهوية التجارية." }
                 ],
-                tags: [{ en: "Digital Marketing", ar: "تسويق رقمي" }, { en: "Strategy", ar: "استراتيجية" }]
+                highlight: { en: "Digital Growth", ar: "نمو رقمي" },
+                icon: <TrendingUp className="w-6 h-6" />
+            },
+            {
+                title: { en: "Academic Foundation: Economics", ar: "الأساس الأكاديمي: الاقتصاد" },
+                company: { en: "Umm Al-Qura University", ar: "جامعة أم القرى" },
+                period: { en: "Graduated 2018", ar: "تخرج ٢٠١٨" },
+                description: [
+                    { en: "Developed core analytical methodology based on economic indicators.", ar: "تطوير منهجية تحليلية أساسية تعتمد على المؤشرات الاقتصادية." }
+                ],
+                highlight: { en: "Analysis", ar: "التحليل" },
+                icon: <GraduationCap className="w-6 h-6" />
             }
         ];
 
         const CERTIFICATIONS = [
             {
+                title: { en: "Project Management Professional (PMP)", ar: "مدير مشروع محترف (PMP)" },
+                issuer: { en: "Project Management Institute (PMI)", ar: "معهد إدارة المشاريع (PMI)" },
+                date: { en: "Awaiting Exam", ar: "في انتظار الاختبار" },
+                status: "in-progress",
+                info: { 
+                  en: "Application Submitted to PMI - Awaiting Review & Global Certification Exam.", 
+                  ar: "تم تقديم طلب الاعتماد المهني لمعهد إدارة المشاريع (PMI) - في انتظار المراجعة والتحضير للاختبار الدولي." 
+                }
+            },
+            {
                 title: { en: "Google Project Management Professional Certificate", ar: "شهادة جوجل الاحترافية في إدارة المشاريع" },
                 issuer: { en: "Coursera", ar: "كورسيرا" },
                 date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://coursera.org/verify/professional-cert/BB2H5F57UU1E"
+                url: "https://coursera.org/verify/professional-cert/BB2H5F57UU1E",
+                status: "completed"
             },
             {
-                title: { en: "Small Business Social Media Marketing on Facebook", ar: "التسويق للمشاريع الصغيرة عبر موقع التواصل فيسبوك" },
-                issuer: { en: "Coursera Project Network", ar: "كورسيرا" },
+                title: { en: "Video Production Certificate", ar: "شهادة إنتاج الفيديو" },
+                issuer: { en: "University of Colorado Boulder", ar: "جامعة كولورادو بولدر" },
                 date: { en: "2023", ar: "٢٠٢٣" },
-                url: "https://coursera.org/verify/1YKOO0BLUAC4"
+                status: "completed"
             },
             {
-                title: { en: "Leading Teams: Developing as a Leader", ar: "قيادة الفرق: التطور كقائد" },
+                title: { en: "Leading Teams Certificate", ar: "شهادة قيادة الفرق" },
                 issuer: { en: "University of Michigan", ar: "جامعة ميشيغان" },
                 date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://coursera.org/verify/HZ3HI46GM6TI"
+                url: "https://coursera.org/verify/HZ3HI46GM6TI",
+                status: "completed"
             },
             {
-                title: { en: "Ready to Roll – The Video Production Process", ar: "عملية إنتاج الفيديو - جاهز للبدء" },
-                issuer: { en: "University of Colorado Boulder", ar: "جامعة كولورادو بولدر" },
-                date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://coursera.org/verify/MNQTL62TBRVL"
-            },
-            {
-                title: { en: "“Tirhab” Soft Skills for Frontline Employees", ar: "برنامج ترحاب للمهارات الناعمة (خدمة ضيوف الرحمن)" },
-                issuer: { en: "Ministry of Hajj and Umrah", ar: "وزارة الحج والعمرة" },
-                date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://www.terhab-hajj.com/Certification/4"
+                title: { en: "Google Digital Marketing & E-commerce Certificate", ar: "شهادة جوجل في التسويق الرقمي" },
+                issuer: { en: "Coursera", ar: "كورسيرا" },
+                date: { en: "Expected Soon", ar: "متوقع قريباً" },
+                status: "in-progress"
             }
         ];
 
         const SKILLS = [
             {
-                category: { en: "Operations & Analysis", ar: "التشغيل والتحليل" },
-                icon: <BarChart3 className="w-6 h-6 text-[#c29b40]" />,
-                items: [{ en: "Process Improvement", ar: "تحسين العمليات" }, { en: "Data Analysis", ar: "تحليل البيانات" }, { en: "Reporting", ar: "إعداد التقارير" }]
+                category: { en: "Web Designer & Developer", ar: "مصمم ومطور مواقع إلكترونية" },
+                icon: <Laptop className="w-7 h-7 text-[#c29b40]" />,
+                items: [{ en: "Digital Identity", ar: "هوية رقمية" }, { en: "Modern UI/UX", ar: "تصميم واجهات" }, { en: "Architecture", ar: "هندسة معمارية" }, { en: "Performance", ar: "تحسين الأداء" }]
             },
             {
-                category: { en: "Visual & Digital", ar: "الإنتاج المرئي والرقمي" },
-                icon: <Video className="w-6 h-6 text-[#c29b40]" />,
-                items: [{ en: "Cinematography", ar: "تصوير سينمائي" }, { en: "Video Editing", ar: "مونتاج الفيديو" }, { en: "Marketing", ar: "تسويق رقمي" }]
+                category: { en: "Creative Media Production", ar: "الإنتاج المرئي الإبداعي" },
+                icon: <Film className="w-7 h-7 text-[#c29b40]" />,
+                items: [{ en: "Photography", ar: "تصوير فوتوغرافي" }, { en: "Video Montage", ar: "مونتاج فيديو (كولورادو)" }, { en: "Visual Storytelling", ar: "قصص بصرية" }, { en: "Field Media", ar: "ميديا ميدانية" }]
             },
             {
-                category: { en: "Leadership & Strategy", ar: "القيادة والاستراتيجية" },
-                icon: <UserCheck className="w-6 h-6 text-[#c29b40]" />,
-                items: [{ en: "Team Leadership", ar: "قيادة الفرق" }, { en: "Critical Thinking", ar: "تفكير نقدي" }, { en: "Communication", ar: "مهارات التواصل" }]
+                category: { en: "Operations & Analysis", ar: "التحليل والعمليات" },
+                icon: <BarChart3 className="w-7 h-7 text-[#c29b40]" />,
+                items: [{ en: "Efficiency", ar: "كفاءة تشغيلية" }, { en: "Audit", ar: "تدقيق" }, { en: "Data Reports", ar: "تقارير بيانات" }, { en: "Strategy", ar: "استراتيجية" }]
             }
         ];
 
-        // --- COMPONENTS ---
+        const useReveal = () => {
+            useEffect(() => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) entry.target.classList.add('active');
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                return () => observer.disconnect();
+            }, []);
+        };
 
         const Navbar = ({ lang, setLang }) => {
             const [isScrolled, setIsScrolled] = useState(false);
@@ -233,28 +368,30 @@
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
 
+            const scrollTo = (id) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                setIsMobileMenuOpen(false);
+            };
+
             return (
-                <nav className={`fixed top-0 left-0 w-full z-[100] transition-all px-4 ${isScrolled ? 'py-4' : 'py-8'}`}>
-                    <div className={`max-w-7xl mx-auto flex justify-between items-center px-6 py-3 rounded-2xl ${isScrolled ? 'glass-card shadow-xl' : ''}`}>
-                        <div className="flex items-center gap-4">
-                            <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-white hover:bg-white/10">
-                                {lang === 'en' ? 'العربية' : 'EN'}
-                            </button>
-                        </div>
-                        <div className="text-2xl font-black text-white">MI<span className="text-[#c29b40]">.</span></div>
-                        <div className="hidden lg:flex gap-8">
-                            {['about', 'experience', 'certifications', 'skills'].map(id => (
-                                <a key={id} href={`#${id}`} className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition-all">
-                                    {UI_STRINGS.nav[id][lang]}
-                                </a>
-                            ))}
-                            <a href="#contact" className="px-6 py-2 bg-[#006233] text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-[#004d28] transition-all no-print">
-                                {UI_STRINGS.nav.contact[lang]}
-                            </a>
-                        </div>
-                        <button className="lg:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                            {isMobileMenuOpen ? <X /> : <Menu />}
+                <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-8 ${isScrolled ? 'py-4' : 'py-8'}`}>
+                    <div className={`max-w-7xl mx-auto flex justify-between items-center px-8 py-3.5 rounded-3xl transition-all duration-500 ${isScrolled ? 'glass-card shadow-2xl' : 'bg-transparent'}`}>
+                        <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-4 py-1.5 rounded-xl bg-[#c29b40]/10 border border-[#c29b40]/20 text-[10px] font-black text-[#c29b40] hover:bg-[#c29b40] hover:text-[#070912] transition-all no-print">
+                            {lang === 'en' ? 'العربية' : 'English'}
                         </button>
+                        <div className="text-2xl font-black text-white tracking-tighter cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
+                            {lang === 'ar' ? 'محمد' : 'IM'}<span className="text-[#c29b40]">.</span>
+                        </div>
+                        <div className="hidden lg:flex gap-10 items-center">
+                            {Object.keys(UI_STRINGS.nav).map(id => (
+                                <button key={id} onClick={() => scrollTo(id)} className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-[#c29b40] transition-all">{UI_STRINGS.nav[id][lang]}</button>
+                            ))}
+                            <button onClick={() => scrollTo('contact')} className="px-8 py-2.5 bg-[#006233] text-white text-[10px] font-black uppercase tracking-widest rounded-2xl hover:bg-[#004d28] gold-glow transition-all no-print">{UI_STRINGS.nav.contact[lang]}</button>
+                        </div>
+                        <button className="lg:hidden text-white p-2" aria-label="Menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>{isMobileMenuOpen ? <X /> : <Menu />}</button>
                     </div>
                 </nav>
             );
@@ -264,31 +401,31 @@
             const content = UI_STRINGS.hero;
             const photoUrl = "https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30";
             return (
-                <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-1/3 h-full bg-[#006233]/10 blur-[120px] pointer-events-none"></div>
-                    <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className={lang === 'ar' ? 'text-right order-1' : 'text-left order-1'}>
-                            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-[#006233]/10 border border-[#006233]/20">
-                                <Sparkles className="w-4 h-4 text-[#c29b40]" />
-                                <p className="text-[#c29b40] font-black uppercase tracking-widest text-[10px]">{content.status[lang]}</p>
+                <section className="relative min-h-screen flex items-center pt-32 pb-20 px-8 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[40%] h-full bg-[#006233]/10 blur-[150px] pointer-events-none rounded-full"></div>
+                    <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
+                        <div className={`reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                            <div className="inline-flex items-center gap-3 mb-8 px-5 py-2 rounded-full bg-[#006233]/15 border border-[#006233]/30 backdrop-blur-sm">
+                                <Sparkles className="w-4 h-4 text-[#c29b40] animate-pulse" />
+                                <p className="text-[#c29b40] font-black uppercase tracking-[0.25em] text-[10px]">{content.status[lang]}</p>
                             </div>
-                            <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter">
-                                {content.nameFirst[lang]} <br /> <span className="text-[#006233]">{content.nameLast[lang]}</span>
+                            <h1 className="text-6xl md:text-8xl font-black text-white mb-8 leading-[1] tracking-tighter">
+                                {content.nameFirst[lang]} <br /> <span className="text-gradient drop-shadow-2xl">{content.nameLast[lang]}</span>
                             </h1>
-                            <p className="text-xl text-slate-300 mb-10 max-w-xl font-light leading-relaxed">{content.headline[lang]}</p>
-                            <div className="flex flex-wrap gap-4">
-                                <a href="#about" className="px-8 py-4 bg-[#006233] text-white font-black rounded-xl hover:bg-[#004d28] transition-all shadow-xl shadow-[#006233]/20">{content.ctaExplore[lang]}</a>
-                                <a href="#contact" className="px-8 py-4 glass-card text-white font-black rounded-xl hover:bg-white/5 transition-all">{content.ctaContact[lang]}</a>
+                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl font-light leading-relaxed opacity-80">{content.headline[lang]}</p>
+                            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
+                                <button onClick={() => document.getElementById('about')?.scrollIntoView({behavior:'smooth'})} className="px-10 py-5 bg-[#006233] text-white font-black rounded-2xl hover:bg-[#004d28] transition-all gold-glow text-sm uppercase tracking-widest">{content.ctaExplore[lang]}</button>
+                                <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})} className="px-10 py-5 glass-card text-white font-black rounded-2xl hover:bg-white/10 transition-all text-sm uppercase tracking-widest">{content.ctaContact[lang]}</button>
                             </div>
                         </div>
-                        <div className="relative group order-2">
-                            <div className="absolute -inset-4 bg-[#006233]/20 rounded-[4rem] blur-3xl opacity-30"></div>
-                            <div className="relative z-10 aspect-[4/5] rounded-[3.5rem] overflow-hidden border-2 border-white/5 shadow-2xl bg-[#0d1021]">
-                                <img src={photoUrl} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Mohamed Imijine" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                                <div className={`absolute bottom-8 ${lang === 'ar' ? 'right-8 text-right' : 'left-8 text-left'}`}>
-                                    <p className="text-[#c29b40] text-3xl font-black tracking-tighter">IMAGINE.</p>
-                                    <p className="text-white text-[10px] font-black uppercase tracking-[0.3em] opacity-70">Strategy & Execution</p>
+                        <div className="reveal relative group">
+                            <div className="absolute -inset-8 bg-gradient-to-tr from-[#006233]/30 to-[#c29b40]/10 rounded-[4rem] blur-3xl opacity-40 group-hover:opacity-60 transition-all duration-1000"></div>
+                            <div className="relative z-10 aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.7)] bg-[#0d1021]">
+                                <img loading="lazy" src={photoUrl} className="w-full h-full object-cover transition-transform duration-1000 scale-[1.02] group-hover:scale-110" alt="محمد إميجن" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#070912]/90 via-transparent to-transparent opacity-60"></div>
+                                <div className={`absolute bottom-12 ${lang === 'ar' ? 'right-12 text-right' : 'left-12 text-left'}`}>
+                                    <p className="text-[#c29b40] text-4xl font-black tracking-tighter mb-2">{lang === 'ar' ? 'تخيل.' : 'IMAGINE.'}</p>
+                                    <div className={`flex items-center gap-3 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="h-[2px] w-8 bg-[#c29b40]/50"></div><p className="text-white text-[10px] font-black uppercase tracking-[0.4em] opacity-70">{lang === 'ar' ? 'التميز الاستراتيجي' : 'Strategic Excellence'}</p></div>
                                 </div>
                             </div>
                         </div>
@@ -300,34 +437,26 @@
         const About = ({ lang }) => {
             const content = UI_STRINGS.about;
             return (
-                <section id="about" className="py-32 bg-[#0a0c1b] px-6 relative overflow-hidden">
+                <section id="about" className="py-40 bg-[#070912] px-8 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                            <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                                <span className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em] mb-4 block">{content.badge[lang]}</span>
-                                <h3 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tighter">{content.title[lang]}</h3>
-                                <div className="space-y-8 text-slate-300 text-lg leading-relaxed font-light">
-                                    <p className={`border-l-4 ${lang === 'ar' ? 'border-l-0 border-r-4 pr-6' : 'pl-6'} border-[#c29b40] py-2 bg-white/5 rounded-2xl`}>{content.p1[lang]}</p>
-                                    <p className="opacity-80">{content.p2[lang]}</p>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
-                                        <div className="flex items-center gap-4 text-xs font-black text-slate-400 uppercase tracking-widest">
-                                            <Home className="w-5 h-5 text-[#c29b40]" /> {content.origin[lang]}
-                                        </div>
-                                        <div className="flex items-center gap-4 text-xs font-black text-slate-400 uppercase tracking-widest">
-                                            <GraduationCap className="w-5 h-5 text-[#c29b40]" /> {lang === 'ar' ? 'بكالوريوس اقتصاد - جامعة أم القرى (٢٠١٨)' : 'Bachelor of Economics - UQU (2018)'}
-                                        </div>
-                                        <div className="flex items-center gap-4 text-xs font-black text-slate-400 uppercase tracking-widest">
-                                            <MapPin className="w-5 h-5 text-[#c29b40]" /> {lang === 'ar' ? 'الموقع: المملكة العربية السعودية' : 'Location: Saudi Arabia'}
-                                        </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                            <div className={`reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                                <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-6 block opacity-70">{content.badge[lang]}</span>
+                                <h3 className="text-5xl md:text-7xl font-black text-white mb-10 leading-[1.05] tracking-tighter">{content.title[lang]}</h3>
+                                <div className="space-y-10 text-slate-300 text-xl leading-relaxed font-light">
+                                    <p className={`py-4 bg-white/[0.03] rounded-3xl px-8 border-l-4 ${lang === 'ar' ? 'border-l-0 border-r-4 border-[#c29b40]' : 'border-[#c29b40]'}`}>{content.p1[lang]}</p>
+                                    <p className="opacity-70 leading-relaxed">{content.p2[lang]}</p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
+                                        <div className={`flex items-center gap-5 text-xs font-black text-slate-400 uppercase tracking-widest ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center text-[#c29b40]"><Home className="w-5 h-5" /></div>{content.origin[lang]}</div>
+                                        <div className={`flex items-center gap-5 text-xs font-black text-slate-400 uppercase tracking-widest ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center text-[#c29b40]"><GraduationCap className="w-5 h-5" /></div>{content.edu[lang]}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="glass-card p-12 rounded-[4rem] border border-[#c29b40]/20 bg-gradient-to-br from-[#006233]/10 to-transparent">
-                                <h4 className="text-3xl font-black text-white mb-6">Business Analysis.</h4>
-                                <p className="text-slate-400 mb-8 leading-relaxed">Bridging the gap between financial data and real-world execution through methodical precision and strategic insight.</p>
-                                <div className="flex gap-3">
-                                    {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-[#c29b40] opacity-40"></div>)}
-                                </div>
+                            <div className="reveal glass-card p-14 rounded-[4rem] border border-[#c29b40]/20 bg-gradient-to-br from-[#006233]/15 to-transparent relative group">
+                                <div className={`absolute top-10 text-[#c29b40]/10 font-black text-9xl pointer-events-none select-none ${lang === 'ar' ? 'left-10 opacity-0' : 'right-10'}`}>B.A.</div>
+                                <h4 className="text-4xl font-black text-white mb-8 tracking-tighter relative z-10">{lang === 'ar' ? 'تحليل الأعمال والتشغيل.' : 'Business Analysis & Operations.'}</h4>
+                                <p className="text-slate-400 mb-10 leading-relaxed text-lg font-light relative z-10">{lang === 'ar' ? 'سد الفجوة بين البيانات والتنفيذ من خلال الدقة المنهجية والرؤية الاستراتيجية.' : 'Bridging the gap between data and execution through methodical precision and strategic insight.'}</p>
+                                <div className="flex gap-4">{[1, 2, 3].map(i => <div key={i} className="w-3 h-3 rounded-full bg-[#c29b40] opacity-30"></div>)}</div>
                             </div>
                         </div>
                     </div>
@@ -335,30 +464,89 @@
             );
         };
 
-        const Experience = ({ lang }) => (
-            <section id="experience" className="py-32 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20">
-                        <span className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em]">{UI_STRINGS.nav.experience[lang]}</span>
-                        <h2 className="text-4xl md:text-6xl font-black text-white mt-4 tracking-tighter">Professional Journey</h2>
-                    </div>
-                    <div className="space-y-12 max-w-5xl mx-auto">
-                        {EXPERIENCES.map((exp, i) => (
-                            <div key={i} className="glass-card p-10 rounded-[2.5rem] border border-white/5 hover:border-[#006233]/40 transition-all group">
-                                <div className="flex flex-col md:flex-row justify-between items-start mb-6 gap-4">
-                                    <div>
-                                        <h4 className="text-2xl font-black text-white group-hover:text-[#c29b40] transition-colors tracking-tight">{exp.title[lang]}</h4>
-                                        <p className="text-[#006233] font-bold mt-1 text-sm">{exp.company[lang]}</p>
-                                    </div>
-                                    <span className="px-4 py-1.5 bg-white/5 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500">{exp.period[lang]}</span>
+        const Portfolio = ({ lang }) => {
+            const [activeTab, setActiveTab] = useState('web');
+            const content = UI_STRINGS.portfolio;
+
+            return (
+                <section id="portfolio" className="py-40 px-8 bg-[#070912] relative overflow-hidden">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="reveal text-center mb-24">
+                            <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] block mb-4 opacity-70">{content.badge[lang]}</span>
+                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-12">{content.title[lang]}</h2>
+                            
+                            <div className="inline-flex glass-card p-2 rounded-2xl mb-16 border-white/5 no-print flex-wrap justify-center gap-2">
+                                <button onClick={() => setActiveTab('web')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'web' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabWeb[lang]}</button>
+                                <button onClick={() => setActiveTab('media')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'media' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabMedia[lang]}</button>
+                                <button onClick={() => setActiveTab('analysis')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'analysis' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabAnalysis[lang]}</button>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {FEATURED_WORKS[activeTab].map((work, i) => (
+                                <div key={i} className="reveal group glass-card p-10 rounded-[3.5rem] relative overflow-hidden flex flex-col hover:border-[#c29b40]/30 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#006233]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <div className={`w-16 h-16 glass-card bg-[#c29b40]/10 rounded-2xl flex items-center justify-center mb-10 border border-[#c29b40]/20 text-[#c29b40] group-hover:scale-110 group-hover:bg-[#c29b40] group-hover:text-[#070912] transition-all ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{work.icon}</div>
+                                    <h4 className={`text-2xl font-black text-white mb-4 tracking-tight group-hover:text-[#c29b40] transition-colors ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{work.title[lang]}</h4>
+                                    <p className={`text-slate-400 text-sm font-light leading-relaxed mb-10 flex-grow ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{work.desc[lang]}</p>
+                                    <button className={`mt-auto w-full py-4 glass-card text-[10px] font-black uppercase tracking-widest text-[#c29b40] border border-[#c29b40]/20 hover:bg-[#c29b40] hover:text-[#070912] transition-all no-print flex items-center justify-center gap-3 cursor-help`}>{UI_STRINGS.portfolio.viewDetails[lang]} <ArrowUpRight className="w-4 h-4" /></button>
                                 </div>
-                                <ul className="space-y-4">
-                                    {exp.description.map((d, idx) => (
-                                        <li key={idx} className="flex gap-4 text-slate-400 font-light leading-relaxed">
-                                            <CheckCircle2 className="w-5 h-5 text-[#c29b40] shrink-0 mt-1" /> {d[lang]}
-                                        </li>
-                                    ))}
-                                </ul>
+                            ))}
+                        </div>
+
+                        <div className="reveal mt-20 text-center opacity-40">
+                            <p className="text-[10px] text-slate-500 font-medium italic tracking-wide uppercase">{content.privacyNote[lang]}</p>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const CareerJourney = ({ lang }) => (
+            <section id="experience" className="py-40 px-8 relative bg-[#0d1021]">
+                <div className="max-w-7xl mx-auto">
+                    <div className="reveal text-center mb-32"><span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] block mb-4 opacity-70">{lang === 'ar' ? 'المسيرة المهنية' : 'Career Timeline'}</span><h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">{UI_STRINGS.nav.experience[lang]}</h2></div>
+                    <div className="relative max-w-5xl mx-auto">
+                        <div className={`absolute top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#006233] to-transparent opacity-20 hidden md:block ${lang === 'ar' ? 'right-12' : 'left-12'}`}></div>
+                        <div className="space-y-24">
+                            {CAREER_JOURNEY.map((milestone, i) => (
+                                <div key={i} className={`reveal relative flex flex-col md:flex-row gap-12 items-start group ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className={`z-10 w-24 h-24 rounded-3xl glass-card flex items-center justify-center text-[#c29b40] shadow-2xl transition-all duration-500 group-hover:bg-[#c29b40] group-hover:text-[#070912] border-2 border-[#006233]/30 shrink-0 md:absolute ${lang === 'ar' ? 'md:right-0' : 'md:left-0'}`}>{milestone.icon}</div>
+                                    <div className={`w-full glass-card p-10 md:p-14 rounded-[3.5rem] relative overflow-hidden hover:border-[#006233]/50 ${lang === 'ar' ? 'md:mr-36 text-right' : 'md:ml-36 text-left'}`}>
+                                        <div className="absolute top-0 right-0 w-48 h-48 bg-[#006233]/5 blur-[80px] pointer-events-none"></div>
+                                        <div className={`flex flex-col md:flex-row justify-between items-start mb-10 gap-6 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                                            <div className="max-w-2xl"><h4 className="text-3xl font-black text-white mb-2 leading-tight tracking-tight group-hover:text-[#c29b40] transition-colors">{milestone.title[lang]}</h4><p className="text-[#006233] font-black text-sm uppercase tracking-widest">{milestone.company[lang]}</p></div>
+                                            <div className={`flex flex-col gap-2 ${lang === 'ar' ? 'items-start' : 'items-end'}`}><span className="px-6 py-2 bg-white/5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 whitespace-nowrap">{milestone.period[lang]}</span><span className="px-4 py-1.5 bg-[#c29b40]/10 border border-[#c29b40]/30 rounded-full text-[9px] font-black uppercase text-[#c29b40] tracking-widest">{milestone.highlight[lang]}</span></div>
+                                        </div>
+                                        <ul className="space-y-6">{milestone.description.map((d, idx) => (<li key={idx} className={`flex gap-6 text-slate-400 font-light text-lg leading-relaxed ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="mt-1.5"><CheckCircle2 className="w-5 h-5 text-[#c29b40]/60 shrink-0" /></div>{d[lang]}</li>))}</ul>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Certifications = ({ lang }) => (
+            <section id="certifications" className="py-40 bg-[#070912] px-8 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className={`reveal flex flex-col md:flex-row justify-between items-end mb-24 gap-10 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                        <div className={`${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                            <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-4 block opacity-70">Credentials</span>
+                            <h3 className="text-5xl md:text-6xl font-black text-white tracking-tighter">{UI_STRINGS.nav.certifications[lang]}</h3>
+                        </div>
+                        <a href={CONTACT_INFO.resume} target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-[#c29b40] text-white font-black rounded-2xl flex items-center gap-4 shadow-xl hover:bg-[#d4b05a] transition-all no-print text-sm uppercase tracking-widest hover:scale-105 active:scale-95"><FileDown className="w-5 h-5" /> {UI_STRINGS.certs.cta[lang]}</a>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {CERTIFICATIONS.map((cert, i) => (
+                            <div key={i} className={`reveal group glass-card p-10 rounded-[3rem] flex flex-col h-full hover:bg-white/[0.04] transition-all duration-500 ${cert.status === 'in-progress' ? 'border-[#c29b40]/40 bg-[#c29b40]/5 shadow-[0_0_20px_rgba(194,155,64,0.1)]' : ''} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                                <div className={`w-16 h-16 bg-[#c29b40]/10 rounded-2xl flex items-center justify-center mb-10 border border-[#c29b40]/20 ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{cert.status === 'in-progress' ? <Clock className="w-8 h-8 text-[#c29b40]" /> : <Award className="w-8 h-8 text-[#c29b40]" />}</div>
+                                <h4 className="text-xl font-black text-white mb-2 tracking-tight leading-snug">{cert.title[lang]}</h4><p className="text-slate-500 text-sm mb-6 font-medium">{cert.issuer[lang]}</p>
+                                <div className="mt-auto pt-6 border-t border-white/5 flex flex-col gap-4">
+                                    <div className={`flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><span className="text-[9px] font-black uppercase text-slate-600 tracking-[0.2em]">{cert.date[lang]}</span>{cert.url && (<a href={cert.url} target="_blank" rel="noopener noreferrer" className="text-[#c29b40] flex items-center gap-2 text-[9px] font-black uppercase tracking-widest hover:translate-x-1 transition-all">{UI_STRINGS.certs.verify[lang]} <ArrowUpRight className="w-4 h-4" /></a>)}</div>
+                                    {cert.info && (<p className="text-[10px] text-[#c29b40] font-black uppercase tracking-widest bg-[#c29b40]/10 p-4 rounded-xl leading-relaxed">{cert.info[lang]}</p>)}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -366,87 +554,16 @@
             </section>
         );
 
-        const Certifications = ({ lang }) => {
-            const content = UI_STRINGS.certs;
-            return (
-                <section id="certifications" className="py-32 bg-[#0d1021] px-6 section-glow relative overflow-hidden">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                            <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                                <span className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em] mb-4 block">{content.badge[lang]}</span>
-                                <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter">{content.title[lang]}</h3>
-                            </div>
-                            <button className="px-8 py-4 bg-[#c29b40] text-white font-black rounded-xl flex items-center gap-3 shadow-lg hover:bg-[#d4b05a] transition-all no-print">
-                                <FileDown className="w-5 h-5" /> {content.cta[lang]}
-                            </button>
-                        </div>
-
-                        {/* Professional Development / In Progress Card */}
-                        <div className="mb-12">
-                            <div className="glass-card p-10 md:p-14 rounded-[3.5rem] border border-[#c29b40]/30 bg-gradient-to-br from-[#006233]/10 to-transparent overflow-hidden">
-                                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                                    <div>
-                                        <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-[#c29b40]/10 border border-[#c29b40]/20">
-                                            <Zap className="w-4 h-4 text-[#c29b40] animate-pulse" />
-                                            <span className="text-[#c29b40] text-[10px] font-black uppercase tracking-widest">{content.inProgressTitle[lang]}</span>
-                                        </div>
-                                        <h4 className="text-3xl md:text-4xl font-black text-white mb-4">Google Digital Marketing & E-Commerce</h4>
-                                        <p className="text-slate-400 text-lg font-light">Coursera Professional Certificate in partnership with Google</p>
-                                    </div>
-                                    <div className="bg-[#0a0c1b]/50 p-8 rounded-[2rem] border border-white/5">
-                                        <div className="flex justify-between items-end mb-4">
-                                            <p className="text-white text-[10px] font-black uppercase tracking-widest opacity-60">{content.expectedSoon[lang]}</p>
-                                            <p className="text-[#c29b40] text-2xl font-black">88%</p>
-                                        </div>
-                                        <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                                            <div className="h-full bg-gradient-to-r from-[#006233] to-[#c29b40] w-[88%] rounded-full shadow-[0_0_20px_rgba(194,155,64,0.3)]"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CERTIFICATIONS.map((cert, i) => (
-                                <div key={i} className="group glass-card p-10 rounded-[2.5rem] flex flex-col h-full hover:bg-white/5 transition-all">
-                                    <Award className="w-12 h-12 text-[#c29b40] mb-8 group-hover:scale-110 transition-transform" />
-                                    <h4 className="text-xl font-black text-white mb-2 leading-tight tracking-tight">{cert.title[lang]}</h4>
-                                    <p className="text-slate-500 text-sm mb-8 font-medium">{cert.issuer[lang]}</p>
-                                    <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
-                                        <span className="text-[10px] font-black uppercase text-slate-600 tracking-widest">{cert.date[lang]}</span>
-                                        <a href={cert.url} target="_blank" className="text-[#c29b40] flex items-center gap-2 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">
-                                            {content.verify[lang]} <ArrowUpRight className="w-4 h-4" />
-                                        </a>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
         const Skills = ({ lang }) => (
-            <section id="skills" className="py-32 px-6 bg-[#0a0c1b]">
+            <section id="skills" className="py-40 px-8 bg-[#0d1021] relative overflow-hidden">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20">
-                        <span className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em]">{UI_STRINGS.nav.skills[lang]}</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mt-4 tracking-tighter">Technical & Leadership Mastery</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="reveal text-center mb-24"><span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] block mb-4 opacity-70">{lang === 'ar' ? 'الكفاءات' : 'Competencies'}</span><h2 className="text-5xl md:text-7xl font-black text-white mt-4 tracking-tighter">{UI_STRINGS.nav.skills[lang]}</h2></div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {SKILLS.map((skill, i) => (
-                            <div key={i} className="glass-card p-12 rounded-[3.5rem] border border-white/5 hover:border-[#006233]/40 transition-all group">
-                                <div className="w-16 h-16 bg-[#006233]/10 rounded-2xl flex items-center justify-center mb-10 border border-[#006233]/20 group-hover:scale-110 transition-transform">
-                                    {skill.icon}
-                                </div>
-                                <h4 className="text-2xl font-black text-white mb-8 tracking-tight group-hover:text-[#c29b40] transition-colors">{skill.category[lang]}</h4>
-                                <div className="flex flex-wrap gap-3">
-                                    {skill.items.map((item, idx) => (
-                                        <span key={idx} className="px-4 py-2 bg-white/5 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400 border border-white/5 hover:border-[#006233]/40 hover:text-white transition-all">
-                                            {item[lang]}
-                                        </span>
-                                    ))}
-                                </div>
+                            <div key={i} className={`reveal glass-card p-14 rounded-[4.5rem] border border-white/5 hover:border-[#006233]/40 group flex flex-col ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                                <div className={`w-20 h-20 bg-[#006233]/15 rounded-[2rem] flex items-center justify-center mb-12 border border-[#006233]/30 ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{skill.icon}</div>
+                                <h4 className="text-2xl font-black text-white mb-10 tracking-tight group-hover:text-[#c29b40] transition-colors">{skill.category[lang]}</h4>
+                                <div className={`flex flex-wrap gap-4 mt-auto ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>{skill.items.map((item, idx) => (<span key={idx} className="px-5 py-2.5 glass-card rounded-2xl text-[10px] font-black uppercase tracking-widest text-slate-400 border-none">{item[lang]}</span>))}</div>
                             </div>
                         ))}
                     </div>
@@ -455,40 +572,27 @@
         );
 
         const Contact = ({ lang }) => (
-            <section id="contact" className="py-32 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
-                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                        <span className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em] mb-4 block">Get in Touch</span>
-                        <h3 className="text-5xl md:text-7xl font-black text-white mb-12 tracking-tighter leading-none">Let's innovate together.</h3>
-                        <div className="space-y-6">
-                            <a href={`mailto:${CONTACT_INFO.email}`} className="flex items-center gap-6 glass-card p-8 rounded-3xl group hover:scale-[1.02] transition-all shadow-xl">
-                                <div className="w-16 h-16 bg-[#006233] rounded-2xl flex items-center justify-center text-white"><Mail className="w-8 h-8" /></div>
-                                <div>
-                                    <p className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Email Me</p>
-                                    <p className="text-xl font-bold tracking-tight">{CONTACT_INFO.email}</p>
-                                </div>
+            <section id="contact" className="py-40 px-8 bg-[#070912] relative overflow-hidden">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32">
+                    <div className={`reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                        <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-6 block opacity-70">{lang === 'ar' ? 'تواصل معي' : 'Get in Touch'}</span>
+                        <h3 className="text-6xl md:text-8xl font-black text-white mb-16 tracking-tighter leading-[0.9]">{lang === 'ar' ? 'فلنبتكر معاً.' : "Let's innovate together."}</h3>
+                        <div className="space-y-8">
+                            <a href={`mailto:${CONTACT_INFO.email}`} className={`flex items-center gap-8 glass-card p-10 rounded-[3rem] group hover:scale-[1.03] transition-all gold-glow border-none ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                                <div className="w-20 h-20 bg-[#006233] rounded-[1.5rem] flex items-center justify-center text-white"><Mail className="w-8 h-8" /></div>
+                                <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-2">{lang === 'ar' ? 'بريد مباشر' : 'Direct Channel'}</p><p className="text-2xl font-bold tracking-tight text-white uppercase">{CONTACT_INFO.email}</p></div>
                             </a>
-                            <a href={CONTACT_INFO.linkedin} target="_blank" className="flex items-center gap-6 glass-card p-8 rounded-3xl group hover:scale-[1.02] transition-all shadow-xl">
-                                <div className="w-16 h-16 bg-[#c29b40] rounded-2xl flex items-center justify-center text-white"><Linkedin className="w-8 h-8" /></div>
-                                <div>
-                                    <p className="text-[10px] font-black uppercase text-slate-500 tracking-widest">Connect</p>
-                                    <p className="text-sm font-bold opacity-80 break-all">{CONTACT_INFO.linkedin}</p>
-                                </div>
+                            <a href={CONTACT_INFO.linkedin} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-8 glass-card p-10 rounded-[3rem] group hover:scale-[1.03] transition-all gold-glow border-none ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                                <div className="w-20 h-20 bg-[#c29b40] rounded-[1.5rem] flex items-center justify-center text-[#070912]"><Linkedin className="w-8 h-8" /></div>
+                                <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-2">{lang === 'ar' ? 'التواصل المهني' : 'Social Network'}</p><p className="text-sm font-bold opacity-80 break-all text-white">{lang === 'ar' ? 'لينكد إن' : 'LinkedIn Profile'}</p></div>
                             </a>
                         </div>
                     </div>
-                    <div className="glass-card p-12 rounded-[4rem] border-2 border-[#006233]/20 flex flex-col justify-between">
-                        <div>
-                            <div className="flex items-center gap-5 mb-10">
-                                <div className="w-14 h-14 bg-[#006233] rounded-2xl flex items-center justify-center text-white shadow-lg"><MapPin /></div>
-                                <p className="text-xl font-black text-white tracking-tight">{lang === 'ar' ? 'المقر: المملكة العربية السعودية' : 'Based in Saudi Arabia'}</p>
-                            </div>
-                            <p className="text-slate-400 leading-relaxed text-xl font-light">
-                                Available for high-impact Business Analysis roles, field operation leadership, and strategic performance consulting.
-                            </p>
-                        </div>
-                        <div className="mt-12 flex items-center gap-4 italic text-[#c29b40] font-bold text-xl">
-                            <span className="w-12 h-[2px] bg-[#c29b40]/30"></span> Ready for the next milestone.
+                    <div className="reveal glass-card p-16 rounded-[4.5rem] border-2 border-[#006233]/20 flex flex-col justify-between bg-gradient-to-br from-[#006233]/10 to-transparent">
+                        <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
+                            <div className={`flex items-center gap-8 mb-14 group ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="w-16 h-16 bg-[#006233]/20 rounded-2xl flex items-center justify-center text-[#006233] shadow-lg"><MapPin /></div><p className="text-2xl font-black text-white tracking-tight">{lang === 'ar' ? 'المقر: المملكة العربية السعودية' : 'Based in Saudi Arabia'}</p></div>
+                            <p className="text-slate-400 leading-relaxed text-2xl font-light opacity-80 mb-12">{lang === 'ar' ? 'متاح لأدوار تحليل الأعمال والتشغيل، تطوير المواقع، والإنتاج المرئي الاحترافي.' : 'Available for high-impact Business Analysis, Web Development, and Professional Visual Production.'}</p>
+                            <div className={`flex items-center gap-6 italic text-[#c29b40] font-black text-2xl ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="h-[2px] w-14 bg-[#c29b40]/30"></div> {lang === 'ar' ? 'مستعد للمحطة القادمة.' : 'Ready for the next milestone.'}</div>
                         </div>
                     </div>
                 </div>
@@ -497,109 +601,123 @@
 
         const AIAssistant = ({ lang }) => {
             const [isOpen, setIsOpen] = useState(false);
+            const [showTooltip, setShowTooltip] = useState(false);
             const [messages, setMessages] = useState([]);
             const [input, setInput] = useState('');
             const [isLoading, setIsLoading] = useState(false);
             const chatEndRef = useRef(null);
 
             useEffect(() => {
-                if (isOpen && messages.length === 0) {
-                    const greeting = lang === 'ar' 
-                        ? "أهلاً بك! أنا المساعد الذكي لمحمد ثوبان. كيف يمكنني مساعدتك في استكشاف خبراته؟" 
-                        : "Welcome! I'm Mohamed's Strategic Assistant. How can I help you explore his expertise?";
-                    setMessages([{ role: 'assistant', content: greeting }]);
-                }
+                const timer = setTimeout(() => { if (!isOpen) setShowTooltip(true); }, 4000);
+                return () => clearTimeout(timer);
+            }, [isOpen]);
+
+            useEffect(() => {
+                if (isOpen && messages.length === 0) setMessages([{ role: 'assistant', content: UI_STRINGS.ai.greeting[lang] }]);
                 chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
             }, [isOpen, messages, lang]);
 
             const handleSend = async () => {
                 if (!input.trim() || isLoading) return;
-                const userMsg = input;
+                const userMessage = input.trim();
                 setInput('');
-                setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+                setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
                 setIsLoading(true);
 
                 try {
-                    // Initialize AI only when needed for privacy/token usage
-                    const ai = new GoogleGenAI({ apiKey: "AI_KEY" }); // Mocked for safety, would use process.env.API_KEY normally
-                    
-                    // Simple mock delay to simulate professional engagement
-                    setTimeout(() => {
-                        const responseText = lang === 'ar'
-                            ? "محمد خبير في تحليل الأعمال والعمليات، ويجمع بين خلفية اقتصادية قوية وخبرة ميدانية واسعة في مشاريع ضخمة مثل موسم الحج."
-                            : "Mohamed is an expert in Business and Operations Analysis, bridging a strong economic background with deep field experience in large-scale projects like Hajj operations.";
-                        setMessages(prev => [...prev, { role: 'assistant', content: responseText }]);
-                        setIsLoading(false);
-                    }, 800);
-                } catch (e) { setIsLoading(false); }
+                    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                    const systemInstruction = `
+                        You are the "Strategic Recruiter Assistant" for Mohamed Thwban Imijine. 
+                        Identify: Mohamed is an Economist (UQU 2018), Business Analyst (Manasik Project), Modern Web Designer & Developer, and Certified Media Producer (Univ of Colorado Boulder).
+                        Current Milestones: Mohamed has officially submitted his PMP application to PMI and is awaiting review. He is also completing Google Digital Marketing certification.
+                        Expertise areas: Operational efficiency, professional visual documentation, and building high-performance digital architectures.
+                        Career path: OIC-IBU Photographer -> Manasik Al-Mullabi Analyst -> Consulate committee -> Marketing -> Economics.
+                        Tone: Highly professional, corporate, and outcome-oriented. 
+                        Language: ${lang === 'ar' ? 'Strictly Arabic (Professional/Gulf business)' : 'Strictly English (High-end corporate)'}. No English in Arabic mode.
+                    `;
+                    const response = await ai.models.generateContent({
+                        model: 'gemini-3-flash-preview',
+                        contents: userMessage,
+                        config: { systemInstruction }
+                    });
+                    setMessages(prev => [...prev, { role: 'assistant', content: response.text }]);
+                } catch (e) {
+                    setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ar' ? "خطأ في الاتصال." : "Communication error." }]);
+                } finally {
+                    setIsLoading(false);
+                }
             };
 
             return (
-                <div className={`fixed bottom-24 z-[200] ${lang === 'ar' ? 'right-6' : 'left-6'}`}>
+                <div className={`fixed bottom-24 z-[70] flex flex-col no-print ${lang === 'ar' ? 'right-8 items-end' : 'left-8 items-start'}`}>
+                    {showTooltip && !isOpen && (
+                        <div className={`mb-4 max-w-[280px] p-6 glass-card rounded-3xl border border-[#c29b40]/30 shadow-2xl relative animate-in fade-in slide-in-from-bottom-4 duration-500 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                            <button onClick={() => setShowTooltip(false)} className="absolute top-2 right-2 text-slate-500 hover:text-white transition-colors"><X className="w-3 h-3" /></button>
+                            <p className="text-[11px] font-bold leading-relaxed text-slate-200">{UI_STRINGS.ai.tooltip[lang]}</p>
+                            <div className={`absolute bottom-[-8px] w-4 h-4 glass-card border-b border-r border-[#c29b40]/30 rotate-45 ${lang === 'ar' ? 'right-6' : 'left-6'}`}></div>
+                        </div>
+                    )}
                     {isOpen && (
-                        <div className="mb-4 w-[320px] md:w-[380px] h-[500px] glass-card rounded-3xl overflow-hidden flex flex-col shadow-[0_40px_80px_rgba(0,0,0,0.6)] border border-[#006233]/30 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                            <div className="p-5 bg-gradient-to-br from-[#006233] to-[#070912] border-b border-white/10 flex justify-between items-center">
-                                <div className="flex items-center gap-3"><Bot className="w-5 h-5 text-white" /><span className="text-white text-[10px] font-black uppercase tracking-widest">MI Strategy AI</span></div>
-                                <button onClick={() => setIsOpen(false)}><X className="text-white w-4 h-4" /></button>
+                        <div className="mb-4 w-[320px] md:w-[400px] h-[500px] glass-card rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden border border-white/10 animate-in fade-in zoom-in duration-300">
+                            <div className={`p-6 bg-gradient-to-br from-[#006233] to-[#004d28] text-white flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                                <div className={`flex items-center gap-3 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><Bot className="w-5 h-5 text-[#c29b40]" /><div className={lang === 'ar' ? 'text-right' : ''}><h4 className="text-xs font-black uppercase tracking-widest">{lang === 'ar' ? 'المساعد الاستراتيجي' : 'MI Strategy AI'}</h4><p className="text-[8px] uppercase tracking-tighter text-[#c29b40]">{UI_STRINGS.ai.status[lang]}</p></div></div>
+                                <button onClick={() => setIsOpen(false)} className="hover:rotate-90 transition-transform"><X className="w-5 h-5" /></button>
                             </div>
-                            <div className="flex-1 overflow-y-auto p-5 space-y-5 scrollbar-hide bg-[#0a0c1b]/95">
+                            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-[#0d1021] scrollbar-hide">
                                 {messages.map((m, i) => (
                                     <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                        <div className={`max-w-[85%] p-4 rounded-2xl text-xs leading-relaxed shadow-sm ${m.role === 'user' ? 'bg-[#c29b40] text-white rounded-tr-none' : 'bg-white/5 text-slate-300 rounded-tl-none font-light border border-white/5'}`}>{m.content}</div>
+                                        <div className={`max-w-[85%] p-4 rounded-2xl text-xs ${m.role === 'user' ? 'bg-[#c29b40] text-black font-bold shadow-lg rounded-tr-none' : 'bg-white/5 border border-white/10 text-slate-200 rounded-tl-none'} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{m.content}</div>
                                     </div>
                                 ))}
-                                {isLoading && <div className="flex items-center gap-2 text-[#c29b40] text-[9px] font-black uppercase animate-pulse"><Loader2 className="w-3 h-3 animate-spin" /> Analyzing...</div>}
+                                {isLoading && <div className="flex justify-start"><div className="bg-white/5 p-4 rounded-2xl animate-pulse text-[10px] text-slate-400 font-black uppercase tracking-widest">{UI_STRINGS.ai.thinking[lang]}</div></div>}
                                 <div ref={chatEndRef} />
                             </div>
-                            <div className="p-5 bg-black/20 flex gap-2 border-t border-white/10">
-                                <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()} placeholder="Ask something..." className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-[#c29b40] transition-colors" />
-                                <button onClick={handleSend} className="p-2.5 bg-[#006233] rounded-xl text-white shadow-lg"><Send className="w-4 h-4" /></button>
+                            <div className="p-6 bg-[#070912] border-t border-white/5">
+                                <div className="relative">
+                                    <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()} placeholder="..." className={`w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs text-white focus:outline-none focus:border-[#c29b40]/50 transition-all ${lang === 'ar' ? 'text-right pr-4 pl-12' : 'pl-4 pr-12'}`} />
+                                    <button onClick={handleSend} disabled={!input.trim() || isLoading} className={`absolute top-2 p-1.5 bg-[#c29b40] rounded-lg text-black transition-all active:scale-90 disabled:opacity-30 ${lang === 'ar' ? 'left-2' : 'right-2'}`}><Send className="w-4 h-4" /></button>
+                                </div>
                             </div>
                         </div>
                     )}
-                    <button onClick={() => setIsOpen(!isOpen)} className="w-14 h-14 bg-[#070912] border-2 border-[#006233]/40 rounded-full shadow-2xl flex items-center justify-center text-[#006233] hover:scale-110 transition-all hover:border-[#006233]">
-                        {isOpen ? <X /> : <Bot />}
+                    <button onClick={() => {setIsOpen(!isOpen); setShowTooltip(false);}} className={`w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-500 z-50 ${isOpen ? 'bg-[#c29b40] rotate-90 scale-110' : 'bg-[#006233] border border-white/10 hover:scale-110 active:scale-90'}`}>
+                        {isOpen ? <X className="text-black w-6 h-6" /> : <Bot className="text-white w-7 h-7" />}
                     </button>
                 </div>
             );
         };
 
-        const FloatingWhatsApp = ({ lang }) => (
-            <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" className={`fixed bottom-6 z-[200] w-14 h-14 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform ${lang === 'ar' ? 'right-6' : 'left-6'}`}>
-                <MessageSquare className="w-8 h-8 fill-white" />
-            </a>
-        );
-
-        // --- MAIN APP ---
         const App = () => {
             const [lang, setLang] = useState('ar');
+            useReveal();
             useEffect(() => {
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 document.documentElement.lang = lang;
             }, [lang]);
-
             return (
-                <div className="selection:bg-[#c29b40] selection:text-white">
+                <div className="selection:bg-[#c29b40] selection:text-[#070912]">
                     <Navbar lang={lang} setLang={setLang} />
                     <main>
                         <Hero lang={lang} />
                         <About lang={lang} />
-                        <Experience lang={lang} />
+                        <CareerJourney lang={lang} />
+                        <Portfolio lang={lang} />
                         <Certifications lang={lang} />
                         <Skills lang={lang} />
                         <Contact lang={lang} />
                     </main>
-                    <footer className="py-20 border-t border-white/5 text-center text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em]">
-                        © {new Date().getFullYear()} Mohamed Thwban Imijine. All Rights Reserved.
+                    <footer className="py-24 border-t border-white/5 text-center text-[11px] text-slate-600 font-black uppercase tracking-[0.5em] bg-[#070912]">
+                        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
+                            <div className="text-2xl font-black text-white">{lang === 'ar' ? 'محمد' : 'IMAGINE'}<span className="text-[#c29b40]">.</span></div>
+                            <p>© {new Date().getFullYear()} محمد ثوبان إميجن. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'}</p>
+                        </div>
                     </footer>
                     <AIAssistant lang={lang} />
-                    <FloatingWhatsApp lang={lang} />
+                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noopener noreferrer" className={`fixed bottom-10 z-[200] w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 hover:-translate-y-2 transition-all no-print ${lang === 'ar' ? 'right-10' : 'left-10'}`}><MessageSquare className="w-8 h-8 fill-white" /></a>
                 </div>
             );
         };
-
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
+        createRoot(document.getElementById('root')).render(<App />);
     </script>
 </body>
 </html>
