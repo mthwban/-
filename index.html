@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمد ثوبان إميجن | محلل أعمال ومصمم مواقع ومبدع مرئي</title>
+    <title>محمد ثوبان إميجن | مستشار توظيف ذكي ومصمم مواقع</title>
     
     <!-- Professional SEO & Social Meta -->
     <meta name="description" content="الملف المهني لمحمد ثوبان إميجن: خبير تحليل أعمال، مصمم ومطور مواقع، ومنتج مرئي معتمد من جامعة كولورادو بولدر. متخصص في تحسين العمليات والحلول الرقمية." />
@@ -14,16 +14,13 @@
     <meta property="og:url" content="https://mohamed-imijine.com" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
 
     <!-- PWA & Mobile Integration -->
     <meta name="theme-color" content="#006233" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="محمد إميجن" />
-    <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
@@ -55,7 +52,6 @@
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -64,7 +60,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(194, 155, 64, 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
         }
 
         .reveal {
@@ -76,20 +71,6 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--color-bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-primary);
         }
 
         .text-gradient {
@@ -106,20 +87,22 @@
             .no-print { display: none !important; }
             body { background: white !important; color: black !important; }
         }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
     </style>
 
     <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@^19.2.3",
-        "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-        "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
-        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/"
-      }
-    }
-    </script>
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
@@ -129,13 +112,11 @@
         import React, { useState, useEffect, useRef } from 'react';
         import { createRoot } from 'react-dom/client';
         import { 
-            BarChart3, Video, TrendingUp, Target, UserCheck, 
-            ShieldCheck, Award, LineChart, Briefcase, Mail, 
-            Linkedin, MapPin, GraduationCap, ArrowRight, 
-            ChevronDown, Sparkles, User, FileDown, ExternalLink, 
-            Zap, ArrowUpRight, Bot, X, Send, Loader2, 
-            MessageSquare, Home, Menu, CheckCircle2, Globe, Camera, Clock,
-            FileText, PlayCircle, Laptop, Film, Code, Layers
+            BarChart3, Camera, Laptop, Film, Code, Briefcase, 
+            Mail, Linkedin, MapPin, GraduationCap, ArrowRight, 
+            Sparkles, FileDown, ExternalLink, Bot, X, Send, 
+            MessageSquare, CheckCircle2, Clock, Award, ShieldCheck,
+            ChevronDown, ArrowUpRight
         } from 'lucide-react';
         import { GoogleGenAI } from "@google/genai";
 
@@ -156,199 +137,67 @@
                 contact: { en: "Contact", ar: "تواصل" }
             },
             hero: {
-                status: { en: "Operations & Business Analysis Professional", ar: "محترف تحليل أعمال وتشغيل ومطور مواقع" },
+                status: { en: "Operational & Digital Specialist", ar: "أخصائي عمليات وتقنية رقمية" },
                 nameFirst: { en: "Mohamed Thwban", ar: "محمد ثوبان" },
                 nameLast: { en: "Imijine", ar: "إميجن" },
                 headline: { 
-                    en: "Business Analyst | Operations Expert | Modern Web Designer & Developer | Content Strategist | Economist", 
-                    ar: "محلل أعمال | خبير عمليات | مصمم ومطور مواقع عصري | استراتيجي محتوى | اقتصادي" 
+                    en: "Business Analyst | Modern Web Developer | Certified Media Producer | Economist", 
+                    ar: "محلل أعمال | مطور مواقع عصري | منتج ميديا معتمد | اقتصادي" 
                 },
                 ctaExplore: { en: "View Expertise", ar: "استكشاف الخبرات" },
                 ctaContact: { en: "Start Collaboration", ar: "بدء التعاون" }
             },
             about: {
-                badge: { en: "Professional Profile", ar: "الملف المهني" },
-                title: { en: "Precision in Analysis. Excellence in Execution.", ar: "الدقة في التحليل. التميز في التنفيذ." },
+                badge: { en: "The Profile", ar: "الملف الشخصي" },
+                title: { en: "Precision Analysis. High Execution.", ar: "تحليل دقيق. تنفيذ احترافي." },
                 p1: { 
-                    en: "A multi-disciplinary professional specializing in business operations, modern web architecture, and certified media production from the University of Colorado Boulder. I bridge the gap between economic strategy and digital execution, building high-performance solutions and managing complex field operations with methodical precision.", 
-                    ar: "محترف متعدد التخصصات متخصص في عمليات الأعمال، هندسة المواقع الحديثة، والإنتاج المرئي المعتمد من جامعة كولورادو بولدر. أقوم بسد الفجوة بين الاستراتيجية الاقتصادية والتنفيذ الرقمي، من خلال بناء حلول عالية الأداء وإدارة عمليات ميدانية معقدة بدقة منهجية." 
+                    en: "A strategic professional bridging operational logic with high-end digital solutions. Specializing in monitoring complex site operations (810 units) and crafting modern web architectures.", 
+                    ar: "محترف استراتيجي يجمع بين المنطق التشغيلي والحلول الرقمية المتطورة. متخصص في مراقبة العمليات الميدانية المعقدة (٨١٠ وحدة) وبناء هياكل الويب الحديثة." 
                 },
-                p2: { 
-                    en: "Born in Makkah, Saudi Arabia. Committed to international standards of excellence, whether crafting digital platforms or leading multi-national media missions.", 
-                    ar: "مواليد مكة المكرمة، المملكة العربية السعودية. ملتزم بمعايير التميز الدولية، سواء في بناء المنصات الرقمية أو قيادة المهمات الإعلامية الدولية." 
-                },
-                origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" },
-                edu: { en: "Economics - UQU (2018)", ar: "بكالوريوس اقتصاد - جامعة أم القرى (٢٠١٨)" }
-            },
-            portfolio: {
-                badge: { en: "Selected Works", ar: "أعمال مختارة" },
-                title: { en: "Professional Portfolios", ar: "معارض الأعمال" },
-                tabWeb: { en: "Web Projects", ar: "مشاريع المواقع" },
-                tabMedia: { en: "Media & Visuals", ar: "الميديا والإنتاج" },
-                tabAnalysis: { en: "Operational Reports", ar: "التقارير التشغيلية" },
-                viewDetails: { en: "View Details", ar: "عرض التفاصيل" },
-                privacyNote: { 
-                    en: "Note: Professional samples are anonymized for privacy.", 
-                    ar: "ملاحظة: تم إخفاء هوية العينات المهنية للخصوصية." 
-                }
+                origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" }
             },
             certs: {
                 badge: { en: "Validation", ar: "الاعتمادات" },
                 title: { en: "Professional Credentials", ar: "الشهادات المهنية" },
-                cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" },
-                verify: { en: "Verify Certificate", ar: "تحقق من الشهادة" }
-            },
-            skills: {
-                badge: { en: "Competencies", ar: "الكفاءات" },
-                title: { en: "Core Expertise", ar: "الخبرات الأساسية" }
-            },
-            contact: {
-                badge: { en: "Get in Touch", ar: "تواصل معي" },
-                title: { en: "Let's innovate together.", ar: "لنبتكر معاً." },
-                location: { en: "Saudi Arabia", ar: "المملكة العربية السعودية" }
+                cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" }
             },
             ai: {
                 tooltip: {
-                    en: "Need a high-performance talent? Ask the Smart Recruitment Consultant now!",
-                    ar: "تبحث عن كفاءة عالية؟ اسأل مستشار التوظيف الذكي الآن!"
+                    en: "Hire Mohammed? Ask the Smart Consultant now!",
+                    ar: "هل تريد توظيف محمد؟ اسأل المستشار الذكي الآن!"
                 },
                 greeting: {
-                    en: "Hello! I am Mohamed's Smart Recruitment Consultant. How can I help you match his expertise to your organization's specific roles?",
-                    ar: "أهلاً بك! أنا مستشار التوظيف الذكي لمحمد. كيف يمكنني مساعدتك في مطابقة خبراته مع الأدوار الوظيفية في مؤسستك؟"
+                    en: "Hello! I am Mohammed's Smart Recruitment Consultant. How can I help you match his expertise to your organization?",
+                    ar: "أهلاً بك! أنا مستشار التوظيف الذكي لمحمد. كيف يمكنني مساعدتك في مطابقة خبراته مع احتياجات مؤسستك؟"
                 },
-                status: { en: "Consultant Online", ar: "المستشار متاح" },
-                thinking: { en: "Analyzing Match...", ar: "جاري مطابقة الأدوار..." }
+                thinking: { en: "Analyzing Match...", ar: "جاري تحليل البيانات..." }
             }
         };
-
-        const FEATURED_WORKS = {
-            web: [
-                { title: { en: "Modern Web Architecture", ar: "هندسة المواقع الحديثة" }, desc: { en: "Professional digital platforms and scalable architecture.", ar: "منصات رقمية احترافية وهندسة قابلة للتوسع." }, icon: <Laptop /> },
-                { title: { en: "Enterprise Digital Solutions", ar: "حلول رقمية للمؤسسات" }, desc: { en: "High-performance web solutions for business automation.", ar: "حلول ويب عالية الأداء لأتمتة الأعمال." }, icon: <Code /> },
-                { title: { en: "Digital Identity Projects", ar: "مشاريع الهوية الرقمية" }, desc: { en: "Building robust professional footprints for corporate clients.", ar: "بناء بصمات احترافية قوية لعملاء الشركات." }, icon: <Layers /> }
-            ],
-            media: [
-                { title: { en: "Cinematic Montage Showcase", ar: "معرض المونتاج السينمائي" }, desc: { en: "Certified video production and professional visuals.", ar: "إنتاج فيديو معتمد ومرئيات احترافية." }, icon: <Film /> },
-                { title: { en: "International Media Gallery", ar: "معرض الميديا الدولي" }, desc: { en: "Field documentation for global broadcasting missions.", ar: "توثيق ميداني لبعثات البث الإعلامي الدولي." }, icon: <Camera /> },
-                { title: { en: "Visual Content Strategy", ar: "استراتيجية المحتوى المرئي" }, desc: { en: "High-end visual storytelling and project documentation.", ar: "صناعة قصص بصرية راقية وتوثيق مشاريع." }, icon: <Video /> }
-            ],
-            analysis: [
-                { title: { en: "Operational Efficiency Cases", ar: "حالات الكفاءة التشغيلية" }, desc: { en: "Strategic analysis and data-driven performance reports.", ar: "تحليل استراتيجي وتقارير أداء قائمة على البيانات." }, icon: <BarChart3 /> },
-                { title: { en: "Business Process Audits", ar: "تدقيق عمليات الأعمال" }, desc: { en: "Methodological analysis of field operation workflows.", ar: "تحليل منهجي لتدفقات العمليات الميدانية." }, icon: <LineChart /> },
-                { title: { en: "Strategic Operations Reports", ar: "تقارير العمليات الاستراتيجية" }, desc: { en: "High-impact reporting on project milestones and resources.", ar: "تقارير عالية التأثير حول معالم المشروع والموارد." }, icon: <FileText /> }
-            ]
-        };
-
-        const CAREER_JOURNEY = [
-            {
-                title: { en: "Photographer", ar: "مصور فوتوغرافي" },
-                company: { en: "Union of OIC Broadcasting (OIC-IBU)", ar: "اتحاد إذاعات دول منظمة التعاون الإسلامي (OIC-IBU)" },
-                period: { en: "10/2025 – Present", ar: "١٠/٢٠٢٥ – الحالي" },
-                description: [
-                    { en: "Leading international media documentation with high strategic focus.", ar: "قيادة التوثيق الإعلامي الدولي بتركيز استراتيجي عالٍ." },
-                    { en: "Coordinating multi-national media missions and professional asset capture.", ar: "تنسيق المهمات الإعلامية الدولية وإنتاج الأصول الاحترافية." }
-                ],
-                highlight: { en: "International Media", ar: "إعلام دولي" },
-                icon: <Camera className="w-6 h-6" />
-            },
-            {
-                title: { en: "Site Operations & Business Analyst", ar: "محلل أعمال وعمليات ميدانية" },
-                company: { en: "Manasik Al-Mullabi (Royal Commission Project)", ar: "شركة مناسك الملبي (مشروع الهيئة الملكية)" },
-                period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" },
-                description: [
-                    { en: "Managed site operations for 810 units in the King Abdulaziz Project (Adahi), ensuring excellence.", ar: "إدارة عمليات الموقع لـ ٨١٠ وحدة في مشروع الملك عبدالعزيز (أضاحي)، وضمان التميز." },
-                    { en: "Optimized operational efficiency through daily reporting and methodological analysis.", ar: "تحسين الكفاءة التشغيلية من خلال التقارير اليومية والتحليل المنهجي." }
-                ],
-                highlight: { en: "Operations Analysis", ar: "تحليل عمليات" },
-                icon: <Briefcase className="w-6 h-6" />
-            },
-            {
-                title: { en: "Steering Committee Member", ar: "عضو لجنة تنظيمية" },
-                company: { en: "Mauritanian Consulate in Jeddah (Presidential Elections)", ar: "القنصلية الموريتانية بجدة (الانتخابات الرئاسية)" },
-                period: { en: "04/2023 – 08/2023", ar: "٠٤/٢٠٢٣ – ٠٨/٢٠٢٣" },
-                description: [
-                    { en: "Supervised electronic voter registration and managed data transparency.", ar: "الإشراف على تسجيل الناخبين إلكترونياً وإدارة شفافية البيانات." }
-                ],
-                highlight: { en: "Governance", ar: "الحوكمة" },
-                icon: <ShieldCheck className="w-6 h-6" />
-            },
-            {
-                title: { en: "Marketing Specialist", ar: "أخصائي تسويق" },
-                company: { en: "Contracting & Transport Sectors", ar: "قطاعات المقاولات والنقل" },
-                period: { en: "2020 – 2023", ar: "٢٠٢٠ – ٢٠٢٣" },
-                description: [
-                    { en: "Implemented digital marketing strategies to strengthen brand identity.", ar: "تنفيذ استراتيجيات التسويق الرقمي لتعزيز الهوية التجارية." }
-                ],
-                highlight: { en: "Digital Strategy", ar: "استراتيجية رقمية" },
-                icon: <TrendingUp className="w-6 h-6" />
-            },
-            {
-                title: { en: "BA in Economics", ar: "بكالوريوس اقتصاد" },
-                company: { en: "Umm Al-Qura University", ar: "جامعة أم القرى" },
-                period: { en: "Graduated 2018", ar: "تخرج ٢٠١٨" },
-                description: [
-                    { en: "Analytical foundation focused on economic indicators and efficiency.", ar: "أساس تحليلي يركز على المؤشرات الاقتصادية والكفاءة." }
-                ],
-                highlight: { en: "Economics", ar: "اقتصاد" },
-                icon: <GraduationCap className="w-6 h-6" />
-            }
-        ];
-
-        const CERTIFICATIONS = [
-            {
-                title: { en: "Project Management Professional (PMP)", ar: "مدير مشروع محترف (PMP)" },
-                issuer: { en: "Project Management Institute (PMI)", ar: "معهد إدارة المشاريع (PMI)" },
-                date: { en: "Application Submitted", ar: "تم تقديم الطلب" },
-                status: "in-progress",
-                info: { 
-                    en: "Application Submitted to PMI - Awaiting Review & Global Certification Exam.", 
-                    ar: "تم تقديم طلب الاعتماد المهني لمعهد إدارة المشاريع (PMI) - في انتظار المراجعة والتحضير للاختبار الدولي." 
-                }
-            },
-            {
-                title: { en: "Video Production Certificate", ar: "شهادة إنتاج الفيديو" },
-                issuer: { en: "University of Colorado Boulder", ar: "جامعة كولورادو بولدر" },
-                date: { en: "2023", ar: "٢٠٢٣" },
-                status: "completed"
-            },
-            {
-                title: { en: "Google Project Management Professional", ar: "شهادة جوجل الاحترافية في إدارة المشاريع" },
-                issuer: { en: "Coursera", ar: "كورسيرا" },
-                date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://coursera.org/verify/professional-cert/BB2H5F57UU1E",
-                status: "completed"
-            },
-            {
-                title: { en: "Leading Teams Certificate", ar: "شهادة قيادة الفرق" },
-                issuer: { en: "University of Michigan", ar: "جامعة ميشيغان" },
-                date: { en: "2024", ar: "٢٠٢٤" },
-                url: "https://coursera.org/verify/HZ3HI46GM6TI",
-                status: "completed"
-            },
-            {
-                title: { en: "Google Digital Marketing", ar: "شهادة جوجل في التسويق الرقمي" },
-                issuer: { en: "Coursera", ar: "كورسيرا" },
-                date: { en: "Expected Soon", ar: "متوقع قريباً" },
-                status: "in-progress"
-            }
-        ];
 
         const SKILLS_LIST = [
             {
-                category: { en: "Modern Web Designer & Developer", ar: "مصمم ومطور مواقع إلكترونية عصري" },
-                icon: <Laptop className="w-7 h-7 text-[#c29b40]" />,
-                items: [{ en: "Digital Architecture", ar: "هندسة رقمية" }, { en: "UI/UX Design", ar: "تصميم واجهة وتجربة المستخدم" }, { en: "High Performance", ar: "أداء عالٍ" }, { en: "Interactive Solutions", ar: "حلول تفاعلية" }]
+                category: { en: "Modern Web Designer & Developer", ar: "مصمم ومطور مواقع عصري" },
+                icon: <Laptop className="text-[#c29b40]" />,
+                items: [{ en: "UI/UX Design", ar: "تصميم واجهة المستخدم" }, { en: "Front-End Development", ar: "تطوير الواجهات" }, { en: "Digital Identity", ar: "الهوية الرقمية" }]
             },
             {
-                category: { en: "Certified Media Production", ar: "الإنتاج المرئي المعتمد" },
-                icon: <Film className="w-7 h-7 text-[#c29b40]" />,
-                items: [{ en: "Video Montage", ar: "مونتاج الفيديو" }, { en: "Field Photography", ar: "التصوير الميداني" }, { en: "International Media", ar: "إعلام دولي" }, { en: "Visual Storytelling", ar: "قصص بصرية" }]
+                category: { en: "Certified Media Production", ar: "إنتاج مرئي معتمد" },
+                icon: <Film className="text-[#c29b40]" />,
+                items: [{ en: "Video Montage (CU)", ar: "مونتاج الفيديو (كولورادو)" }, { en: "Field Photography", ar: "تصوير مشاريع ميداني" }, { en: "Visual Storytelling", ar: "قصص بصرية" }]
             },
             {
-                category: { en: "Business Analysis & Operations", ar: "تحليل الأعمال وإدارة العمليات" },
-                icon: <BarChart3 className="w-7 h-7 text-[#c29b40]" />,
-                items: [{ en: "Process Optimization", ar: "تحسين العمليات" }, { en: "Strategic Audit", ar: "تدقيق استراتيجي" }, { en: "Resource Planning", ar: "تخطيط الموارد" }, { en: "Efficiency", ar: "رفع الكفاءة" }]
+                category: { en: "Business Analysis & Ops", ar: "تحليل الأعمال والعمليات" },
+                icon: <BarChart3 className="text-[#c29b40]" />,
+                items: [{ en: "Process Audit", ar: "تدقيق العمليات" }, { en: "Operational Monitoring", ar: "المراقبة التشغيلية" }, { en: "Strategic Reporting", ar: "تقارير استراتيجية" }]
             }
+        ];
+
+        const CAREER_HISTORY = [
+            { title: { en: "Photographer", ar: "مصور فوتوغرافي" }, company: { en: "OIC-IBU", ar: "اتحاد إذاعات دول منظمة التعاون الإسلامي" }, period: { en: "10/2025 – Present", ar: "١٠/٢٠٢٥ – الحالي" }, icon: <Camera /> },
+            { title: { en: "Business Analyst", ar: "محلل أعمال" }, company: { en: "Manasik Al-Mullabi (RC Project)", ar: "شركة مناسك الملبي (مشروع الهيئة الملكية)" }, period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" }, icon: <Briefcase /> },
+            { title: { en: "Committee Member", ar: "عضو لجنة تنظيمية" }, company: { en: "Consulate of Mauritania", ar: "القنصلية الموريتانية" }, period: { en: "2023", ar: "٢٠٢٣" }, icon: <ShieldCheck /> },
+            { title: { en: "Marketing Specialist", ar: "أخصائي تسويق" }, company: { en: "Transport Sector", ar: "قطاع النقل والمقاولات" }, period: { en: "2020 – 2023", ar: "٢٠٢٠ – ٢٠٢٣" }, icon: <TrendingUp /> },
+            { title: { en: "Economics Student", ar: "بكالوريوس اقتصاد" }, company: { en: "Umm Al-Qura University", ar: "جامعة أم القرى" }, period: { en: "Graduated 2018", ar: "تخرج ٢٠١٨" }, icon: <GraduationCap /> }
         ];
 
         const Navbar = ({ lang, setLang }) => {
@@ -359,116 +208,22 @@
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
 
-            const scrollTo = (id) => {
-                const element = document.getElementById(id);
-                if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-
             return (
-                <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-8 ${isScrolled ? 'py-4' : 'py-8'}`}>
-                    <div className={`max-w-7xl mx-auto flex justify-between items-center px-8 py-3.5 rounded-3xl transition-all duration-500 ${isScrolled ? 'glass-card shadow-2xl' : 'bg-transparent'}`}>
-                        <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-4 py-1.5 rounded-xl bg-[#c29b40]/10 border border-[#c29b40]/20 text-[10px] font-black text-[#c29b40] hover:bg-[#c29b40] hover:text-[#070912] transition-all no-print">
-                            {lang === 'en' ? 'العربية' : 'English'}
+                <nav className={`fixed top-0 left-0 w-full z-[100] transition-all px-4 md:px-8 ${isScrolled ? 'py-4' : 'py-8'}`}>
+                    <div className={`max-w-7xl mx-auto flex justify-between items-center px-8 py-3.5 rounded-3xl transition-all ${isScrolled ? 'glass-card shadow-2xl' : 'bg-transparent'}`}>
+                        <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-4 py-1.5 rounded-xl bg-[#c29b40]/10 border border-[#c29b40]/20 text-[10px] font-black text-[#c29b40] no-print">
+                            {lang === 'en' ? 'العربية' : 'ENGLISH'}
                         </button>
-                        <div className="text-2xl font-black text-white tracking-tighter cursor-pointer" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
-                            {lang === 'ar' ? 'محمد' : 'IM'}<span className="text-[#c29b40]">.</span>
-                        </div>
-                        <div className="hidden lg:flex gap-10 items-center">
-                            {Object.keys(UI_STRINGS.nav).map(id => (
-                                <button key={id} onClick={() => scrollTo(id)} className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-all">{UI_STRINGS.nav[id][lang]}</button>
+                        <div className="text-2xl font-black text-white">IM<span className="text-[#c29b40]">.</span></div>
+                        <div className="hidden lg:flex gap-10">
+                            {['about', 'experience', 'portfolio', 'skills'].map(id => (
+                                <button key={id} onClick={() => document.getElementById(id).scrollIntoView({behavior:'smooth'})} className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white">{UI_STRINGS.nav[id][lang]}</button>
                             ))}
-                            <button onClick={() => scrollTo('contact')} className="px-8 py-2.5 bg-[#006233] text-white text-[10px] font-black uppercase tracking-widest rounded-2xl hover:bg-[#004d28] gold-glow transition-all no-print">{UI_STRINGS.nav.contact[lang]}</button>
                         </div>
                     </div>
                 </nav>
             );
         };
-
-        const Hero = ({ lang }) => {
-            const content = UI_STRINGS.hero;
-            const photoUrl = "https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30";
-            return (
-                <section className="relative min-h-screen flex items-center pt-32 pb-20 px-8 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[40%] h-full bg-[#006233]/10 blur-[150px] pointer-events-none rounded-full"></div>
-                    <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
-                        <div className={`reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                            <div className="inline-flex items-center gap-3 mb-8 px-5 py-2 rounded-full bg-[#006233]/15 border border-[#006233]/30 backdrop-blur-sm">
-                                <Sparkles className="w-4 h-4 text-[#c29b40] animate-pulse" />
-                                <p className="text-[#c29b40] font-black uppercase tracking-[0.25em] text-[10px]">{content.status[lang]}</p>
-                            </div>
-                            <h1 className="text-6xl md:text-8xl font-black text-white mb-8 leading-[1] tracking-tighter">
-                                {content.nameFirst[lang]} <br /> <span className="text-gradient drop-shadow-2xl">{content.nameLast[lang]}</span>
-                            </h1>
-                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl font-light leading-relaxed opacity-80">{content.headline[lang]}</p>
-                            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
-                                <button onClick={() => document.getElementById('about')?.scrollIntoView({behavior:'smooth'})} className="px-10 py-5 bg-[#006233] text-white font-black rounded-2xl hover:bg-[#004d28] transition-all gold-glow text-sm uppercase tracking-widest">{content.ctaExplore[lang]}</button>
-                                <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})} className="px-10 py-5 glass-card text-white font-black rounded-2xl hover:bg-white/10 transition-all text-sm uppercase tracking-widest">{content.ctaContact[lang]}</button>
-                            </div>
-                        </div>
-                        <div className="reveal relative group">
-                            <div className="absolute -inset-8 bg-gradient-to-tr from-[#006233]/30 to-[#c29b40]/10 rounded-[4rem] blur-3xl opacity-40 group-hover:opacity-60 transition-all duration-1000"></div>
-                            <div className="relative z-10 aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.7)] bg-[#0d1021]">
-                                <img loading="lazy" src={photoUrl} className="w-full h-full object-cover transition-transform duration-1000 scale-[1.02] group-hover:scale-110" alt="محمد إميجن" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#070912]/90 via-transparent to-transparent opacity-60"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const Portfolio = ({ lang }) => {
-            const [activeTab, setActiveTab] = useState('web');
-            const content = UI_STRINGS.portfolio;
-            return (
-                <section id="portfolio" className="py-40 bg-[#070912] px-8 relative overflow-hidden">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="reveal text-center mb-24">
-                            <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-4 block opacity-70">{content.badge[lang]}</span>
-                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-12">{content.title[lang]}</h2>
-                            <div className="inline-flex glass-card p-2 rounded-2xl mb-16 no-print flex-wrap justify-center gap-2">
-                                <button onClick={() => setActiveTab('web')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'web' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabWeb[lang]}</button>
-                                <button onClick={() => setActiveTab('media')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'media' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabMedia[lang]}</button>
-                                <button onClick={() => setActiveTab('analysis')} className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${activeTab === 'analysis' ? 'bg-[#006233] text-white shadow-lg' : 'text-slate-400 hover:text-white'}`}>{content.tabAnalysis[lang]}</button>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {FEATURED_WORKS[activeTab].map((work, i) => (
-                                <div key={i} className="reveal group glass-card p-10 rounded-[3.5rem] relative overflow-hidden flex flex-col hover:border-[#c29b40]/30 transition-all animate-in fade-in slide-in-from-bottom-4">
-                                    <div className={`w-16 h-16 glass-card bg-[#c29b40]/10 rounded-2xl flex items-center justify-center mb-10 border border-[#c29b40]/20 text-[#c29b40] group-hover:bg-[#c29b40] group-hover:text-[#070912] transition-all ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{work.icon}</div>
-                                    <h4 className={`text-2xl font-black text-white mb-4 tracking-tight group-hover:text-[#c29b40] transition-colors ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{work.title[lang]}</h4>
-                                    <p className={`text-slate-400 text-sm font-light leading-relaxed mb-10 flex-grow ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{work.desc[lang]}</p>
-                                    <button className="mt-auto w-full py-4 glass-card text-[10px] font-black uppercase tracking-widest text-[#c29b40] border border-[#c29b40]/20 hover:bg-[#c29b40] hover:text-[#070912] transition-all no-print">{content.viewDetails[lang]}</button>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="reveal mt-16 text-center opacity-40"><p className="text-[10px] text-slate-500 font-medium uppercase">{content.privacyNote[lang]}</p></div>
-                    </div>
-                </section>
-            );
-        };
-
-        const CareerJourney = ({ lang }) => (
-            <section id="experience" className="py-40 px-8 relative bg-[#0d1021]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="reveal text-center mb-32"><span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] block mb-4 opacity-70">{lang === 'ar' ? 'السجل المهني' : 'Career Timeline'}</span><h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">{UI_STRINGS.nav.experience[lang]}</h2></div>
-                    <div className="relative max-w-5xl mx-auto space-y-24">
-                        {CAREER_JOURNEY.map((milestone, i) => (
-                            <div key={i} className={`reveal relative flex flex-col md:flex-row gap-12 items-start group ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
-                                <div className={`z-10 w-24 h-24 rounded-3xl glass-card flex items-center justify-center text-[#c29b40] shadow-2xl transition-all group-hover:bg-[#c29b40] group-hover:text-[#070912] border-2 border-[#006233]/30 shrink-0 md:absolute ${lang === 'ar' ? 'md:right-0' : 'md:left-0'}`}>{milestone.icon}</div>
-                                <div className={`w-full glass-card p-10 md:p-14 rounded-[3.5rem] relative overflow-hidden ${lang === 'ar' ? 'md:mr-36 text-right' : 'md:ml-36 text-left'}`}>
-                                    <div className={`flex flex-col md:flex-row justify-between items-start mb-10 gap-6 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
-                                        <div><h4 className="text-3xl font-black text-white mb-2">{milestone.title[lang]}</h4><p className="text-[#006233] font-black text-xs uppercase tracking-widest">{milestone.company[lang]}</p></div>
-                                        <span className="px-6 py-2 bg-white/5 rounded-2xl text-[9px] font-black uppercase text-slate-500">{milestone.period[lang]}</span>
-                                    </div>
-                                    <ul className="space-y-6">{milestone.description.map((d, idx) => (<li key={idx} className={`flex gap-6 text-slate-400 font-light text-lg leading-relaxed ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><CheckCircle2 className="w-5 h-5 text-[#c29b40]/60 shrink-0 mt-1.5" /> {d[lang]}</li>))}</ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
 
         const AIAssistant = ({ lang }) => {
             const [isOpen, setIsOpen] = useState(false);
@@ -496,21 +251,16 @@
                 try {
                     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
                     const systemInstruction = `
-                        You are the "Smart Recruitment Consultant" representing Mohamed Thwban Imijine. 
-                        Your goal is to professionally match Mohamed's skills to organizational needs in the Saudi Job Market.
-                        
-                        Behavioral Rules:
-                        1. BE BRIEF. Do not use long paragraphs.
-                        2. USE SHORT BULLET POINTS for role mapping.
-                        3. CONTEXTUAL AWARENESS: If asked 'Where can I hire Mohamed?', do not send CV links immediately. Categorize the roles first.
-                        
-                        Mapping Categories:
-                        - Operational & Field Roles: (مشرف عمليات ميدانية، أخصائي امتثال، أو محلل عمليات لوجستية). Reference: monitoring 810 units and daily reporting excellence.
-                        - Digital & Technical Roles: (مطور مواقع وردبريس/فرونت-إند، مصمم هويات رقمية). Reference: high-performance modern web design skills.
-                        - Media & Creative Roles: (منتج فيديو معتمد، مصمم محتوى بصري). Reference: University of Colorado certification and international field photography.
-                        
-                        Language: ${lang === 'ar' ? 'Strictly Professional Arabic (Business style, 100% Arabic, no English words)' : 'Professional English'}.
-                        Suggest downloading his CV only at the end or when asked: https://drive.google.com/file/d/1x0cn40NvPvJuYFmlmFIjDbccFW1xc5kR/view?usp=sharing
+                        You are "Mohammed's Smart Recruitment Consultant". 
+                        Rules: 
+                        1. Respond in BRIEF bullet points only. No long paragraphs.
+                        2. Tone: Professional, Saudi business style.
+                        3. If asked about hiring/roles, categorize as follows:
+                           - العمليات واللوجستيات: (مشرف ميداني، أخصائي امتثال، محلل أداء). Context: monitored 810 units, July 16/20 reports.
+                           - التقنية: (مطور مواقع، مصمم هويات رقمية).
+                           - الإعلام: (منتج فيديو معتمد من جامعة كولورادو، مصور مشاريع).
+                        4. Language: ${lang === 'ar' ? '100% Arabic (No English words)' : 'Professional English'}.
+                        5. Suggest the CV link at the end: ${CONTACT_INFO.resume}
                     `;
                     const response = await ai.models.generateContent({
                         model: 'gemini-3-flash-preview',
@@ -519,47 +269,176 @@
                     });
                     setMessages(prev => [...prev, { role: 'assistant', content: response.text }]);
                 } catch (e) {
-                    setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ar' ? "خطأ في المعالجة." : "Processing error." }]);
+                    setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ar' ? "خطأ في الاتصال." : "Connection error." }]);
                 } finally { setIsLoading(false); }
             };
 
             return (
                 <div className={`fixed bottom-24 z-[70] flex flex-col no-print ${lang === 'ar' ? 'right-8 items-end' : 'left-8 items-start'}`}>
                     {showTooltip && !isOpen && (
-                        <div className={`mb-4 max-w-[280px] p-6 glass-card rounded-3xl border border-[#c29b40]/30 shadow-2xl relative animate-in fade-in slide-in-from-bottom-4 duration-500 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                            <button onClick={() => setShowTooltip(false)} className="absolute top-2 right-2 text-slate-500 hover:text-white transition-colors"><X className="w-3 h-3" /></button>
-                            <p className="text-[11px] font-bold leading-relaxed text-slate-200">{UI_STRINGS.ai.tooltip[lang]}</p>
+                        <div className="mb-4 max-w-[280px] p-5 glass-card rounded-2xl border border-[#c29b40]/40 animate-in fade-in slide-in-from-bottom-4">
+                            <p className="text-[12px] font-bold text-slate-200">{UI_STRINGS.ai.tooltip[lang]}</p>
                         </div>
                     )}
                     {isOpen && (
-                        <div className="mb-4 w-[300px] sm:w-[350px] md:w-[400px] h-[450px] md:h-[500px] glass-card rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden border border-white/10 animate-in fade-in zoom-in duration-300">
-                            <div className={`p-5 md:p-6 bg-gradient-to-br from-[#006233] to-[#004d28] text-white flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                                <div className="flex items-center gap-3"><Bot className="w-5 h-5 text-[#c29b40]" /><h4 className="text-xs font-black uppercase tracking-widest">{lang === 'ar' ? 'مستشار التوظيف' : 'MI Consultant AI'}</h4></div>
-                                <button onClick={() => setIsOpen(false)}><X className="w-5 h-5" /></button>
+                        <div className="mb-4 w-[320px] md:w-[400px] h-[500px] glass-card rounded-[2.5rem] flex flex-col overflow-hidden border border-white/10 animate-in zoom-in">
+                            <div className={`p-6 bg-[#006233] text-white flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                                <div className="flex items-center gap-3"><Bot className="w-5 h-5" /><h4 className="text-xs font-black">{lang === 'ar' ? 'مستشار التوظيف' : 'CONSULTANT AI'}</h4></div>
+                                <button onClick={() => setIsOpen(false)}><X /></button>
                             </div>
-                            <div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-4 bg-[#0d1021] scrollbar-hide">
+                            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-[#0d1021] scrollbar-hide">
                                 {messages.map((m, i) => (
                                     <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                        <div className={`max-w-[90%] p-4 rounded-2xl text-[12px] md:text-xs ${m.role === 'user' ? 'bg-[#c29b40] text-black font-bold' : 'bg-white/5 border border-white/10 text-slate-200'} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{m.content}</div>
+                                        <div className={`max-w-[85%] p-4 rounded-2xl text-xs ${m.role === 'user' ? 'bg-[#c29b40] text-black font-bold' : 'bg-white/5 text-slate-200'} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{m.content}</div>
                                     </div>
                                 ))}
-                                {isLoading && <div className="flex justify-start text-[10px] text-emerald-400 font-black animate-pulse uppercase tracking-widest">{UI_STRINGS.ai.thinking[lang]}</div>}
+                                {isLoading && <div className="text-emerald-400 text-[10px] animate-pulse">{UI_STRINGS.ai.thinking[lang]}</div>}
                                 <div ref={chatEndRef} />
                             </div>
-                            <div className="p-5 md:p-6 bg-[#070912] border-t border-white/5">
+                            <div className="p-6 bg-[#070912] border-t border-white/5">
                                 <div className="relative">
-                                    <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()} placeholder="..." className={`w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs text-white focus:outline-none transition-all ${lang === 'ar' ? 'text-right pr-4 pl-12' : 'pl-4 pr-12'}`} />
-                                    <button onClick={handleSend} disabled={!input.trim() || isLoading} className={`absolute top-2 p-1.5 bg-[#c29b40] rounded-lg text-black transition-all active:scale-90 disabled:opacity-30 ${lang === 'ar' ? 'left-2' : 'right-2'}`}><Send className="w-4 h-4" /></button>
+                                    <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()} className={`w-full bg-white/5 rounded-xl py-3 px-4 text-xs text-white ${lang === 'ar' ? 'text-right' : ''}`} placeholder="..." />
+                                    <button onClick={handleSend} className={`absolute top-2 p-1.5 bg-[#c29b40] rounded-lg ${lang === 'ar' ? 'left-2' : 'right-2'}`}><Send className="w-4 h-4" /></button>
                                 </div>
                             </div>
                         </div>
                     )}
-                    <button onClick={() => {setIsOpen(!isOpen); setShowTooltip(false);}} className={`w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-500 z-50 ${isOpen ? 'bg-[#c29b40] rotate-90 scale-110' : 'bg-[#006233] border border-white/10 hover:scale-110 active:scale-90'}`}>
-                        {isOpen ? <X className="text-black w-6 h-6" /> : <Bot className="text-white w-7 h-7" />}
+                    <button onClick={() => setIsOpen(!isOpen)} className="w-14 h-14 rounded-full bg-[#006233] flex items-center justify-center shadow-2xl hover:scale-110 transition-all">
+                        {isOpen ? <X className="text-white" /> : <Bot className="text-white" />}
                     </button>
                 </div>
             );
         };
+
+        const Hero = ({ lang }) => (
+            <section className="relative min-h-screen flex items-center pt-32 px-8 overflow-hidden">
+                <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-24 items-center">
+                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
+                        <div className="inline-flex items-center gap-3 mb-8 px-5 py-2 rounded-full bg-[#006233]/15 border border-[#006233]/30">
+                            <Sparkles className="w-4 h-4 text-[#c29b40]" />
+                            <p className="text-[#c29b40] font-black uppercase text-[10px]">{UI_STRINGS.hero.status[lang]}</p>
+                        </div>
+                        <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+                            {UI_STRINGS.hero.nameFirst[lang]} <br /> <span className="text-[#c29b40]">{UI_STRINGS.hero.nameLast[lang]}</span>
+                        </h1>
+                        <p className="text-xl text-slate-300 mb-12 max-w-xl">{UI_STRINGS.hero.headline[lang]}</p>
+                        <div className="flex gap-6">
+                            <button onClick={() => document.getElementById('about').scrollIntoView({behavior:'smooth'})} className="px-10 py-5 bg-[#006233] text-white font-black rounded-2xl gold-glow">{UI_STRINGS.hero.ctaExplore[lang]}</button>
+                            <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} className="px-10 py-5 glass-card text-white font-black rounded-2xl">{UI_STRINGS.hero.ctaContact[lang]}</a>
+                        </div>
+                    </div>
+                    <div className="relative group hidden lg:block">
+                        <div className="absolute -inset-8 bg-[#006233]/20 rounded-[4rem] blur-3xl opacity-40"></div>
+                        <img src="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" className="relative z-10 aspect-[4/5] rounded-[4rem] object-cover shadow-2xl border border-white/10" alt="Mohamed Imijine" />
+                    </div>
+                </div>
+            </section>
+        );
+
+        const About = ({ lang }) => (
+            <section id="about" className="py-40 bg-[#070912] px-8">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
+                        <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-widest mb-6 block">{UI_STRINGS.about.badge[lang]}</span>
+                        <h3 className="text-5xl md:text-7xl font-black text-white mb-10 tracking-tighter">{UI_STRINGS.about.title[lang]}</h3>
+                        <p className="text-slate-300 text-xl leading-relaxed mb-10 p-8 glass-card rounded-[2rem]">{UI_STRINGS.about.p1[lang]}</p>
+                        <div className="flex items-center gap-5 text-xs font-black text-slate-400 uppercase tracking-widest">
+                            <MapPin className="text-[#c29b40]" /> {UI_STRINGS.about.origin[lang]}
+                        </div>
+                    </div>
+                    <div className="glass-card p-14 rounded-[4rem] border border-[#c29b40]/20 relative">
+                        <h4 className="text-4xl font-black text-white mb-8">{lang === 'ar' ? 'إتقان العمليات.' : 'Operational Mastery.'}</h4>
+                        <p className="text-slate-400 text-lg">{lang === 'ar' ? 'مراقبة أكثر من ٨١٠ وحدة ميدانية بدقة عالية وتقارير يومية استراتيجية.' : 'High-precision monitoring of 810+ units with strategic daily reporting.'}</p>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Career = ({ lang }) => (
+            <section id="experience" className="py-40 px-8 bg-[#0d1021]">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-32 tracking-tighter">{UI_STRINGS.nav.experience[lang]}</h2>
+                    <div className="space-y-16">
+                        {CAREER_HISTORY.map((exp, i) => (
+                            <div key={i} className={`flex flex-col md:flex-row gap-10 glass-card p-10 rounded-[3rem] items-center ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                                <div className="w-20 h-20 glass-card flex items-center justify-center text-[#c29b40] rounded-2xl">{exp.icon}</div>
+                                <div className={`flex-1 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                                    <h4 className="text-3xl font-black text-white mb-2">{exp.title[lang]}</h4>
+                                    <p className="text-[#006233] font-black text-sm uppercase tracking-widest">{exp.company[lang]}</p>
+                                </div>
+                                <span className="px-6 py-2 bg-white/5 rounded-full text-[10px] font-black text-slate-500 uppercase">{exp.period[lang]}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Portfolio = ({ lang }) => (
+            <section id="portfolio" className="py-40 px-8 bg-[#070912]">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-24 tracking-tighter">{UI_STRINGS.nav.portfolio[lang]}</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {['مشاريع الويب', 'معرض الميديا', 'التقارير التحليلية'].map((title, i) => (
+                            <div key={i} className="glass-card aspect-[4/5] rounded-[3.5rem] flex flex-col justify-center items-center p-10 border-dashed border-white/10 group hover:border-[#c29b40]/30">
+                                <Sparkles className="w-12 h-12 text-slate-800 mb-8 group-hover:text-[#c29b40]" />
+                                <h4 className="text-2xl font-black text-white mb-4 text-center">{lang === 'ar' ? title : ['Web Projects', 'Media Gallery', 'Analysis Reports'][i]}</h4>
+                                <p className="text-slate-600 text-center text-sm">{lang === 'ar' ? 'مساحة مخصصة للأعمال القادمة.' : 'Reserved for upcoming professional works.'}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Certifications = ({ lang }) => (
+            <section id="certifications" className="py-40 bg-[#070912] px-8">
+                <div className="max-w-7xl mx-auto">
+                    <div className={`flex flex-col md:flex-row justify-between items-end mb-24 gap-10 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                        <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
+                            <span className="text-[#c29b40] text-[11px] font-black uppercase mb-4 block">Credentials</span>
+                            <h3 className="text-5xl md:text-6xl font-black text-white tracking-tighter">{UI_STRINGS.nav.certifications[lang]}</h3>
+                        </div>
+                        <a href={CONTACT_INFO.resume} target="_blank" className="px-10 py-5 bg-[#c29b40] text-black font-black rounded-2xl flex items-center gap-4 text-xs uppercase"><FileDown /> {UI_STRINGS.certs.cta[lang]}</a>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="glass-card p-10 rounded-[3rem] border-[#c29b40]/30 shadow-2xl">
+                            <Clock className="w-10 h-10 text-[#c29b40] mb-8" />
+                            <h4 className="text-xl font-black text-white mb-2 leading-tight">PMP - مدير مشروع محترف</h4>
+                            <p className="text-slate-500 text-sm mb-6">PMI - معهد إدارة المشاريع</p>
+                            <p className="text-[10px] text-[#c29b40] font-black uppercase tracking-widest bg-[#c29b40]/10 p-4 rounded-xl">تم تقديم الطلب - بانتظار المراجعة والاختبار</p>
+                        </div>
+                        <div className="glass-card p-10 rounded-[3rem]">
+                            <Award className="w-10 h-10 text-emerald-500 mb-8" />
+                            <h4 className="text-xl font-black text-white mb-2 leading-tight">إنتاج الفيديو والمونتاج</h4>
+                            <p className="text-slate-500 text-sm">جامعة كولورادو بولدر</p>
+                        </div>
+                        <div className="glass-card p-10 rounded-[3rem]">
+                            <Award className="w-10 h-10 text-emerald-500 mb-8" />
+                            <h4 className="text-xl font-black text-white mb-2 leading-tight">إدارة مشاريع جوجل</h4>
+                            <p className="text-slate-500 text-sm">جوجل / كورسيرا</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Skills = ({ lang }) => (
+            <section id="skills" className="py-40 px-8 bg-[#0d1021]">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-24 tracking-tighter">{UI_STRINGS.nav.skills[lang]}</h2>
+                    <div className="grid md:grid-cols-3 gap-10">
+                        {SKILLS_LIST.map((skill, i) => (
+                            <div key={i} className={`glass-card p-14 rounded-[4rem] group ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                                <div className="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mb-10 text-2xl">{skill.icon}</div>
+                                <h4 className="text-2xl font-black text-white mb-10 group-hover:text-[#c29b40] transition-colors">{skill.category[lang]}</h4>
+                                <div className={`flex flex-wrap gap-3 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>{skill.items.map((item, idx) => (<span key={idx} className="px-4 py-2 glass-card rounded-xl text-[10px] font-black uppercase text-slate-400">{item[lang]}</span>))}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
 
         const App = () => {
             const [lang, setLang] = useState('ar');
@@ -573,99 +452,22 @@
             }, [lang]);
 
             return (
-                <div className="selection:bg-[#c29b40] selection:text-[#070912]">
+                <div className="selection:bg-[#c29b40] selection:text-black">
                     <Navbar lang={lang} setLang={setLang} />
                     <main>
                         <Hero lang={lang} />
-                        <section id="about" className="py-40 bg-[#070912] px-8 relative overflow-hidden">
-                            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
-                                <div className={`lg:w-1/2 reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                    <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-6 block opacity-70">{UI_STRINGS.about.badge[lang]}</span>
-                                    <h3 className="text-5xl md:text-7xl font-black text-white mb-10 leading-[1] tracking-tighter">{UI_STRINGS.about.title[lang]}</h3>
-                                    <div className="space-y-8 text-slate-300 text-xl leading-relaxed font-light">
-                                        <p className={`p-8 bg-white/5 rounded-[2rem] border-l-4 ${lang === 'ar' ? 'border-l-0 border-r-4 border-[#c29b40]' : 'border-[#c29b40]'}`}>{UI_STRINGS.about.p1[lang]}</p>
-                                        <p className="opacity-70 leading-relaxed">{UI_STRINGS.about.p2[lang]}</p>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 text-xs font-black text-slate-400 uppercase tracking-widest">
-                                            <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><Home className="text-[#c29b40]" /> {UI_STRINGS.about.origin[lang]}</div>
-                                            <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><GraduationCap className="text-[#c29b40]" /> {UI_STRINGS.about.edu[lang]}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="lg:w-1/2 reveal glass-card p-14 rounded-[4rem] border border-white/5 bg-gradient-to-br from-[#006233]/15 to-transparent relative">
-                                    <h4 className="text-3xl font-black text-white mb-8 tracking-tighter">{lang === 'ar' ? 'حلول متكاملة، نتائج استراتيجية.' : 'Integrated Solutions, Strategic Results.'}</h4>
-                                    <p className="text-slate-400 mb-10 text-lg font-light leading-relaxed">{lang === 'ar' ? 'الجمع بين الخبرة التحليلية والمهارات الرقمية والإبداع المرئي لتقديم قيمة ملموسة في كل مشروع.' : 'Combining analytical expertise, digital skills, and visual creativity to deliver tangible value in every project.'}</p>
-                                    <div className="flex gap-4">{[1, 2, 3].map(i => <div key={i} className="w-3 h-3 rounded-full bg-[#c29b40] opacity-30"></div>)}</div>
-                                </div>
-                            </div>
-                        </section>
-                        <CareerJourney lang={lang} />
+                        <About lang={lang} />
+                        <Career lang={lang} />
                         <Portfolio lang={lang} />
-                        <section id="certifications" className="py-40 bg-[#070912] px-8 relative overflow-hidden">
-                            <div className="max-w-7xl mx-auto">
-                                <div className={`reveal flex flex-col md:flex-row justify-between items-end mb-24 gap-10 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
-                                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}><span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-4 block opacity-70">{UI_STRINGS.certs.badge[lang]}</span><h3 className="text-5xl md:text-6xl font-black text-white tracking-tighter">{UI_STRINGS.certs.title[lang]}</h3></div>
-                                    <a href={CONTACT_INFO.resume} target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-[#c29b40] text-black font-black rounded-2xl flex items-center gap-4 shadow-xl hover:scale-105 transition-all no-print text-xs uppercase tracking-widest"><FileDown className="w-5 h-5" /> {UI_STRINGS.certs.cta[lang]}</a>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {CERTIFICATIONS.map((cert, i) => (
-                                        <div key={i} className={`reveal group glass-card p-10 rounded-[3rem] flex flex-col h-full hover:bg-white/[0.04] transition-all ${cert.status === 'in-progress' ? 'border-[#c29b40]/30' : ''} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                            <div className={`w-14 h-14 bg-[#c29b40]/10 rounded-2xl flex items-center justify-center mb-8 border border-[#c29b40]/20 text-[#c29b40] ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{cert.status === 'in-progress' ? <Clock /> : <Award />}</div>
-                                            <h4 className="text-xl font-black text-white mb-2 leading-tight">{cert.title[lang]}</h4><p className="text-slate-500 text-sm mb-8 font-medium">{cert.issuer[lang]}</p>
-                                            <div className="mt-auto pt-6 border-t border-white/5 flex flex-col gap-4">
-                                                <div className={`flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><span className="text-[9px] font-black uppercase text-slate-600 tracking-widest">{cert.date[lang]}</span>{cert.url && (<a href={cert.url} target="_blank" rel="noopener noreferrer" className="text-[#c29b40] text-[9px] font-black uppercase tracking-widest flex items-center gap-2">{UI_STRINGS.certs.verify[lang]} <ArrowUpRight className="w-3 h-3" /></a>)}</div>
-                                                {cert.info && (<p className="text-[10px] text-[#c29b40] font-black uppercase tracking-widest bg-[#c29b40]/10 p-4 rounded-xl leading-relaxed">{cert.info[lang]}</p>)}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-                        <section id="skills" className="py-40 px-8 bg-[#0d1021] relative overflow-hidden">
-                            <div className="max-w-7xl mx-auto">
-                                <div className="reveal text-center mb-24"><span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] block mb-4 opacity-70">{UI_STRINGS.skills.badge[lang]}</span><h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">{UI_STRINGS.skills.title[lang]}</h2></div>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                                    {SKILLS_LIST.map((skill, i) => (
-                                        <div key={i} className={`reveal glass-card p-14 rounded-[4rem] flex flex-col group ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                            <div className={`w-16 h-16 bg-[#006233]/15 rounded-3xl flex items-center justify-center mb-10 border border-[#006233]/30 text-[#c29b40] ${lang === 'ar' ? 'mr-0 ml-auto' : ''}`}>{skill.icon}</div>
-                                            <h4 className="text-2xl font-black text-white mb-10 tracking-tight group-hover:text-[#c29b40] transition-colors">{skill.category[lang]}</h4>
-                                            <div className={`flex flex-wrap gap-3 mt-auto ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>{skill.items.map((item, idx) => (<span key={idx} className="px-4 py-2 glass-card rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400">{item[lang]}</span>))}</div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-                        <section id="contact" className="py-40 px-8 bg-[#070912] relative overflow-hidden">
-                            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32">
-                                <div className={`reveal ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                    <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-[0.5em] mb-6 block opacity-70">{UI_STRINGS.contact.badge[lang]}</span>
-                                    <h3 className="text-6xl md:text-8xl font-black text-white mb-16 tracking-tighter leading-[0.9]">{UI_STRINGS.contact.title[lang]}</h3>
-                                    <div className="space-y-8">
-                                        <a href={`mailto:${CONTACT_INFO.email}`} className={`flex items-center gap-8 glass-card p-10 rounded-[3rem] group hover:scale-[1.02] transition-all border-none ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                                            <div className="w-20 h-20 bg-[#006233] rounded-3xl flex items-center justify-center text-white shadow-lg"><Mail className="w-8 h-8" /></div>
-                                            <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">Email</p><p className="text-2xl font-bold tracking-tight text-white uppercase">{CONTACT_INFO.email}</p></div>
-                                        </a>
-                                        <a href={CONTACT_INFO.linkedin} target="_blank" rel="noopener noreferrer" className={`flex items-center gap-8 glass-card p-10 rounded-[3rem] group hover:scale-[1.02] transition-all border-none ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                                            <div className="w-20 h-20 bg-[#c29b40] rounded-3xl flex items-center justify-center text-[#070912] shadow-lg"><Linkedin className="w-8 h-8" /></div>
-                                            <div><p className="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">LinkedIn</p><p className="text-sm font-bold opacity-80 text-white">Mohamed Imijine Profile</p></div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="reveal glass-card p-16 rounded-[4.5rem] border-2 border-[#006233]/20 flex flex-col justify-between bg-gradient-to-br from-[#006233]/10 to-transparent">
-                                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                                        <div className={`flex items-center gap-8 mb-14 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="w-16 h-16 bg-[#006233]/20 rounded-2xl flex items-center justify-center text-[#006233] shadow-md"><MapPin /></div><p className="text-2xl font-black text-white tracking-tight">{UI_STRINGS.contact.location[lang]}</p></div>
-                                        <p className="text-slate-400 leading-relaxed text-2xl font-light opacity-80 mb-12">{lang === 'ar' ? 'متاح لأدوار تحليل الأعمال، تطوير المواقع، والإنتاج المرئي المعتمد.' : 'Available for high-impact Business Analysis, Web Development, and Certified Visual Production.'}</p>
-                                        <div className={`flex items-center gap-6 italic text-[#c29b40] font-black text-2xl ${lang === 'ar' ? 'flex-row-reverse' : ''}`}><div className="h-[2px] w-14 bg-[#c29b40]/30"></div> {lang === 'ar' ? 'مستعد للمحطة القادمة.' : 'Ready for the next milestone.'}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        <Certifications lang={lang} />
+                        <Skills lang={lang} />
                     </main>
-                    <footer className="py-24 border-t border-white/5 text-center text-[10px] text-slate-600 font-black uppercase tracking-[0.5em] bg-[#070912]">
-                        <div className="text-2xl font-black text-white mb-8">IMAGINE<span className="text-[#c29b40]">.</span></div>
-                        <p>© {new Date().getFullYear()} Mohamed Imijine. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'}</p>
+                    <footer className="py-24 border-t border-white/5 text-center bg-[#070912]">
+                        <div className="text-2xl font-black text-white mb-4 uppercase">IMAGINE<span className="text-[#c29b40]">.</span></div>
+                        <p className="text-[10px] text-slate-600 font-black uppercase tracking-[0.5em]">© {new Date().getFullYear()} Mohamed Imijine. All Rights Reserved.</p>
                     </footer>
                     <AIAssistant lang={lang} />
-                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noopener noreferrer" className={`fixed bottom-10 z-[200] w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 hover:-translate-y-2 transition-all no-print ${lang === 'ar' ? 'right-10' : 'left-10'}`}><MessageSquare className="w-8 h-8 fill-white" /></a>
+                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} className="fixed bottom-10 z-[200] w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white no-print hover:scale-110 transition-all right-10"><MessageSquare className="w-8 h-8 fill-white" /></a>
                 </div>
             );
         };
