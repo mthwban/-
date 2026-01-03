@@ -1,29 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="ar" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمد ثوبان إميجن | مستشار توظيف ذكي ومصمم مواقع</title>
+    <title>محمد ثوبان إميجن | مستشار توظيف ذكي ومحلل أعمال</title>
     
     <!-- Professional SEO & Social Meta -->
-    <meta name="description" content="الملف المهني لمحمد ثوبان إميجن: خبير تحليل أعمال، مصمم ومطور مواقع، ومنتج مرئي معتمد من جامعة كولورادو بولدر. متخصص في تحسين العمليات والحلول الرقمية." />
-    <meta name="keywords" content="محمد إميجن, محلل أعمال, مطور مواقع, مكة, السعودية, إدارة مشاريع, مدير مشروع محترف, تصوير احترافي, مونتاج, جامعة كولورادو, تحليل عمليات" />
-    <meta property="og:title" content="محمد ثوبان إميجن | الملف المهني المتكامل" />
-    <meta property="og:description" content="محلل أعمال استراتيجي ومطور مواقع متخصص في بناء الهويات الرقمية والإنتاج المرئي الاحترافي." />
+    <meta name="description" content="الملف المهني لمحمد ثوبان إميجن: خبير تحليل أعمال تشغيلي، عمليات ميدانية، ومنتج مرئي معتمد. متخصص في تحسين العمليات والحلول الرقمية." />
+    <meta property="og:title" content="محمد ثوبان إميجن | محلل أعمال وعمليات" />
     <meta property="og:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" />
-    <meta property="og:url" content="https://mohamed-imijine.com" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- PWA & Mobile Integration -->
     <meta name="theme-color" content="#006233" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,422 +48,36 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(194, 155, 64, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-glow {
-            box-shadow: 0 0 20px rgba(194, 155, 64, 0.15);
-        }
-
-        @media print {
-            .no-print { display: none !important; }
-            body { background: white !important; color: black !important; }
-        }
+        .gold-border { border: 1px solid var(--color-secondary); }
+        .gold-text { color: var(--color-secondary); }
+        .gold-bg { background-color: var(--color-secondary); }
 
         .scrollbar-hide::-webkit-scrollbar { display: none; }
+        
+        @media print {
+            .no-print { display: none !important; }
+        }
+
+        /* Smooth scroll margin for navbar */
+        section { scroll-margin-top: 5rem; }
     </style>
 
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+        "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>
-
-    <script type="text/babel" data-type="module">
-        import React, { useState, useEffect, useRef } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { 
-            BarChart3, Camera, Laptop, Film, Code, Briefcase, 
-            Mail, Linkedin, MapPin, GraduationCap, ArrowRight, 
-            Sparkles, FileDown, ExternalLink, Bot, X, Send, 
-            MessageSquare, CheckCircle2, Clock, Award, ShieldCheck,
-            ChevronDown, ArrowUpRight
-        } from 'lucide-react';
-        import { GoogleGenAI } from "@google/genai";
-
-        const CONTACT_INFO = {
-            whatsapp: "966566162529",
-            email: "M.THWBAN@GMAIL.COM",
-            linkedin: "https://www.linkedin.com/in/mohamed-imijine-32093b362",
-            resume: "https://drive.google.com/file/d/1x0cn40NvPvJuYFmlmFIjDbccFW1xc5kR/view?usp=sharing"
-        };
-
-        const UI_STRINGS = {
-            nav: {
-                about: { en: "About", ar: "نبذة" },
-                experience: { en: "Career", ar: "المسيرة" },
-                portfolio: { en: "Portfolio", ar: "المعرض" },
-                certifications: { en: "Credentials", ar: "الشهادات" },
-                skills: { en: "Expertise", ar: "المهارات" },
-                contact: { en: "Contact", ar: "تواصل" }
-            },
-            hero: {
-                status: { en: "Operational & Digital Specialist", ar: "أخصائي عمليات وتقنية رقمية" },
-                nameFirst: { en: "Mohamed Thwban", ar: "محمد ثوبان" },
-                nameLast: { en: "Imijine", ar: "إميجن" },
-                headline: { 
-                    en: "Business Analyst | Modern Web Developer | Certified Media Producer | Economist", 
-                    ar: "محلل أعمال | مطور مواقع عصري | منتج ميديا معتمد | اقتصادي" 
-                },
-                ctaExplore: { en: "View Expertise", ar: "استكشاف الخبرات" },
-                ctaContact: { en: "Start Collaboration", ar: "بدء التعاون" }
-            },
-            about: {
-                badge: { en: "The Profile", ar: "الملف الشخصي" },
-                title: { en: "Precision Analysis. High Execution.", ar: "تحليل دقيق. تنفيذ احترافي." },
-                p1: { 
-                    en: "A strategic professional bridging operational logic with high-end digital solutions. Specializing in monitoring complex site operations (810 units) and crafting modern web architectures.", 
-                    ar: "محترف استراتيجي يجمع بين المنطق التشغيلي والحلول الرقمية المتطورة. متخصص في مراقبة العمليات الميدانية المعقدة (٨١٠ وحدة) وبناء هياكل الويب الحديثة." 
-                },
-                origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" }
-            },
-            certs: {
-                badge: { en: "Validation", ar: "الاعتمادات" },
-                title: { en: "Professional Credentials", ar: "الشهادات المهنية" },
-                cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" }
-            },
-            ai: {
-                tooltip: {
-                    en: "Hire Mohammed? Ask the Smart Consultant now!",
-                    ar: "هل تريد توظيف محمد؟ اسأل المستشار الذكي الآن!"
-                },
-                greeting: {
-                    en: "Hello! I am Mohammed's Smart Recruitment Consultant. How can I help you match his expertise to your organization?",
-                    ar: "أهلاً بك! أنا مستشار التوظيف الذكي لمحمد. كيف يمكنني مساعدتك في مطابقة خبراته مع احتياجات مؤسستك؟"
-                },
-                thinking: { en: "Analyzing Match...", ar: "جاري تحليل البيانات..." }
-            }
-        };
-
-        const SKILLS_LIST = [
-            {
-                category: { en: "Modern Web Designer & Developer", ar: "مصمم ومطور مواقع عصري" },
-                icon: <Laptop className="text-[#c29b40]" />,
-                items: [{ en: "UI/UX Design", ar: "تصميم واجهة المستخدم" }, { en: "Front-End Development", ar: "تطوير الواجهات" }, { en: "Digital Identity", ar: "الهوية الرقمية" }]
-            },
-            {
-                category: { en: "Certified Media Production", ar: "إنتاج مرئي معتمد" },
-                icon: <Film className="text-[#c29b40]" />,
-                items: [{ en: "Video Montage (CU)", ar: "مونتاج الفيديو (كولورادو)" }, { en: "Field Photography", ar: "تصوير مشاريع ميداني" }, { en: "Visual Storytelling", ar: "قصص بصرية" }]
-            },
-            {
-                category: { en: "Business Analysis & Ops", ar: "تحليل الأعمال والعمليات" },
-                icon: <BarChart3 className="text-[#c29b40]" />,
-                items: [{ en: "Process Audit", ar: "تدقيق العمليات" }, { en: "Operational Monitoring", ar: "المراقبة التشغيلية" }, { en: "Strategic Reporting", ar: "تقارير استراتيجية" }]
-            }
-        ];
-
-        const CAREER_HISTORY = [
-            { title: { en: "Photographer", ar: "مصور فوتوغرافي" }, company: { en: "OIC-IBU", ar: "اتحاد إذاعات دول منظمة التعاون الإسلامي" }, period: { en: "10/2025 – Present", ar: "١٠/٢٠٢٥ – الحالي" }, icon: <Camera /> },
-            { title: { en: "Business Analyst", ar: "محلل أعمال" }, company: { en: "Manasik Al-Mullabi (RC Project)", ar: "شركة مناسك الملبي (مشروع الهيئة الملكية)" }, period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" }, icon: <Briefcase /> },
-            { title: { en: "Committee Member", ar: "عضو لجنة تنظيمية" }, company: { en: "Consulate of Mauritania", ar: "القنصلية الموريتانية" }, period: { en: "2023", ar: "٢٠٢٣" }, icon: <ShieldCheck /> },
-            { title: { en: "Marketing Specialist", ar: "أخصائي تسويق" }, company: { en: "Transport Sector", ar: "قطاع النقل والمقاولات" }, period: { en: "2020 – 2023", ar: "٢٠٢٠ – ٢٠٢٣" }, icon: <TrendingUp /> },
-            { title: { en: "Economics Student", ar: "بكالوريوس اقتصاد" }, company: { en: "Umm Al-Qura University", ar: "جامعة أم القرى" }, period: { en: "Graduated 2018", ar: "تخرج ٢٠١٨" }, icon: <GraduationCap /> }
-        ];
-
-        const Navbar = ({ lang, setLang }) => {
-            const [isScrolled, setIsScrolled] = useState(false);
-            useEffect(() => {
-                const handleScroll = () => setIsScrolled(window.scrollY > 20);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            return (
-                <nav className={`fixed top-0 left-0 w-full z-[100] transition-all px-4 md:px-8 ${isScrolled ? 'py-4' : 'py-8'}`}>
-                    <div className={`max-w-7xl mx-auto flex justify-between items-center px-8 py-3.5 rounded-3xl transition-all ${isScrolled ? 'glass-card shadow-2xl' : 'bg-transparent'}`}>
-                        <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="px-4 py-1.5 rounded-xl bg-[#c29b40]/10 border border-[#c29b40]/20 text-[10px] font-black text-[#c29b40] no-print">
-                            {lang === 'en' ? 'العربية' : 'ENGLISH'}
-                        </button>
-                        <div className="text-2xl font-black text-white">IM<span className="text-[#c29b40]">.</span></div>
-                        <div className="hidden lg:flex gap-10">
-                            {['about', 'experience', 'portfolio', 'skills'].map(id => (
-                                <button key={id} onClick={() => document.getElementById(id).scrollIntoView({behavior:'smooth'})} className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white">{UI_STRINGS.nav[id][lang]}</button>
-                            ))}
-                        </div>
-                    </div>
-                </nav>
-            );
-        };
-
-        const AIAssistant = ({ lang }) => {
-            const [isOpen, setIsOpen] = useState(false);
-            const [showTooltip, setShowTooltip] = useState(false);
-            const [messages, setMessages] = useState([]);
-            const [input, setInput] = useState('');
-            const [isLoading, setIsLoading] = useState(false);
-            const chatEndRef = useRef(null);
-
-            useEffect(() => {
-                const timer = setTimeout(() => { if (!isOpen) setShowTooltip(true); }, 3000);
-                return () => clearTimeout(timer);
-            }, [isOpen]);
-
-            useEffect(() => {
-                if (isOpen && messages.length === 0) setMessages([{ role: 'assistant', content: UI_STRINGS.ai.greeting[lang] }]);
-                chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-            }, [isOpen, messages, lang]);
-
-            const handleSend = async () => {
-                if (!input.trim() || isLoading) return;
-                const userMsg = input.trim(); setInput('');
-                setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
-                setIsLoading(true);
-                try {
-                    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-                    const systemInstruction = `
-                        You are "Mohammed's Smart Recruitment Consultant". 
-                        Rules: 
-                        1. Respond in BRIEF bullet points only. No long paragraphs.
-                        2. Tone: Professional, Saudi business style.
-                        3. If asked about hiring/roles, categorize as follows:
-                           - العمليات واللوجستيات: (مشرف ميداني، أخصائي امتثال، محلل أداء). Context: monitored 810 units, July 16/20 reports.
-                           - التقنية: (مطور مواقع، مصمم هويات رقمية).
-                           - الإعلام: (منتج فيديو معتمد من جامعة كولورادو، مصور مشاريع).
-                        4. Language: ${lang === 'ar' ? '100% Arabic (No English words)' : 'Professional English'}.
-                        5. Suggest the CV link at the end: ${CONTACT_INFO.resume}
-                    `;
-                    const response = await ai.models.generateContent({
-                        model: 'gemini-3-flash-preview',
-                        contents: userMsg,
-                        config: { systemInstruction }
-                    });
-                    setMessages(prev => [...prev, { role: 'assistant', content: response.text }]);
-                } catch (e) {
-                    setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ar' ? "خطأ في الاتصال." : "Connection error." }]);
-                } finally { setIsLoading(false); }
-            };
-
-            return (
-                <div className={`fixed bottom-24 z-[70] flex flex-col no-print ${lang === 'ar' ? 'right-8 items-end' : 'left-8 items-start'}`}>
-                    {showTooltip && !isOpen && (
-                        <div className="mb-4 max-w-[280px] p-5 glass-card rounded-2xl border border-[#c29b40]/40 animate-in fade-in slide-in-from-bottom-4">
-                            <p className="text-[12px] font-bold text-slate-200">{UI_STRINGS.ai.tooltip[lang]}</p>
-                        </div>
-                    )}
-                    {isOpen && (
-                        <div className="mb-4 w-[320px] md:w-[400px] h-[500px] glass-card rounded-[2.5rem] flex flex-col overflow-hidden border border-white/10 animate-in zoom-in">
-                            <div className={`p-6 bg-[#006233] text-white flex justify-between items-center ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                                <div className="flex items-center gap-3"><Bot className="w-5 h-5" /><h4 className="text-xs font-black">{lang === 'ar' ? 'مستشار التوظيف' : 'CONSULTANT AI'}</h4></div>
-                                <button onClick={() => setIsOpen(false)}><X /></button>
-                            </div>
-                            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-[#0d1021] scrollbar-hide">
-                                {messages.map((m, i) => (
-                                    <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                        <div className={`max-w-[85%] p-4 rounded-2xl text-xs ${m.role === 'user' ? 'bg-[#c29b40] text-black font-bold' : 'bg-white/5 text-slate-200'} ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{m.content}</div>
-                                    </div>
-                                ))}
-                                {isLoading && <div className="text-emerald-400 text-[10px] animate-pulse">{UI_STRINGS.ai.thinking[lang]}</div>}
-                                <div ref={chatEndRef} />
-                            </div>
-                            <div className="p-6 bg-[#070912] border-t border-white/5">
-                                <div className="relative">
-                                    <input type="text" value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()} className={`w-full bg-white/5 rounded-xl py-3 px-4 text-xs text-white ${lang === 'ar' ? 'text-right' : ''}`} placeholder="..." />
-                                    <button onClick={handleSend} className={`absolute top-2 p-1.5 bg-[#c29b40] rounded-lg ${lang === 'ar' ? 'left-2' : 'right-2'}`}><Send className="w-4 h-4" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    <button onClick={() => setIsOpen(!isOpen)} className="w-14 h-14 rounded-full bg-[#006233] flex items-center justify-center shadow-2xl hover:scale-110 transition-all">
-                        {isOpen ? <X className="text-white" /> : <Bot className="text-white" />}
-                    </button>
-                </div>
-            );
-        };
-
-        const Hero = ({ lang }) => (
-            <section className="relative min-h-screen flex items-center pt-32 px-8 overflow-hidden">
-                <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-24 items-center">
-                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                        <div className="inline-flex items-center gap-3 mb-8 px-5 py-2 rounded-full bg-[#006233]/15 border border-[#006233]/30">
-                            <Sparkles className="w-4 h-4 text-[#c29b40]" />
-                            <p className="text-[#c29b40] font-black uppercase text-[10px]">{UI_STRINGS.hero.status[lang]}</p>
-                        </div>
-                        <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
-                            {UI_STRINGS.hero.nameFirst[lang]} <br /> <span className="text-[#c29b40]">{UI_STRINGS.hero.nameLast[lang]}</span>
-                        </h1>
-                        <p className="text-xl text-slate-300 mb-12 max-w-xl">{UI_STRINGS.hero.headline[lang]}</p>
-                        <div className="flex gap-6">
-                            <button onClick={() => document.getElementById('about').scrollIntoView({behavior:'smooth'})} className="px-10 py-5 bg-[#006233] text-white font-black rounded-2xl gold-glow">{UI_STRINGS.hero.ctaExplore[lang]}</button>
-                            <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} className="px-10 py-5 glass-card text-white font-black rounded-2xl">{UI_STRINGS.hero.ctaContact[lang]}</a>
-                        </div>
-                    </div>
-                    <div className="relative group hidden lg:block">
-                        <div className="absolute -inset-8 bg-[#006233]/20 rounded-[4rem] blur-3xl opacity-40"></div>
-                        <img src="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" className="relative z-10 aspect-[4/5] rounded-[4rem] object-cover shadow-2xl border border-white/10" alt="Mohamed Imijine" />
-                    </div>
-                </div>
-            </section>
-        );
-
-        const About = ({ lang }) => (
-            <section id="about" className="py-40 bg-[#070912] px-8">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
-                    <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                        <span className="text-[#c29b40] text-[11px] font-black uppercase tracking-widest mb-6 block">{UI_STRINGS.about.badge[lang]}</span>
-                        <h3 className="text-5xl md:text-7xl font-black text-white mb-10 tracking-tighter">{UI_STRINGS.about.title[lang]}</h3>
-                        <p className="text-slate-300 text-xl leading-relaxed mb-10 p-8 glass-card rounded-[2rem]">{UI_STRINGS.about.p1[lang]}</p>
-                        <div className="flex items-center gap-5 text-xs font-black text-slate-400 uppercase tracking-widest">
-                            <MapPin className="text-[#c29b40]" /> {UI_STRINGS.about.origin[lang]}
-                        </div>
-                    </div>
-                    <div className="glass-card p-14 rounded-[4rem] border border-[#c29b40]/20 relative">
-                        <h4 className="text-4xl font-black text-white mb-8">{lang === 'ar' ? 'إتقان العمليات.' : 'Operational Mastery.'}</h4>
-                        <p className="text-slate-400 text-lg">{lang === 'ar' ? 'مراقبة أكثر من ٨١٠ وحدة ميدانية بدقة عالية وتقارير يومية استراتيجية.' : 'High-precision monitoring of 810+ units with strategic daily reporting.'}</p>
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Career = ({ lang }) => (
-            <section id="experience" className="py-40 px-8 bg-[#0d1021]">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-32 tracking-tighter">{UI_STRINGS.nav.experience[lang]}</h2>
-                    <div className="space-y-16">
-                        {CAREER_HISTORY.map((exp, i) => (
-                            <div key={i} className={`flex flex-col md:flex-row gap-10 glass-card p-10 rounded-[3rem] items-center ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
-                                <div className="w-20 h-20 glass-card flex items-center justify-center text-[#c29b40] rounded-2xl">{exp.icon}</div>
-                                <div className={`flex-1 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                    <h4 className="text-3xl font-black text-white mb-2">{exp.title[lang]}</h4>
-                                    <p className="text-[#006233] font-black text-sm uppercase tracking-widest">{exp.company[lang]}</p>
-                                </div>
-                                <span className="px-6 py-2 bg-white/5 rounded-full text-[10px] font-black text-slate-500 uppercase">{exp.period[lang]}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Portfolio = ({ lang }) => (
-            <section id="portfolio" className="py-40 px-8 bg-[#070912]">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-24 tracking-tighter">{UI_STRINGS.nav.portfolio[lang]}</h2>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {['مشاريع الويب', 'معرض الميديا', 'التقارير التحليلية'].map((title, i) => (
-                            <div key={i} className="glass-card aspect-[4/5] rounded-[3.5rem] flex flex-col justify-center items-center p-10 border-dashed border-white/10 group hover:border-[#c29b40]/30">
-                                <Sparkles className="w-12 h-12 text-slate-800 mb-8 group-hover:text-[#c29b40]" />
-                                <h4 className="text-2xl font-black text-white mb-4 text-center">{lang === 'ar' ? title : ['Web Projects', 'Media Gallery', 'Analysis Reports'][i]}</h4>
-                                <p className="text-slate-600 text-center text-sm">{lang === 'ar' ? 'مساحة مخصصة للأعمال القادمة.' : 'Reserved for upcoming professional works.'}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Certifications = ({ lang }) => (
-            <section id="certifications" className="py-40 bg-[#070912] px-8">
-                <div className="max-w-7xl mx-auto">
-                    <div className={`flex flex-col md:flex-row justify-between items-end mb-24 gap-10 ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
-                        <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                            <span className="text-[#c29b40] text-[11px] font-black uppercase mb-4 block">Credentials</span>
-                            <h3 className="text-5xl md:text-6xl font-black text-white tracking-tighter">{UI_STRINGS.nav.certifications[lang]}</h3>
-                        </div>
-                        <a href={CONTACT_INFO.resume} target="_blank" className="px-10 py-5 bg-[#c29b40] text-black font-black rounded-2xl flex items-center gap-4 text-xs uppercase"><FileDown /> {UI_STRINGS.certs.cta[lang]}</a>
-                    </div>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="glass-card p-10 rounded-[3rem] border-[#c29b40]/30 shadow-2xl">
-                            <Clock className="w-10 h-10 text-[#c29b40] mb-8" />
-                            <h4 className="text-xl font-black text-white mb-2 leading-tight">PMP - مدير مشروع محترف</h4>
-                            <p className="text-slate-500 text-sm mb-6">PMI - معهد إدارة المشاريع</p>
-                            <p className="text-[10px] text-[#c29b40] font-black uppercase tracking-widest bg-[#c29b40]/10 p-4 rounded-xl">تم تقديم الطلب - بانتظار المراجعة والاختبار</p>
-                        </div>
-                        <div className="glass-card p-10 rounded-[3rem]">
-                            <Award className="w-10 h-10 text-emerald-500 mb-8" />
-                            <h4 className="text-xl font-black text-white mb-2 leading-tight">إنتاج الفيديو والمونتاج</h4>
-                            <p className="text-slate-500 text-sm">جامعة كولورادو بولدر</p>
-                        </div>
-                        <div className="glass-card p-10 rounded-[3rem]">
-                            <Award className="w-10 h-10 text-emerald-500 mb-8" />
-                            <h4 className="text-xl font-black text-white mb-2 leading-tight">إدارة مشاريع جوجل</h4>
-                            <p className="text-slate-500 text-sm">جوجل / كورسيرا</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-
-        const Skills = ({ lang }) => (
-            <section id="skills" className="py-40 px-8 bg-[#0d1021]">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-5xl md:text-7xl font-black text-white text-center mb-24 tracking-tighter">{UI_STRINGS.nav.skills[lang]}</h2>
-                    <div className="grid md:grid-cols-3 gap-10">
-                        {SKILLS_LIST.map((skill, i) => (
-                            <div key={i} className={`glass-card p-14 rounded-[4rem] group ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                                <div className="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mb-10 text-2xl">{skill.icon}</div>
-                                <h4 className="text-2xl font-black text-white mb-10 group-hover:text-[#c29b40] transition-colors">{skill.category[lang]}</h4>
-                                <div className={`flex flex-wrap gap-3 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>{skill.items.map((item, idx) => (<span key={idx} className="px-4 py-2 glass-card rounded-xl text-[10px] font-black uppercase text-slate-400">{item[lang]}</span>))}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-
-        const App = () => {
-            const [lang, setLang] = useState('ar');
-            useEffect(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-                }, { threshold: 0.1 });
-                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-                document.documentElement.lang = lang;
-            }, [lang]);
-
-            return (
-                <div className="selection:bg-[#c29b40] selection:text-black">
-                    <Navbar lang={lang} setLang={setLang} />
-                    <main>
-                        <Hero lang={lang} />
-                        <About lang={lang} />
-                        <Career lang={lang} />
-                        <Portfolio lang={lang} />
-                        <Certifications lang={lang} />
-                        <Skills lang={lang} />
-                    </main>
-                    <footer className="py-24 border-t border-white/5 text-center bg-[#070912]">
-                        <div className="text-2xl font-black text-white mb-4 uppercase">IMAGINE<span className="text-[#c29b40]">.</span></div>
-                        <p className="text-[10px] text-slate-600 font-black uppercase tracking-[0.5em]">© {new Date().getFullYear()} Mohamed Imijine. All Rights Reserved.</p>
-                    </footer>
-                    <AIAssistant lang={lang} />
-                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} className="fixed bottom-10 z-[200] w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white no-print hover:scale-110 transition-all right-10"><MessageSquare className="w-8 h-8 fill-white" /></a>
-                </div>
-            );
-        };
-        createRoot(document.getElementById('root')).render(<App />);
-    </script>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
+
