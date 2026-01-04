@@ -1,29 +1,116 @@
-<div style="direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; padding: 30px; background: #ffffff; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #006233;">
-    <h1 style="color: #006233; margin-bottom: 5px; font-size: 32px;">محمد ثوبان</h1>
-    <h3 style="color: #c29b40; margin-top: 0; letter-spacing: 2px;">إميجن (Imagine)</h3>
-    <p style="font-weight: bold; color: #555; font-size: 18px;">جاهز للتعاون الاستراتيجي</p>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px;">
-        <span style="background: #f0fdf4; border: 1px solid #006233; padding: 12px 20px; border-radius: 12px; font-size: 15px; font-weight: 500;">📊 محلل أعمال وتشغيل</span>
-        <span style="background: #f0fdf4; border: 1px solid #006233; padding: 12px 20px; border-radius: 12px; font-size: 15px; font-weight: 500;">📍 تنسيق ميداني</span>
-        <span style="background: #f0fdf4; border: 1px solid #006233; padding: 12px 20px; border-radius: 12px; font-size: 15px; font-weight: 500;">👥 قيادة فرق</span>
-        <span style="background: #f0fdf4; border: 1px solid #006233; padding: 12px 20px; border-radius: 12px; font-size: 15px; font-weight: 500;">🎬 محتوى مرئي</span>
-        <span style="background: #f0fdf4; border: 1px solid #006233; padding: 12px 20px; border-radius: 12px; font-size: 15px; font-weight: 500;">🚀 مسوق</span>
-    </div>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد ثوبان | Mohammed Thoban</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0d17;
+            --card-bg: #161b22;
+            --text-main: #ffffff;
+            --text-dim: #8b949e;
+            --accent: #238636;
+            --red-btn: #d73a49;
+        }
 
-    <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 25px;">
-        <div id="ai-bubble" style="background: #006233; color: white; padding: 20px; border-radius: 15px; display: none; margin-bottom: 15px; font-size: 15px; line-height: 1.6; text-align: right;">
-            مرحباً! أنا المساعد الذكي لمحمد ثوبان. محمد متخصص في التحليل التشغيلي والتنسيق الميداني وإدارة المشاريع (مثل مشروع أضاحي بطاقة 40,000 رأس). كيف يمكننا التعاون استراتيجياً اليوم؟
-        </div>
-        
-        <button onclick="document.getElementById('ai-bubble').style.display='block'" style="background: #c29b40; color: white; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; box-shadow: 0 4px 10px rgba(194, 155, 64, 0.3);">
-            🤖 اسأل المساعد الذكي
-        </button>
-        
-        <div style="margin-top: 25px;">
-            <a href="https://wa.me/966XXXXXXXXX" style="text-decoration: none; color: #25D366; font-weight: bold; font-size: 19px;">
-                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-            </a>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(22, 27, 34, 0.95);
+            border-bottom: 1px solid #30363d;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .profile-section {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #30363d;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 20px;
+            background: #21262d;
+        }
+
+        .badge {
+            background: var(--accent);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .btn-lang {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-lang:hover { background: var(--accent); color: white; }
+
+        .btn-cv {
+            background: var(--red-btn);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(32
+
+        <h3 class="info-title">الشهادات المهنية</h3>
+        <div class="card-detail">
+            <strong>PMP (إدارة المشاريع):</strong> بانتظار الموافقة النهائية لتحديد موعد الاختبار.<br>
+            <strong>Google:</strong> شهادة إدارة المشاريع الاحترافية (مكتملة).
         </div>
     </div>
 </div>
+
+</body>
+</html>
