@@ -1,5 +1,7 @@
 {
-  "name": "Mohamed Imijine | Operations Specialist & Creative Strategist",
-  "description": "Professional portfolio of Mohamed Imijine, a multi-disciplinary expert specializing in Business & Operations Analysis, Field Coordination, Team Leadership, Visual Content, and Strategic Marketing.",
-  "requestFramePermissions": []
+  "name": "Mohamed Thoban | Operations Specialist & Creative Strategist",
+  "description": "Professional portfolio of Mohamed Thoban, a multi-disciplinary expert specializing in Business & Operations Analysis, Field Coordination, and Strategic Leadership.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
 }

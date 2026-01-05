@@ -1,112 +1,103 @@
 
 import React from 'react';
-import { CERTIFICATIONS, UI_STRINGS, IN_PROGRESS_CERT, BRAND_COLORS } from '../constants';
-import { FileDown, ExternalLink, Award, ShieldCheck, Zap, ArrowUpRight } from 'lucide-react';
 import { Language } from '../types';
+import { CERTIFICATIONS, UI_STRINGS } from '../constants';
+import { Award, GraduationCap, ShieldCheck, TrendingUp, Landmark, Video, Zap, ExternalLink, Sparkles } from 'lucide-react';
 
 interface CertificationsProps {
   lang: Language;
 }
 
 const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
-  const consolidatedPdfUrl = "https://drive.google.com/file/d/1qYKnm4ZJH2ABGWys8hMkZkKCjD82cnCG/view?usp=drive_link";
+  const content = UI_STRINGS.certifications;
+  const devContent = UI_STRINGS.development;
+  
+  const getIcon = (title: string, issuer: string) => {
+    const combined = (title + issuer).toLowerCase();
+    if (combined.includes('pmp')) return <ShieldCheck className="w-10 h-10" />;
+    if (combined.includes('marketing')) return <TrendingUp className="w-10 h-10" />;
+    if (combined.includes('economics') || combined.includes('university')) return <GraduationCap className="w-10 h-10" />;
+    if (combined.includes('ministry') || combined.includes('terhab') || combined.includes('hajj')) return <Landmark className="w-10 h-10" />;
+    if (combined.includes('video')) return <Video className="w-10 h-10" />;
+    if (combined.includes('pm') || combined.includes('google project')) return <Zap className="w-10 h-10" />;
+    return <Award className="w-10 h-10" />;
+  };
 
   return (
-    <section id="certifications" className="py-32 bg-[#0a0c1b] scroll-mt-24 relative overflow-hidden section-glow">
+    <section id="certifications" className="py-32 bg-[#020617] scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-20 gap-10">
-          <div className="max-w-2xl text-center lg:text-left rtl:lg:text-right">
-            <h2 className="text-[#c29b40] text-xs font-black uppercase tracking-[0.5em] mb-4 opacity-70">{UI_STRINGS.certs.badge[lang]}</h2>
-            <h3 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tighter">{UI_STRINGS.certs.title[lang]}</h3>
-            <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
-              {lang === 'en' 
-                ? "Validated expertise through global professional credentials in management, digital strategy, and media production."
-                : "خبرات موثقة من خلال اعتمادات مهنية عالمية في الإدارة، الاستراتيجية الرقمية، وإنتاج الميديا."}
-            </p>
+        <div className="text-center mb-24 reveal-up">
+          <div className="inline-block px-4 py-2 mb-6 rounded-lg bg-[#D4AF37]/10 text-[#D4AF37] text-[10px] font-black uppercase tracking-widest border border-[#D4AF37]/20">
+            {content.badge[lang]}
           </div>
-          <button 
-            onClick={() => window.open(consolidatedPdfUrl, '_blank')}
-            className="group flex items-center gap-3 px-10 py-5 bg-[#c29b40] text-white font-bold rounded-2xl hover:bg-[#d4b05a] transition-all shadow-xl hover:scale-105 active:scale-95 no-print"
-          >
-            <FileDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
-            {UI_STRINGS.certs.cta[lang]}
-          </button>
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+            {content.title[lang]}
+          </h2>
         </div>
 
-        {/* Professional Development Highlight Section */}
-        <div className="mb-20">
-          <div className="relative glass-card p-10 md:p-14 rounded-[3rem] border border-[#c29b40]/30 bg-gradient-to-br from-[#006233]/20 via-transparent to-transparent overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
-              <Zap className="w-48 h-48 text-[#c29b40]" />
-            </div>
-            
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full bg-[#c29b40]/10 border border-[#c29b40]/20">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#c29b40] animate-pulse"></span>
-                  <span className="text-[#c29b40] text-[12px] font-black uppercase tracking-widest">{UI_STRINGS.certs.inProgressTitle[lang]}</span>
+        {/* Development Section - Restoration */}
+        <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
+           {devContent.items.map((dev, i) => (
+             <div key={i} className="p-10 glass-card rounded-[3rem] border-l-4 border-[#D4AF37] relative overflow-hidden group">
+                <div className="absolute top-6 right-6 text-[#D4AF37]/20 group-hover:text-[#D4AF37] transition-all">
+                  <Sparkles className="w-10 h-10" />
                 </div>
-                <h4 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-                  {IN_PROGRESS_CERT.title[lang]}
-                </h4>
-                <div className="flex items-center gap-3 text-slate-300 font-medium text-lg">
-                  <div className="w-10 h-[1px] bg-[#c29b40]/50"></div>
-                  {IN_PROGRESS_CERT.issuer[lang]}
+                <div className="flex items-center gap-6 mb-8">
+                   <div className="p-4 bg-white/5 rounded-2xl text-[#D4AF37]">
+                     {dev.icon}
+                   </div>
+                   <div>
+                      <div className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-1">{devContent.badge[lang]}</div>
+                      <h3 className="text-2xl font-black text-white">{dev.title[lang]}</h3>
+                   </div>
                 </div>
-              </div>
-
-              <div className="bg-[#0a0c1b]/50 p-8 rounded-[2rem] border border-white/5">
-                <div className="flex justify-between items-end mb-6">
-                   <p className="text-white text-sm font-black uppercase tracking-[0.2em]">{UI_STRINGS.certs.expectedSoon[lang]}</p>
-                   <p className="text-[#c29b40] text-3xl font-black">{IN_PROGRESS_CERT.progress}%</p>
-                </div>
-                <div className="w-full h-5 bg-white/5 rounded-full overflow-hidden border border-white/10 p-1">
-                  <div 
-                    className="h-full bg-gradient-to-r from-[#006233] to-[#c29b40] rounded-full transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(194,155,64,0.3)]"
-                    style={{ width: `${IN_PROGRESS_CERT.progress}%` }}
-                  ></div>
-                </div>
-                <div className="mt-8 flex items-center gap-3">
-                   <ShieldCheck className="w-5 h-5 text-emerald-500" />
-                   <p className="text-slate-400 text-sm font-medium italic">Verified via Coursera & Google Partnership</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                <div className="text-slate-400 font-medium mb-2 uppercase text-[10px] tracking-widest">{dev.issuer[lang]}</div>
+                <p className="text-slate-200 font-bold bg-[#D4AF37]/10 p-4 rounded-2xl border border-[#D4AF37]/20 inline-block">
+                  {dev.status[lang]}
+                </p>
+             </div>
+           ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {CERTIFICATIONS.map((cert, index) => (
-            <div 
-              key={index}
-              className="group relative p-10 glass-card rounded-[2.5rem] hover:border-[#c29b40]/40 transition-all duration-500 flex flex-col h-full shadow-lg hover:bg-white/[0.04]"
+          {CERTIFICATIONS.map((cert, i) => (
+            <a 
+              key={i} 
+              href={cert.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group p-10 glass-card rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col h-full border border-white/5 hover:border-[#D4AF37]/30"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                <Award className="w-24 h-24 text-[#c29b40]" />
+              <div className="flex justify-between items-start mb-10">
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all shadow-xl">
+                  {getIcon(cert.title.en, cert.issuer.en)}
+                </div>
+                <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ExternalLink className="w-5 h-5 text-[#D4AF37]" />
+                </div>
               </div>
               
-              <div className="w-16 h-16 bg-[#c29b40]/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-[#c29b40]/20 transition-colors border border-[#c29b40]/20">
-                <Award className="w-9 h-9 text-[#c29b40] transition-transform group-hover:scale-110" />
-              </div>
-              
-              <h4 className="text-2xl font-black mb-4 text-white group-hover:text-[#c29b40] transition-colors leading-tight tracking-tight">
+              <h3 className="text-xl font-black text-white mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
                 {cert.title[lang]}
-              </h4>
-              <p className="text-slate-400 text-lg font-medium mb-2">{cert.issuer[lang]}</p>
-              <p className="text-slate-500 text-xs mt-auto pt-8 font-black uppercase tracking-[0.3em]">{cert.date[lang]}</p>
+              </h3>
               
-              {cert.url && (
-                <a 
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center gap-3 w-full py-4 bg-white/5 border border-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest text-white hover:bg-[#c29b40] hover:text-[#0a0c1b] hover:border-[#c29b40] transition-all no-print group/btn"
-                >
-                  {UI_STRINGS.certs.verify[lang]} 
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1" />
-                </a>
-              )}
-            </div>
+              <p className="text-slate-500 mb-2 uppercase text-[10px] font-black tracking-widest">
+                {cert.issuer[lang]}
+              </p>
+              
+              <div className="mt-auto pt-8 flex justify-between items-end border-t border-white/5">
+                <div>
+                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">{content.verifyLabel[lang]}</div>
+                  <div className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest">{cert.date[lang]}</div>
+                </div>
+                <div className="px-4 py-1.5 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-[9px] font-black text-emerald-400 tracking-widest uppercase">
+                  {content.approved[lang]}
+                </div>
+              </div>
+
+              {/* Decorative Glow */}
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#D4AF37]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
           ))}
         </div>
       </div>

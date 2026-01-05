@@ -11,35 +11,29 @@ const Services: React.FC<ServicesProps> = ({ lang }) => {
   const content = UI_STRINGS.services;
 
   return (
-    <section id="services" className="py-32 bg-[#0a0c1b] scroll-mt-24 relative overflow-hidden">
+    <section id="services" className="py-32 bg-[#0b0d17]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-            <span className="text-emerald-400 text-[11px] font-black uppercase tracking-[0.3em]">{content.badge[lang]}</span>
+        <div className="text-center mb-24">
+          <div className="inline-block px-4 py-2 mb-6 rounded-lg bg-white/5 text-[#c29b40] text-[10px] font-black uppercase tracking-widest border border-white/10">
+            {content.badge[lang]}
           </div>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">{content.title[lang]}</h3>
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+            {content.title[lang]}
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {content.items.map((service, index) => (
-            <div 
-              key={index} 
-              className="group relative p-10 glass-card rounded-[2.5rem] hover:bg-white/[0.05] transition-all duration-500 border border-white/5 hover:border-emerald-500/40"
-            >
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
-                {service.icon}
+          {content.items.map((item, i) => (
+            <div key={i} className="group p-12 glass-card rounded-[3rem] transition-all duration-500 hover:-translate-y-2 hover:border-[#c29b40]/30">
+              <div className="w-20 h-20 bg-white/5 rounded-2xl flex items-center justify-center text-[#c29b40] mb-10 group-hover:scale-110 group-hover:bg-[#c29b40] group-hover:text-black transition-all">
+                {item.icon}
               </div>
-              
-              <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-emerald-400 transition-colors">
-                {service.title[lang]}
-              </h4>
-              
+              <h3 className="text-3xl font-black text-white mb-6 tracking-tight group-hover:text-[#c29b40] transition-colors">
+                {item.title[lang]}
+              </h3>
               <p className="text-slate-400 text-lg font-light leading-relaxed">
-                {service.desc[lang]}
+                {item.desc[lang]}
               </p>
-              
-              {/* Bottom line indicator */}
-              <div className="absolute bottom-0 left-0 h-1 w-0 bg-emerald-500 transition-all duration-700 group-hover:w-full rounded-b-full"></div>
             </div>
           ))}
         </div>

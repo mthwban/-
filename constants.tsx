@@ -1,269 +1,354 @@
 
 import React from 'react';
 import { 
-  BarChart3, 
-  Users, 
-  Video, 
-  TrendingUp, 
-  Target, 
-  UserCheck, 
-  ShieldCheck, 
-  Award, 
-  LineChart, 
-  Briefcase 
+  Users, ShieldCheck, Wrench, Truck, Zap, Scale, Smartphone, 
+  GraduationCap, Landmark, Globe, Snowflake, Package, HeartPulse,
+  Video, Target, TrendingUp, Award, Eye, LineChart, Clock, FileText,
+  Facebook, Search, Camera, Dumbbell, Microscope, Shield, 
+  ClipboardCheck, HardHat, Presentation, Settings, MapPin
 } from 'lucide-react';
-import { ExperienceItem, CertificationItem, SkillGroup } from './types';
+import { GalleryItem } from './types';
 
 export const CONTACT_INFO = {
   phone: "+966566162529",
   whatsapp: "966566162529",
   email: "M.THWBAN@GMAIL.COM",
-  linkedin: "https://www.linkedin.com/in/mohamed-imijine-32093b362"
+  linkedin: "https://www.linkedin.com/in/mohamed-imijine-32093b362",
+  resume: "https://drive.google.com/file/d/1x0cn40NvPvJuYFmlmFIjDbccFW1xc5kR/view?usp=sharing"
 };
 
-// Colors based on branding: Imagine Deep Green #006233, Gold #c29b40
-export const BRAND_COLORS = {
-  primary: "#006233",
-  secondary: "#c29b40"
+export const IMAGES = {
+  profile: "https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30",
+  fieldSelfie: "https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30", 
+  truckOps: "https://lh3.googleusercontent.com/d/1BfVl4x2P6_zS88I-F1_846-x_yvP-m5W", 
+  industrialFacility: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200", 
 };
 
 export const UI_STRINGS = {
+  brand: { en: "THWBAN", ar: "ثوبان" },
   nav: {
-    about: { en: "About", ar: "نبذة" },
     services: { en: "Expertise", ar: "الخبرات" },
-    experience: { en: "Career", ar: "المسيرة" },
-    certifications: { en: "Credentials", ar: "الشهادات" },
+    about: { en: "Strategy", ar: "الاستراتيجية" },
+    vision: { en: "Vision", ar: "الرؤية" },
+    experience: { en: "Command", ar: "القيادة" },
+    portfolio: { en: "Field Proof", ar: "الإثبات الميداني" },
+    certifications: { en: "Milestones", ar: "الإنجازات" },
     skills: { en: "Skills", ar: "المهارات" },
-    process: { en: "Process", ar: "المنهجية" },
-    contact: { en: "Contact", ar: "تواصل" }
+    contact: { en: "Connect", ar: "تواصل" },
   },
   hero: {
-    status: { en: "Operations and Business Analysis Professional", ar: "محترف تحليل أعمال وتشغيل" },
-    nameFirst: { en: "Mohamed Thwban", ar: "محمد ثوبان" },
-    nameLast: { en: "Imijine", ar: "إميجن" },
-    headline: { 
-      en: "Business Analyst | Field Operations Lead | Content Strategist | Economist", 
-      ar: "محلل أعمال | قائد عمليات ميدانية | استراتيجي محتوى | اقتصادي" 
+    badge: { en: "OPERATIONS & BUSINESS ANALYSIS PROFESSIONAL", ar: "محترف تحليل أعمال وعمليات" },
+    nameFirst: { en: "Mohamed", ar: "محمد" },
+    nameLast: { en: "Thwban", ar: "ثوبان" },
+    analyst: { en: "STRATEGIC ANALYST", ar: "محلل استراتيجي" },
+    headline: { en: "Precision Execution Powered by Economic Logic.", ar: "دقة التنفيذ مدعومة بالمنطق الاقتصادي الرصين." },
+    ctaPrimary: { en: "Field Evidence", ar: "الإثبات الميداني" },
+    ctaSecondary: { en: "Download CV", ar: "تحميل السيرة الذاتية" },
+    ctaContact: { en: "Hire Strategist", ar: "تواصل للتوظيف" },
+    pmpBadge: { en: "PMP Candidate", ar: "مرشح PMP" },
+    pmpHours: { en: "158+ Accredited Hours", ar: "158+ ساعة معتمدة" },
+    trainingLabel: { en: "Global Training", ar: "التدريب العالمي" },
+    trainingDetail: { en: "180+ Hours Certified", ar: "180+ ساعة معتمدة" },
+    trainingCounter: { en: "Specialized Training Hours", ar: "ساعة تدريبية معتمدة" },
+    bornIn: { en: "Born in Saudi Arabia", ar: "مواليد المملكة العربية السعودية" }
+  },
+  about: {
+    badge: { en: "The ROI Logic", ar: "منطق العائد" },
+    title: { en: "Operational Strategy.", ar: "الاستراتيجية التشغيلية." },
+    text: { 
+      en: "I bridge the gap between economic theory and field execution. With a background in Economics and a decade of field command, I ensure every operational move is backed by financial logic.",
+      ar: "أقوم بسد الفجوة بين النظرية الاقتصادية والتنفيذ الميداني. مع خلفية في الاقتصاد وعقد من القيادة الميدانية، أضمن أن كل خطوة تشغيلية مدعومة بمنطق مالي وعلمي رصين."
     },
-    ctaExplore: { en: "View Expertise", ar: "استكشاف الخبرات" },
-    ctaContact: { en: "Start Collaboration", ar: "بدء التعاون" }
+    metrics: [
+      { value: "10y+", label: { en: "Field Command", ar: "قيادة ميدانية" } },
+      { value: "40k", label: { en: "Units Managed", ar: "وحدة مدارة" } },
+      { value: "100%", label: { en: "HSE Integrity", ar: "نزاهة السلامة" } }
+    ],
+    roiTitle: { en: "Strategic Efficiency", ar: "الكفاءة الاستراتيجية" },
+    roiDesc: { en: "Maximizing output while strictly minimizing operational waste through data-driven auditing.", ar: "تعظيم المخرجات مع تقليل الهدر التشغيلي بشكل صارم من خلال التدقيق القائم على البيانات." }
+  },
+  vision: {
+    badge: { en: "Future Proof", ar: "جاهزية المستقبل" },
+    title: { en: "Architect of Precision.", ar: "مهندس الدقة." },
+    text: { 
+      en: "To transform complex field operations into streamlined, data-backed economic successes.",
+      ar: "تحويل العمليات الميدانية المعقدة إلى نجاحات اقتصادية مبسطة ومدعومة بالبيانات والتحليل الاقتصادي الدقيق."
+    },
+    maxRoi: { en: "Maximum ROI", ar: "أقصى عائد" },
+    preciseEco: { en: "Precise Economic Logic", ar: "منطق اقتصادي دقيق" },
+    minWaste: { en: "Minimal Waste", ar: "أدنى هدر" },
+    strictControl: { en: "Strict Process Control", ar: "رقابة صارمة على العمليات" }
   },
   services: {
-    badge: { en: "Core Pillars", ar: "الركائز الأساسية" },
-    title: { en: "Integrated Strategic Solutions", ar: "حلول استراتيجية متكاملة" },
+    badge: { en: "Core Expertise", ar: "الخبرات الجوهرية" },
+    title: { en: "Strategic Solutions.", ar: "حلول استراتيجية." },
     items: [
-      {
-        icon: <LineChart className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Operations Analysis", ar: "تحليل العمليات" },
-        desc: { 
-          en: "Identifying operational gaps and enhancing workflow efficiency through data-driven insights.",
-          ar: "تحديد الفجوات التشغيلية وتعزيز كفاءة سير العمل من خلال الرؤى المستندة إلى البيانات."
-        }
+      { 
+        icon: <Target className="w-12 h-12" />, 
+        title: { en: "Operations Analysis", ar: "تحليل العمليات" }, 
+        desc: { en: "Deep-dive auditing of field workflows to identify bottlenecks and efficiency gains.", ar: "تدقيق عميق في سير العمل الميداني لتحديد الاختناقات وتحقيق مكاسب الكفاءة." } 
       },
-      {
-        icon: <Target className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Strategic Marketing", ar: "التسويق الاستراتيجي" },
-        desc: { 
-          en: "Developing digital initiatives to increase brand awareness and market positioning.",
-          ar: "تطوير المبادرات الرقمية لزيادة الوعي بالعلامة التجارية والتموضع في السوق."
-        }
+      { 
+        icon: <Zap className="w-12 h-12" />, 
+        title: { en: "Project Command", ar: "قيادة المشاريع" }, 
+        desc: { en: "Leading high-stakes projects from initiation to closure with PMP-aligned methodology.", ar: "قيادة المشاريع عالية الأهمية من البداية إلى الإغلاق بمنهجية متوافقة مع PMP وجوجل." } 
       },
-      {
-        icon: <Video className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Visual Storytelling", ar: "السرد القصصي المرئي" },
-        desc: { 
-          en: "High-end video production and cinematography to communicate brand value effectively.",
-          ar: "إنتاج فيديو وتصوير سينمائي رفيع المستوى لإيصال قيمة العلامة التجارية بفعالية."
-        }
+      { 
+        icon: <TrendingUp className="w-12 h-12" />, 
+        title: { en: "Growth Strategy", ar: "استراتيجية النمو" }, 
+        desc: { en: "Integrating digital marketing ROI with operational efficiency to scale business impact.", ar: "دمج عائد التسويق الرقمي مع الكفاءة التشغيلية لتوسيع أثر الأعمال." } 
       }
     ]
   },
-  about: {
-    badge: { en: "Professional Profile", ar: "الملف المهني" },
-    title: { 
-      en: "Precision in Analysis. Excellence in Execution.", 
-      ar: "الدقة في التحليل. التميز في التنفيذ." 
-    },
-    p1: { 
-      en: "A professional in business and operations analysis, with extensive field experience in performance optimization and operational efficiency. My academic background in Economics has shaped my analytical methodology and my understanding of the deep connection between processes and outcomes. This enables me to conduct comprehensive Business Analysis that supports strategic, data-driven decision-making in diverse field environments.", 
-      ar: "خبير في تحليل الأعمال والعمليات، بخبرة ميدانية واسعة في تحسين الأداء ورفع الكفاءة التشغيلية. لقد صقلت دراستي للاقتصاد منهجيتي التحليلية وعمقت فهمي للارتباط الوثيق بين سير العمليات والنتائج المحققة، مما يمكنني من تقديم تحليل أعمال شامل يدعم اتخاذ القرارات الاستراتيجية القائمة على البيانات في مختلف البيئات الميدانية." 
-    },
-    p2: { 
-      en: "Born in Makkah, Saudi Arabia. Whether overseeing Hajj site operations or leading multi-national election logistics, I am committed to delivering high-quality results and contributing to excellence-driven organizations.", 
-      ar: "مواليد مكة المكرمة، المملكة العربية السعودية. سواء كنت أشرف على عمليات مواقع الحج أو أقود لوجستيات انتخابات دولية، فأنا ملتزم بتقديم نتائج عالية الجودة والمساهمة في المؤسسات التي تسعى للتميز." 
-    },
-    p3: { en: "Ready for your next milestone.", ar: "جاهز لإنجازك القادم." },
-    origin: { en: "Born in Makkah, Saudi Arabia", ar: "مواليد مكة المكرمة، المملكة العربية السعودية" }
-  },
-  experience: {
-    badge: { en: "Work History", ar: "السجل المهني" },
-    title: { en: "Professional Journey", ar: "المسار المهني" }
-  },
-  certs: {
-    badge: { en: "Validation", ar: "الاعتمادات" },
-    title: { en: "Professional Certifications", ar: "الشهادات المهنية" },
-    cta: { en: "Download Full CV", ar: "تحميل السيرة الذاتية" },
-    verify: { en: "Verify Credential", ar: "تحقق من الشهادة" },
-    inProgressTitle: { en: "Professional Development", ar: "التطوير المهني" },
-    expectedSoon: { en: "Currently In Progress (Expected completion soon)", ar: "قيد التنفيذ حالياً (الموعد المتوقع قريباً)" }
-  },
-  skills: {
-    badge: { en: "Competencies", ar: "الكفاءات" },
-    title: { en: "Technical & Leadership Mastery", ar: "الإتقان التقني والقيادي" }
-  },
   process: {
-    badge: { en: "Workflow", ar: "سير العمل" },
-    title: { en: "Methodical Approach to Growth", ar: "نهج منهجي للنمو" },
+    badge: { en: "Execution Framework", ar: "إطار التنفيذ" },
+    title: { en: "The Precision Cycle.", ar: "دورة الدقة التشغيلية." },
     steps: [
       {
-        icon: <Briefcase className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Analysis", ar: "التحليل" },
-        desc: { en: "In-depth review of existing workflows and business objectives.", ar: "مراجعة متعمقة لسير العمل الحالي وأهداف العمل." }
+        icon: <Search className="w-6 h-6" />,
+        title: { en: "Diagnostic Audit", ar: "التدقيق التشخيصي" },
+        desc: { en: "Mapping existing workflows to pinpoint economic leakages.", ar: "رسم خرائط سير العمل الحالية لتحديد مواضع التسرب الاقتصادي." }
       },
       {
-        icon: <Target className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Strategy", ar: "الاستراتيجية" },
-        desc: { en: "Developing data-driven plans to address identified gaps.", ar: "تطوير خطط مستندة إلى البيانات لمعالجة الفجوات المحددة." }
+        icon: <Presentation className="w-6 h-6" />,
+        title: { en: "Strategic Design", ar: "التصميم الاستراتيجي" },
+        desc: { en: "Architecting scalable operations backed by financial ROI logic.", ar: "هندسة عمليات قابلة للتطوير مدعومة بمنطق العائد المالي." }
       },
       {
-        icon: <ShieldCheck className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Execution", ar: "التنفيذ" },
-        desc: { en: "Implementing solutions with rigorous quality assurance.", ar: "تنفيذ الحلول مع ضمان الجودة الصارم." }
+        icon: <Zap className="w-6 h-6" />,
+        title: { en: "Tactical Launch", ar: "الإطلاق التكتيكي" },
+        desc: { en: "Executing high-pressure field operations with PMP rigor.", ar: "تنفيذ العمليات الميدانية عالية الضغط بصرامة منهجية PMP." }
       },
       {
-        icon: <TrendingUp className="w-8 h-8 text-[#c29b40]" />,
-        title: { en: "Optimization", ar: "التحسين" },
-        desc: { en: "Continuous monitoring and refinement for maximum impact.", ar: "المراقبة والتحسين المستمر لتحقيق أقصى قدر من التأثير." }
+        icon: <LineChart className="w-6 h-6" />,
+        title: { en: "Performance Scale", ar: "توسيع الأداء" },
+        desc: { en: "Refining data outputs to ensure long-term operational stability.", ar: "تحسين مخرجات البيانات لضمان الاستقرار التشغيلي طويل الأمد." }
+      }
+    ],
+    footer: { en: "Precision in process is the bridge between goals and results.", ar: "الدقة في العمليات هي الجسر بين الأهداف والنتائج." }
+  },
+  experience: {
+    badge: { en: "Career Milestones", ar: "المحطات المهنية" },
+    title: { en: "Field History.", ar: "التاريخ الميداني." },
+    climateLogistics: { en: "Cold-Chain Control", ar: "التحكم بسلسلة التبريد" },
+    fridgeCommand: { en: "Industrial Fridge Ops", ar: "عمليات الثلاجات الصناعية" },
+    outputFlow: { en: "Output Flow", ar: "تدفق المخرجات" },
+    globalDispatch: { en: "Global Supply Chain", ar: "سلسلة التوريد العالمية" },
+    healthSafety: { en: "Safety Command", ar: "قيادة السلامة" },
+    healthLead: { en: "HSE Leadership", ar: "قيادة الصحة والسلامة" }
+  },
+  fieldEvidence: {
+    title: { en: "Visual Proof.", ar: "الإثبات البصري." },
+    location: { en: "Al-Muaisem Complex, Makkah", ar: "مجمع المعيصم، مكة المكرمة" },
+    opMetric: { en: "Op Metric", ar: "مقياس العمليات" },
+    workflowAnalysis: { en: "Workflow Analysis", ar: "تحليل سير العمل" },
+    viewLogs: { en: "View Field Logs", ar: "عرض السجلات الميدانية" },
+    cases: [
+      {
+        id: "c1",
+        image: "truckOps",
+        kpi: "40,000+",
+        title: { en: "Logistics Optimization", ar: "تحسين اللوجستيات" },
+        description: { en: "Coordinating high-volume industrial transport with zero downtime during Hajj seasons.", ar: "تنسيق النقل الصناعي عالي الحجم مع صفر وقت توقف خلال مواسم الحج." },
+        steps: [
+          { icon: <Truck className="w-5 h-5" />, label: { en: "Transport Sync", ar: "مزامنة النقل" } },
+          { icon: <Clock className="w-5 h-5" />, label: { en: "Real-time Tracking", ar: "تتبع فوري" } }
+        ]
+      },
+      {
+        id: "c2",
+        image: "industrialFacility",
+        kpi: "99.9%",
+        title: { en: "Facility Readiness", ar: "جاهزية المرافق" },
+        description: { en: "Maintaining operational integrity in complex industrial environments and cooling systems.", ar: "الحفاظ على النزاهة التشغيلية في البيئات الصناعية المعقدة وأنظمة التبريد." },
+        steps: [
+          { icon: <Wrench className="w-5 h-5" />, label: { en: "Maintenance", ar: "الصيانة" } },
+          { icon: <Shield className="w-5 h-5" />, label: { en: "HSE Compliance", ar: "الالتزام بالسلامة" } }
+        ]
+      }
+    ]
+  },
+  certifications: {
+    badge: { en: "Verified Credentials", ar: "الاعتمادات الموثقة" },
+    title: { en: "Professional Validation.", ar: "التوثيق المهني." },
+    approved: { en: "VERIFIED", ar: "موثق" },
+    verifyLabel: { en: "Click to Verify", ar: "انقر للتحقق" }
+  },
+  development: {
+    badge: { en: "Continuous Learning", ar: "التعلم المستمر" },
+    title: { en: "Strategic Growth Paths.", ar: "مسارات النمو الاستراتيجي." },
+    items: [
+      {
+        title: { en: "PMP® Final Prep", ar: "التحضير النهائي لـ PMP®" },
+        issuer: { en: "PMI Global", ar: "معهد PMI العالمي" },
+        status: { en: "Experience Approved - Final Exam Phase", ar: "تم اعتماد الخبرة - مرحلة الاختبار النهائي" },
+        icon: <ShieldCheck className="w-8 h-8" />
+      },
+      {
+        title: { en: "Advanced Digital Marketing", ar: "التسويق الرقمي المتقدم" },
+        issuer: { en: "Meta / Google", ar: "ميتا / جوجل" },
+        status: { en: "Integrating Social ROI into Operations", ar: "دمج العائد الاجتماعي في العمليات" },
+        icon: <TrendingUp className="w-8 h-8" />
       }
     ]
   },
   contact: {
-    badge: { en: "Get in Touch", ar: "تواصل معي" },
-    title: { en: "Let's innovate together.", ar: "لنبتكر معاً." },
-    emailLabel: { en: "Direct Email", ar: "البريد المباشر" },
-    linkedinLabel: { en: "LinkedIn Profile", ar: "لينكد إن" },
-    locationLabel: { en: "Location", ar: "الموقع" },
-    locationValue: { en: "Saudi Arabia", ar: "المملكة العربية السعودية" },
-    footerRights: { en: "All Rights Reserved", ar: "جميع الحقوق محفوظة" }
+    title: { en: "Initiate Command.", ar: "بدء التواصل." },
+    subtitle: { en: "Ready to optimize your next operation?", ar: "جاهز لتحسين عمليتك القادمة؟" },
+    linkedin: { en: "Connect on LinkedIn", ar: "تواصل عبر لينكد إن" },
+    footer: { en: "Strategic Operations Architect", ar: "مهندس العمليات الاستراتيجية" }
   },
-  floating: {
-    whatsapp: { en: "WhatsApp Message", ar: "مراسلتي عبر واتساب" }
+  ai: {
+    suggested: [
+      { en: "Verify Certifications", ar: "تحقق من الشهادات" },
+      { en: "Analyze Job Compatibility", ar: "تحليل الملاءمة الوظيفية" },
+      { en: "View Hajj Field Logs", ar: "عرض سجلات الحج الميدانية" }
+    ]
+  },
+  hobbies: {
+    title: { en: "Operational Discipline", ar: "الانضباط التشغيلي" },
+    items: [
+      { icon: <Dumbbell className="w-6 h-6" />, title: { en: "Endurance", ar: "التحمل" }, desc: { en: "Mental and physical resilience training.", ar: "التدريب على المرونة الذهنية والبدنية." } },
+      { icon: <Camera className="w-6 h-6" />, title: { en: "Visual Audit", ar: "التدقيق البصري" }, desc: { en: "Capturing precision in industrial environments.", ar: "التقاط الدقة في البيئات الصناعية." } },
+      { icon: <Video className="w-6 h-6" />, title: { en: "Media Logic", ar: "منطق الوسائط" }, desc: { en: "Structural storytelling and editing.", ar: "سرد القصص الهيكلي والتحرير." } }
+    ]
   }
 };
 
-export const EXPERIENCES: ExperienceItem[] = [
+export const CERTIFICATIONS = [
   {
-    title: { en: "Business Analyst – Operations & Maintenance", ar: "محلل أعمال – التشغيل والصيانة" },
-    company: { en: "Manasik Al-Mulabbi Co. – King Abdulaziz Project (Royal Commission)", ar: "شركة مناسك الملبي – مشروع الملك عبدالعزيز (الهيئة الملكية)" },
-    period: { en: "10/2024 – 10/2025", ar: "١٠/٢٠٢٤ – ١٠/٢٠٢٥" },
-    description: [
-      { en: "Oversaw year-round site operations and maintenance for Hady and Adah projects.", ar: "الإشراف على عمليات الموقع وصيانته طوال العام لمشاريع الهدي والأضاحي." },
-      { en: "Ensured workflow continuity and team communication during the Hajj season through structured planning.", ar: "ضمان استمرارية سير العمل وتواصل الفرق خلال موسم الحج من خلال التخطيط الهيكلي." },
-      { en: "Managed real-time daily reporting and identified operational efficiency gaps.", ar: "إدارة التقارير اليومية الفورية وتحديد فجوات الكفاءة التشغيلية." }
-    ],
-    tags: [
-      { en: "Business Analysis", ar: "تحليل أعمال" },
-      { en: "Field Ops", ar: "عمليات ميدانية" },
-      { en: "Hajj Season", ar: "موسم الحج" }
-    ]
-  },
-  {
-    title: { en: "Committee Member – Presidential Elections", ar: "عضو لجنة – الانتخابات الرئاسية" },
-    company: { en: "Mauritanian Consulate, Jeddah", ar: "القنصلية الموريتانية بجدة" },
-    period: { en: "04/2023 – 08/2023", ar: "٠٤/٢٠٢٣ – ٠٨/٢٠٢٣" },
-    description: [
-      { en: "Organized voter registration and electoral lists with transparency and accuracy.", ar: "تنظيم تسجيل الناخبين والقوائم الانتخابية بشفافية ودقة." },
-      { en: "Coordinated election operations and ensured compliance with official high-responsibility standards.", ar: "تنسيق عمليات الانتخابات وضمان الامتثال للمعايير الرسمية عالية المسؤولية." }
-    ],
-    tags: [
-      { en: "Organization", ar: "تنظيم" },
-      { en: "Compliance", ar: "امتثال" }
-    ]
-  },
-  {
-    title: { en: "Marketing Specialist", ar: "أخصائي تسويق" },
-    company: { en: "Construction & Transportation Companies", ar: "شركات الإنشاءات والنقل" },
-    period: { en: "2020 – 2023", ar: "٢٠٢٠ – ٢٠٢٣" },
-    description: [
-      { en: "Developed digital marketing initiatives to increase brand awareness.", ar: "تطوير مبادرات التسويق الرقمي لزيادة الوعي بالعلامة التجارية." },
-      { en: "Explored effective online communication strategies to enhance market presence.", ar: "استكشاف استراتيجيات تواصل فعالة عبر الإنترنت لتعزيز التواجد في السوق." }
-    ],
-    tags: [
-      { en: "Digital Marketing", ar: "تسويق رقمي" },
-      { en: "Strategy", ar: "استراتيجية" }
-    ]
-  }
-];
-
-export const CERTIFICATIONS: CertificationItem[] = [
-  {
-    title: { en: "Google Project Management Professional Certificate", ar: "شهادة جوجل الاحترافية في إدارة المشاريع" },
-    issuer: { en: "Coursera", ar: "كورسيرا" },
-    date: { en: "2024", ar: "٢٠٢٤" },
+    title: { en: "Google Project Management Certificate", ar: "شهادة جوجل الاحترافية في إدارة المشاريع" },
+    issuer: { en: "Google / Coursera", ar: "جوجل / كورسيرا" },
+    date: { en: "Oct 2025", ar: "أكتوبر 2025" },
     url: "https://coursera.org/verify/professional-cert/BB2H5F57UU1E"
   },
   {
-    title: { en: "Small Business Social Media Marketing on Facebook", ar: "التسويق للمشاريع الصغيرة عبر موقع التواصل فيسبوك" },
-    issuer: { en: "Coursera Project Network", ar: "كورسيرا" },
-    date: { en: "2023", ar: "٢٠٢٣" },
-    url: "https://coursera.org/verify/1YKOO0BLUAC4"
-  },
-  {
-    title: { en: "Leading Teams: Developing as a Leader", ar: "قيادة الفرق: التطور كقائد" },
+    title: { en: "Leading Teams (University of Michigan)", ar: "قيادة الفرق (جامعة ميشيغان)" },
     issuer: { en: "University of Michigan", ar: "جامعة ميشيغان" },
-    date: { en: "2024", ar: "٢٠٢٤" },
+    date: { en: "Nov 2025", ar: "نوفمبر 2025" },
     url: "https://coursera.org/verify/HZ3HI46GM6TI"
   },
   {
-    title: { en: "Ready to Roll – The Video Production Process", ar: "عملية إنتاج الفيديو - جاهز للبدء" },
+    title: { en: "Social Media Marketing for Small Business", ar: "تسويق المشاريع الصغيرة عبر التواصل الاجتماعي" },
+    issuer: { en: "Meta / Facebook", ar: "ميتا / فيسبوك" },
+    date: { en: "Oct 2025", ar: "أكتوبر 2025" },
+    url: "https://coursera.org/verify/1YKOO0BLUAC4"
+  },
+  {
+    title: { en: "Video Production Process", ar: "عملية إنتاج الفيديو" },
     issuer: { en: "University of Colorado Boulder", ar: "جامعة كولورادو بولدر" },
-    date: { en: "2024", ar: "٢٠٢٤" },
+    date: { en: "Oct 2025", ar: "أكتوبر 2025" },
     url: "https://coursera.org/verify/MNQTL62TBRVL"
   },
   {
-    title: { en: "“Tirhab” Soft Skills for Frontline Employees", ar: "برنامج ترحاب للمهارات الناعمة (خدمة ضيوف الرحمن)" },
-    issuer: { en: "Ministry of Hajj and Umrah", ar: "وزارة الحج والعمرة" },
-    date: { en: "2024", ar: "٢٠٢٤" },
+    title: { en: "Tirhab Soft Skills Program", ar: "برنامج ترحاب للمهارات الناعمة (خدمة ضيوف الرحمن)" },
+    issuer: { en: "Ministry of Hajj & Umrah", ar: "وزارة الحج والعمرة" },
+    date: { en: "June 2022", ar: "يونيو 2022" },
     url: "https://www.terhab-hajj.com/Certification/4"
+  },
+  {
+    title: { en: "Grouping (Tafweej) Organization Training", ar: "تأهيل العاملين في منظومة التفويج" },
+    issuer: { en: "Ministry of Hajj & Umrah", ar: "وزارة الحج والعمرة" },
+    date: { en: "July 2022", ar: "يوليو 2022" },
+    url: "https://www.terhab-hajj.com/Certification/5"
+  },
+  {
+    title: { en: "Bachelor of Economics", ar: "بكالوريوس في الاقتصاد" },
+    issuer: { en: "Umm Al-Qura University", ar: "جامعة أم القرى" },
+    date: { en: "Aug 2018", ar: "أغسطس 2018" },
+    url: "https://uqu.edu.sa"
   }
 ];
 
-export const IN_PROGRESS_CERT = {
-  title: { en: "Google Digital Marketing & E-Commerce", ar: "جوجل في التسويق الرقمي والتجارة الإلكترونية" },
-  issuer: { en: "Coursera in partnership with Google", ar: "كورسيرا بالشراكة مع جوجل" },
-  progress: 88,
-  status: { en: "Currently In Progress (Expected completion soon)", ar: "قيد التنفيذ حالياً (الموعد المتوقع قريباً)" }
-};
+export const EXPERIENCES = [
+  {
+    title: { en: "Operations & Business Analyst", ar: "محلل أعمال وعمليات" },
+    company: { en: "Manassik Al-Mulabbi Co. – Royal Commission", ar: "شركة مناسك الملبي – الهيئة الملكية" },
+    period: { en: "2024 – 2025", ar: "2024 – 2025" },
+    description: [
+      { en: "Oversaw high-capacity industrial facilities at Al-Muaisem Complex 2.", ar: "الإشراف على المرافق الصناعية عالية السعة في مجمع المعيصم 2." },
+      { en: "Developed structured tactical reports for executive decision-making.", ar: "تطوير تقارير تكتيكية هيكلية لاتخاذ القرار التنفيذي." },
+      { en: "Ensured seamless logistics coordination during peak Hajj operations.", ar: "ضمان تنسيق لوجستي سلس خلال ذروة عمليات الحج." }
+    ],
+    tags: [{ en: "Industrial Ops", ar: "العمليات الصناعية" }, { en: "Analytics", ar: "التحليلات" }, { en: "HSE", ar: "السلامة" }]
+  },
+  {
+    title: { en: "Digital Marketing Specialist", ar: "أخصائي تسويق رقمي" },
+    company: { en: "Freelance / Strategic Growth Projects", ar: "مشاريع نمو استراتيجية مستقلة" },
+    period: { en: "2023 – Present", ar: "2023 – الحالي" },
+    description: [
+      { en: "Designing high-conversion marketing funnels for SME growth.", ar: "تصميم مسارات تسويقية عالية التحويل لنمو المشاريع الصغيرة والمتوسطة." },
+      { en: "Analyzing audience segmentation data via Meta/Facebook logic.", ar: "تحليل بيانات تقسيم الجمهور عبر منطق ميتا/فيسبوك." }
+    ],
+    tags: [{ en: "Marketing", ar: "التسويق" }, { en: "Growth", ar: "النمو" }, { en: "Meta Certified", ar: "معتمد من ميتا" }]
+  },
+  {
+    title: { en: "Electoral Steering Committee Member", ar: "عضو لجنة تسيير الانتخابات" },
+    company: { en: "Mauritanian Consulate, Jeddah", ar: "القنصلية الموريتانية، جدة" },
+    period: { en: "2023", ar: "2023" },
+    description: [
+      { en: "Controlled logistical integrity for voter registration workflows.", ar: "التحكم في النزاهة اللوجستية لسير عمل تسجيل الناخبين." },
+      { en: "Managed cross-functional coordination for national missions.", ar: "إدارة التنسيق عبر الوظائف للمهام الوطنية." }
+    ],
+    tags: [{ en: "Governance", ar: "الحوكمة" }, { en: "Logistics", ar: "اللوجستيات" }]
+  },
+  {
+    title: { en: "Field Commander (10 Hajj Seasons)", ar: "قائد ميداني (10 مواسم حج)" },
+    company: { en: "Ministry of Hajj & Umrah Sector", ar: "قطاع وزارة الحج والعمرة" },
+    period: { en: "2013 – 2023", ar: "2013 – 2023" },
+    description: [
+      { en: "Led Tafweej (Grouping) units in high-pressure field conditions.", ar: "قيادة وحدات التفويج في ظروف ميدانية عالية الضغط." },
+      { en: "Monitored crowd safety KPIs and real-time operational flows.", ar: "مراقبة مؤشرات أداء سلامة الحشود والتدفقات التشغيلية اللحظية." }
+    ],
+    tags: [{ en: "Crowd Command", ar: "قيادة الحشود" }, { en: "Crisis Ops", ar: "عمليات الأزمات" }]
+  }
+];
 
-export const SKILLS: SkillGroup[] = [
+export const SKILLS = [
   {
-    category: { en: "Operations & Analysis", ar: "التشغيل والتحليل" },
-    icon: <BarChart3 className="w-6 h-6 text-[#c29b40]" />,
+    category: { en: "Strategic Command", ar: "القيادة الاستراتيجية" },
     items: [
-      { en: "Process Improvement", ar: "تحسين العمليات" },
-      { en: "Data Analysis", ar: "تحليل البيانات" },
-      { en: "Reporting", ar: "إعداد التقارير" },
-      { en: "Quality Assurance", ar: "ضمان الجودة" }
-    ]
+      { en: "Workflow Sync", ar: "مزامنة سير العمل" },
+      { en: "Tactical Reporting", ar: "التقارير التكتيكية" },
+      { en: "ROI Logic", ar: "منطق العائد" }
+    ],
+    icon: <Zap className="w-8 h-8" />
   },
   {
-    category: { en: "Visual & Digital production", ar: "الإنتاج المرئي والرقمي" },
-    icon: <Video className="w-6 h-6 text-[#c29b40]" />,
+    category: { en: "Technical Intelligence", ar: "الذكاء الفني" },
     items: [
-      { en: "Cinematography", ar: "تصوير سينمائي" },
-      { en: "Video Editing", ar: "مونتاج الفيديو" },
-      { en: "Digital Marketing", ar: "تسويق رقمي" },
-      { en: "Visual Content", ar: "محتوى مرئي" }
-    ]
+      { en: "Process Audit", ar: "تدقيق العمليات" },
+      { en: "Visual Production", ar: "الإنتاج البصري" },
+      { en: "Digital Strategy", ar: "الاستراتيجية الرقمية" }
+    ],
+    icon: <Settings className="w-8 h-8" />
   },
   {
-    category: { en: "Leadership & Strategy", ar: "القيادة والاستراتيجية" },
-    icon: <UserCheck className="w-6 h-6 text-[#c29b40]" />,
+    category: { en: "Core Discipline", ar: "الانضباط الجوهري" },
     items: [
-      { en: "Team Leadership", ar: "قيادة الفرق" },
-      { en: "Communication", ar: "مهارات التواصل" },
-      { en: "Time Management", ar: "إدارة الوقت" },
-      { en: "Critical Thinking", ar: "تفكير نقدي" }
-    ]
+      { en: "Crisis Ops", ar: "عمليات الأزمات" },
+      { en: "HSE Integrity", ar: "نزاهة السلامة" },
+      { en: "Team Alignment", ar: "محاذاة الفرق" }
+    ],
+    icon: <ShieldCheck className="w-8 h-8" />
+  }
+];
+
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    src: IMAGES.truckOps,
+    title: { en: "Hajj Logistics", ar: "لوجستيات الحج" },
+    category: { en: "Field Ops", ar: "عمليات ميدانية" },
+    caption: { en: "Managing 40k+ production units during seasonal peak.", ar: "إدارة أكثر من 40 ألف وحدة إنتاج خلال الذروة الموسمية." },
+    phase: { en: "Execution", ar: "التنفيذ" },
+    kpi: { en: "40k Units", ar: "40 ألف وحدة" }
+  },
+  {
+    src: IMAGES.industrialFacility,
+    title: { en: "Industrial O&M", ar: "التشغيل والصيانة" },
+    category: { en: "Facility Mgmt", ar: "إدارة المرافق" },
+    caption: { en: "Overseeing critical industrial infrastructure and cooling systems.", ar: "الإشراف على البنية التحتية الصناعية الحيوية وأنظمة التبريد." },
+    phase: { en: "Control", ar: "الرقابة" },
+    kpi: { en: "99.9% Uptime", ar: "99.9% جاهزية" }
   }
 ];
