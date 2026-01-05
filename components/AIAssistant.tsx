@@ -42,12 +42,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
     setIsTyping(true);
 
     try {
-      const apiKey = process.env.API_KEY;
-      if (!apiKey) {
-        throw new Error("API Key Missing");
-      }
-
-      const ai = new GoogleGenAI({ apiKey });
+      // Use the required direct initialization with process.env.API_KEY
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: textToSend,
@@ -55,9 +51,11 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
           systemInstruction: lang === 'ar' ? "أنت مستشار توظيف خبير، وظيفتك الترويج لمهارات محمد ثوبان بناءً على سيرته الذاتية." : "You are an expert recruiter, your job is to promote Mohamed Thwban's skills.",
         }
       });
+      // Correctly access .text property from GenerateContentResponse
       setMessages(prev => [...prev, { role: 'bot', text: response.text || "..." }]);
     } catch (e) {
-      setMessages(prev => [...prev, { role: 'bot', text: lang === 'ar' ? 'الخدمة غير متوفرة حالياً (API Key required).' : "Service unavailable (API Key required)." }]);
+      // Removed mention of API Key in error message to comply with security requirements
+      setMessages(prev => [...prev, { role: 'bot', text: lang === 'ar' ? 'الخدمة غير متوفرة حالياً.' : "Service unavailable." }]);
     } finally {
       setIsTyping(false);
     }

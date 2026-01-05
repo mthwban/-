@@ -1,20 +1,20 @@
 
 import React, { useState } from 'react';
-import { Language } from './types';
-import Navbar from './Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Visionary from './components/Visionary';
-import Services from './components/Services';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import FieldEvidence from './components/FieldEvidence';
-import Certifications from './components/Certifications';
-import Contact from './components/Contact';
-import AIAssistant from './components/AIAssistant';
-import FloatingContact from './components/FloatingContact';
-import Process from './components/Process';
-import { UI_STRINGS } from './constants';
+import { Language } from './types.ts';
+import Navbar from './Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import Visionary from './components/Visionary.tsx';
+import Services from './components/Services.tsx';
+import Experience from './components/Experience.tsx';
+import Skills from './components/Skills.tsx';
+import FieldEvidence from './components/FieldEvidence.tsx';
+import Certifications from './components/Certifications.tsx';
+import Contact from './components/Contact.tsx';
+import AIAssistant from './components/AIAssistant.tsx';
+import FloatingContact from './components/FloatingContact.tsx';
+import Process from './components/Process.tsx';
+import { UI_STRINGS } from './constants.tsx';
 
 const Hobbies = ({ lang }: { lang: Language }) => (
   <section className="py-24 bg-[#020617]">
@@ -43,7 +43,6 @@ const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen bg-[#020617] text-slate-100 selection:bg-[#D4AF37] selection:text-black ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#D4AF37]/5 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-500/5 blur-[120px] rounded-full"></div>
@@ -51,7 +50,7 @@ const App: React.FC = () => {
 
       <Navbar lang={lang} setLang={setLang} />
       
-      <main className="relative z-10 block !visible">
+      <main className="relative z-10">
         <Hero lang={lang} />
         <About lang={lang} />
         <Visionary lang={lang} />
@@ -76,33 +75,11 @@ const App: React.FC = () => {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Noto+Sans+Arabic:wght@300;400;600;800;900&display=swap');
-        
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-arabic { font-family: 'Noto Sans Arabic', sans-serif; }
-
-        .glass-card {
-          background: rgba(15, 23, 42, 0.3) !important;
-          backdrop-filter: blur(12px) !important;
-          border: 1px solid rgba(255, 255, 255, 0.05) !important;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .glass-card:hover {
-          border-color: rgba(212, 175, 55, 0.3) !important;
-          background: rgba(15, 23, 42, 0.5) !important;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
+        .glass-card { background: rgba(15, 23, 42, 0.3) !important; backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .animate-float { animation: float 4s ease-in-out infinite; }
-
-        .text-champagne { color: #D4AF37; }
-        .bg-champagne { background-color: #D4AF37; }
-        .border-champagne { border-color: #D4AF37; }
-
-        section { scroll-margin-top: 100px; }
       `}</style>
     </div>
   );

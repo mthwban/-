@@ -7,8 +7,9 @@ import {
   Facebook, Search, Camera, Dumbbell, Microscope, Shield, 
   ClipboardCheck, HardHat, Presentation, Settings, MapPin
 } from 'lucide-react';
-import { GalleryItem } from './types';
+import { GalleryItem } from './types.ts';
 
+// ... (بقية الملف كما هو بدون تغيير في القيم)
 export const CONTACT_INFO = {
   phone: "+966566162529",
   whatsapp: "966566162529",
@@ -348,7 +349,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: { en: "Industrial O&M", ar: "التشغيل والصيانة" },
     category: { en: "Facility Mgmt", ar: "إدارة المرافق" },
     caption: { en: "Overseeing critical industrial infrastructure and cooling systems.", ar: "الإشراف على البنية التحتية الصناعية الحيوية وأنظمة التبريد." },
-    phase: { en: "Control", ar: "الرقابة" },
+    phase: { en: "Control", ar: "التقابة" },
     kpi: { en: "99.9% Uptime", ar: "99.9% جاهزية" }
   }
 ];
