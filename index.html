@@ -7,26 +7,21 @@
     
     <!-- SEO & Identity -->
     <title>محمد ثوبان | محلل أعمال وعمليات استراتيجي</title>
-    <meta name="description" content="الموقع الرسمي لمحمد ثوبان - خبير تحليل الأعمال والعمليات، قيادة المشاريع، واستراتيجيات النمو الرقمي. مرشح PMP ومعتمد من جوجل وميتا.">
-    <meta name="keywords" content="محمد ثوبان, Mohamed Thoban, تحليل أعمال, إدارة عمليات, PMP, إدارة مشاريع, الحج, تسويق رقمي, السعودية">
+    <meta name="description" content="الموقع الرسمي لمحمد ثوبان - خبير تحليل الأعمال والعمليات، قيادة المشاريع، واستراتيجيات النمو الرقمي.">
     <meta name="author" content="Mohamed Thoban">
     
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mthwban.github.io/">
+    <!-- Open Graph -->
     <meta property="og:title" content="محمد ثوبان | مهندس العمليات الاستراتيجية">
-    <meta property="og:description" content="عقد من القيادة الميدانية والتحليل الاقتصادي الرصين. استكشف سجل الإثبات الميداني والاعتمادات العالمية.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="محمد ثوبان | Strategic Operations Architect">
-    <meta property="twitter:description" content="Precision Execution Powered by Economic Logic.">
-    <meta property="twitter:image" content="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30">
 
     <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & Babel Standalone (Crucial for GitHub Pages without Build Step) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <script type="importmap">
     {
       "imports": {
@@ -38,6 +33,7 @@
       }
     }
     </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;600;800;900&display=swap');
         
@@ -52,35 +48,12 @@
             margin: 0;
             font-family: 'Cairo', 'Inter', sans-serif;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         .glass-card {
             background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: var(--champagne);
-            background: rgba(15, 23, 42, 0.6);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -20px rgba(212, 175, 55, 0.2);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--obsidian);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--champagne);
         }
 
         @keyframes reveal {
@@ -88,14 +61,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .reveal-up { animation: reveal 1s ease-out forwards; }
-
-        @media print {
-            .no-print { display: none !important; }
-        }
     </style>
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    <!-- Note: type="text/babel" and data-type="module" allow loading TSX files directly -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="index.tsx"></script>
 </body>
 </html>
