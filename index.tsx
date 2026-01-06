@@ -6,16 +6,6 @@ import App from './App.tsx';
  * Main Entry Point for Mohamed Thoban's Dossier.
  */
 
-const hideLoader = () => {
-  const loader = document.getElementById('app-loader');
-  if (loader) {
-    loader.style.opacity = '0';
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 800);
-  }
-};
-
 const initializeApp = () => {
   const container = document.getElementById('root');
   if (container) {
@@ -26,13 +16,13 @@ const initializeApp = () => {
       </React.StrictMode>
     );
     
-    // Attempt to hide loader as soon as possible
-    if (document.readyState === 'complete') {
-      hideLoader();
-    } else {
-      window.addEventListener('load', hideLoader);
-      // Fallback: Force hide after 3 seconds if load event fails to fire
-      setTimeout(hideLoader, 3000);
+    // Call the global helper defined in index.html
+    if (typeof (window as any).hideAppLoader === 'function') {
+      if (document.readyState === 'complete') {
+        (window as any).hideAppLoader();
+      } else {
+        window.addEventListener('load', () => (window as any).hideAppLoader());
+      }
     }
   }
 };
@@ -41,8 +31,9 @@ try {
   initializeApp();
 } catch (error) {
   console.error('Core Initialization Failure:', error);
+  // Emergency hide
   const loader = document.getElementById('app-loader');
-  if (loader) loader.style.display = 'none'; // Force hide on error
+  if (loader) loader.style.display = 'none';
   const fallback = document.getElementById('fallback-error');
   if (fallback) fallback.style.display = 'flex';
 }

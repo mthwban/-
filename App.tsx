@@ -48,13 +48,9 @@ const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    // Force hide loader if it's still present
-    const loader = document.getElementById('app-loader');
-    if (loader) {
-      setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => { loader.style.display = 'none'; }, 800);
-      }, 500);
+    // Force hide loader using the global helper as a second layer of certainty
+    if (typeof (window as any).hideAppLoader === 'function') {
+      (window as any).hideAppLoader();
     }
 
     const handleScroll = () => setShowScrollTop(window.scrollY > 800);

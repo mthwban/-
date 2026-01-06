@@ -31,7 +31,7 @@
       #app-loader {
         position: fixed; inset: 0; background: #020617;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
-        z-index: 10000; transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10000; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .loader-container {
         position: relative; display: flex; align-items: center; justify-content: center;
@@ -56,6 +56,21 @@
       .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
       .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
+
+    <!-- Global Loader Controller (Execute immediately) -->
+    <script>
+      window.hideAppLoader = function() {
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 850);
+        }
+      };
+      // Failsafe: Force hide after 5 seconds if everything fails
+      setTimeout(window.hideAppLoader, 5000);
+    </script>
 
     <script type="importmap">
     {
@@ -98,10 +113,7 @@
 
     <!-- Scroll reveal logic -->
     <script>
-      const observerOptions = {
-        threshold: 0.1
-      };
-
+      const observerOptions = { threshold: 0.1 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -114,7 +126,6 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       });
 
-      // Periodically check for any new elements that need reveal observation
       setInterval(() => {
         document.querySelectorAll('.reveal:not(.observed)').forEach(el => {
           el.classList.add('observed');
