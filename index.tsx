@@ -15,14 +15,15 @@ const mountApp = () => {
       </React.StrictMode>
     );
 
-    // إخفاء شاشة التحميل فور بدء رندر React
-    const hideLoader = (window as any).hideAppLoader;
-    if (typeof hideLoader === 'function') {
-      hideLoader();
-    }
+    // إخفاء شاشة التحميل فوراً عند بدء التنفيذ
+    setTimeout(() => {
+      const hideLoader = (window as any).hideAppLoader;
+      if (typeof hideLoader === 'function') {
+        hideLoader();
+      }
+    }, 100);
   } catch (error) {
     console.error('Critical Render Error:', error);
-    // في حالة الخطأ، نخفي اللودر أيضاً ونظهر رسالة الخطأ البديلة
     const hideLoader = (window as any).hideAppLoader;
     if (typeof hideLoader === 'function') hideLoader();
     
@@ -31,15 +32,14 @@ const mountApp = () => {
   }
 };
 
-// تشغيل التطبيق عند جاهزية المستند
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', mountApp);
 } else {
   mountApp();
 }
 
-// أمان إضافي: إخفاء اللودر بعد ثانيتين كحد أقصى مهما كانت الظروف
+// صمام أمان نهائي
 setTimeout(() => {
   const hideLoader = (window as any).hideAppLoader;
   if (typeof hideLoader === 'function') hideLoader();
-}, 2000);
+}, 2500);
