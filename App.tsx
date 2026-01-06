@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Language } from './types.ts';
 import Navbar from './components/Navbar.tsx';
@@ -15,7 +14,11 @@ import AIAssistant from './components/AIAssistant.tsx';
 import FloatingContact from './components/FloatingContact.tsx';
 import Process from './components/Process.tsx';
 import Gallery from './components/Gallery.tsx';
+import LeadershipQuiz from './components/LeadershipQuiz.tsx';
+import OperationsDashboard from './components/OperationsDashboard.tsx';
+import ExecutiveMode from './components/ExecutiveMode.tsx';
 import { UI_STRINGS } from './constants.tsx';
+import { X } from 'lucide-react';
 
 const Hobbies = ({ lang }: { lang: Language }) => (
   <section className="py-24 bg-[#020617]">
@@ -41,6 +44,7 @@ const Hobbies = ({ lang }: { lang: Language }) => (
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('ar');
+  const [isExecutiveMode, setIsExecutiveMode] = useState(false);
 
   return (
     <div className={`min-h-screen bg-[#020617] text-slate-100 selection:bg-[#D4AF37] selection:text-black ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -51,19 +55,36 @@ const App: React.FC = () => {
 
       <Navbar lang={lang} setLang={setLang} />
       
-      <main className="relative z-10">
-        <Hero lang={lang} />
-        <About lang={lang} />
-        <Visionary lang={lang} />
-        <Process lang={lang} />
-        <Experience lang={lang} />
-        <FieldEvidence lang={lang} />
-        <Services lang={lang} />
-        <Gallery lang={lang} />
-        <Skills lang={lang} />
-        <Certifications lang={lang} />
-        <Hobbies lang={lang} />
-        <Contact lang={lang} />
+      {isExecutiveMode && (
+        <div className="fixed top-0 left-0 w-full bg-[#D4AF37] py-2 z-[110] text-center text-black font-black text-xs uppercase tracking-widest flex items-center justify-center gap-4">
+          <span>{UI_STRINGS.executive.title[lang]}</span>
+          <button onClick={() => setIsExecutiveMode(false)} className="p-1 hover:bg-black/10 rounded-full transition-colors">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      <main className={`relative z-10 transition-all duration-700 ${isExecutiveMode ? 'pt-16' : 'pt-4 md:pt-0'}`}>
+        {isExecutiveMode ? (
+          <ExecutiveMode lang={lang} onExit={() => setIsExecutiveMode(false)} />
+        ) : (
+          <>
+            <Hero lang={lang} onExecutiveToggle={() => setIsExecutiveMode(true)} />
+            <OperationsDashboard lang={lang} />
+            <About lang={lang} />
+            <Visionary lang={lang} />
+            <LeadershipQuiz lang={lang} />
+            <Process lang={lang} />
+            <Experience lang={lang} />
+            <FieldEvidence lang={lang} />
+            <Services lang={lang} />
+            <Gallery lang={lang} />
+            <Skills lang={lang} />
+            <Certifications lang={lang} />
+            <Hobbies lang={lang} />
+            <Contact lang={lang} />
+          </>
+        )}
       </main>
 
       <AIAssistant lang={lang} />
@@ -76,12 +97,14 @@ const App: React.FC = () => {
       </footer>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Noto+Sans+Arabic:wght@300;400;600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;600;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
-        .font-arabic { font-family: 'Noto Sans Arabic', sans-serif; }
+        .font-arabic { font-family: 'Cairo', sans-serif; }
         .glass-card { background: rgba(15, 23, 42, 0.3) !important; backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .animate-float { animation: float 4s ease-in-out infinite; }
+        .gold-bg { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 100%) !important; }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
       `}</style>
     </div>
   );

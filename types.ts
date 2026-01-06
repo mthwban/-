@@ -1,4 +1,3 @@
-// Added React import to fix the missing 'React' namespace error for React.ReactNode on line 20.
 import React from 'react';
 
 export type Language = 'en' | 'ar';
@@ -18,8 +17,8 @@ export interface Experience {
 
 export interface Skill {
   category: MultilingualText;
-  items: MultilingualText[];
   icon: React.ReactNode;
+  items: MultilingualText[];
 }
 
 export interface Certification {
@@ -36,4 +35,11 @@ export interface GalleryItem {
   caption: MultilingualText;
   phase: MultilingualText;
   kpi: MultilingualText;
+}
+
+export interface Pillar {
+  id: string;
+  icon: React.ReactNode;
+  title: MultilingualText;
+  text: MultilingualText;
 }

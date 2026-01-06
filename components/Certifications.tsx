@@ -2,7 +2,7 @@
 import React from 'react';
 import { Language } from '../types';
 import { CERTIFICATIONS, UI_STRINGS } from '../constants';
-import { Award, GraduationCap, ShieldCheck, TrendingUp, Landmark, Video, Zap, ExternalLink, Sparkles } from 'lucide-react';
+import { Award, GraduationCap, ShieldCheck, TrendingUp, Landmark, Video, Zap, ExternalLink, Sparkles, Facebook, Users } from 'lucide-react';
 
 interface CertificationsProps {
   lang: Language;
@@ -15,11 +15,12 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
   const getIcon = (title: string, issuer: string) => {
     const combined = (title + issuer).toLowerCase();
     if (combined.includes('pmp')) return <ShieldCheck className="w-10 h-10" />;
-    if (combined.includes('marketing')) return <TrendingUp className="w-10 h-10" />;
+    if (combined.includes('marketing') || combined.includes('facebook')) return <Facebook className="w-10 h-10" />;
     if (combined.includes('economics') || combined.includes('university')) return <GraduationCap className="w-10 h-10" />;
-    if (combined.includes('ministry') || combined.includes('terhab') || combined.includes('hajj')) return <Landmark className="w-10 h-10" />;
+    if (combined.includes('ministry') || combined.includes('terhab') || combined.includes('hajj') || combined.includes('tafwij')) return <Landmark className="w-10 h-10" />;
     if (combined.includes('video')) return <Video className="w-10 h-10" />;
     if (combined.includes('pm') || combined.includes('google project')) return <Zap className="w-10 h-10" />;
+    if (combined.includes('election') || combined.includes('commission')) return <Users className="w-10 h-10" />;
     return <Award className="w-10 h-10" />;
   };
 
@@ -35,7 +36,7 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
           </h2>
         </div>
 
-        {/* Development Section - Restoration */}
+        {/* Development Section - Strategic PMP Status */}
         <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
            {devContent.items.map((dev, i) => (
              <div key={i} className="p-10 glass-card rounded-[3rem] border-l-4 border-[#D4AF37] relative overflow-hidden group">
@@ -51,10 +52,12 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
                       <h3 className="text-2xl font-black text-white">{dev.title[lang]}</h3>
                    </div>
                 </div>
-                <div className="text-slate-400 font-medium mb-2 uppercase text-[10px] tracking-widest">{dev.issuer[lang]}</div>
-                <p className="text-slate-200 font-bold bg-[#D4AF37]/10 p-4 rounded-2xl border border-[#D4AF37]/20 inline-block">
-                  {dev.status[lang]}
-                </p>
+                <div className="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">{dev.issuer[lang]}</div>
+                <div className="bg-[#D4AF37]/10 p-5 rounded-2xl border border-[#D4AF37]/20">
+                  <p className="text-slate-100 font-bold text-sm leading-relaxed">
+                    {dev.status[lang]}
+                  </p>
+                </div>
              </div>
            ))}
         </div>
@@ -64,7 +67,7 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
             <a 
               key={i} 
               href={cert.url} 
-              target="_blank" 
+              target={cert.url === '#' ? undefined : "_blank"} 
               rel="noopener noreferrer"
               className="group p-10 glass-card rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col h-full border border-white/5 hover:border-[#D4AF37]/30"
             >
@@ -72,9 +75,11 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
                 <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all shadow-xl">
                   {getIcon(cert.title.en, cert.issuer.en)}
                 </div>
-                <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ExternalLink className="w-5 h-5 text-[#D4AF37]" />
-                </div>
+                {cert.url !== '#' && (
+                  <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ExternalLink className="w-5 h-5 text-[#D4AF37]" />
+                  </div>
+                )}
               </div>
               
               <h3 className="text-xl font-black text-white mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
