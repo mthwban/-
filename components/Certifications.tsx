@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Language } from '../types';
-import { CERTIFICATIONS, UI_STRINGS } from '../constants';
-import { Award, GraduationCap, ShieldCheck, TrendingUp, Landmark, Video, Zap, ExternalLink, Sparkles, Facebook, Users } from 'lucide-react';
+import { CERTIFICATIONS, UI_STRINGS, CONTACT_INFO } from '../constants';
+import { Award, GraduationCap, ExternalLink, Zap, Video, FileText, ChevronRight } from 'lucide-react';
 
 interface CertificationsProps {
   lang: Language;
@@ -10,25 +9,20 @@ interface CertificationsProps {
 
 const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
   const content = UI_STRINGS.certifications;
-  const devContent = UI_STRINGS.development;
   
-  const getIcon = (title: string, issuer: string) => {
-    const combined = (title + issuer).toLowerCase();
-    if (combined.includes('pmp')) return <ShieldCheck className="w-10 h-10" />;
-    if (combined.includes('marketing') || combined.includes('facebook')) return <Facebook className="w-10 h-10" />;
-    if (combined.includes('economics') || combined.includes('university')) return <GraduationCap className="w-10 h-10" />;
-    if (combined.includes('ministry') || combined.includes('terhab') || combined.includes('hajj') || combined.includes('tafwij')) return <Landmark className="w-10 h-10" />;
-    if (combined.includes('video')) return <Video className="w-10 h-10" />;
-    if (combined.includes('pm') || combined.includes('google project')) return <Zap className="w-10 h-10" />;
-    if (combined.includes('election') || combined.includes('commission')) return <Users className="w-10 h-10" />;
-    return <Award className="w-10 h-10" />;
+  const getIcon = (title: string) => {
+    const t = title.toLowerCase();
+    if (t.includes('economics') || t.includes('bachelor')) return <GraduationCap className="w-8 h-8" />;
+    if (t.includes('video')) return <Video className="w-8 h-8" />;
+    if (t.includes('project')) return <Zap className="w-8 h-8" />;
+    return <Award className="w-8 h-8" />;
   };
 
   return (
-    <section id="certifications" className="py-32 bg-[#020617] scroll-mt-24">
+    <section id="certifications" className="py-32 bg-midnight scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24 reveal-up">
-          <div className="inline-block px-4 py-2 mb-6 rounded-lg bg-[#D4AF37]/10 text-[#D4AF37] text-[10px] font-black uppercase tracking-widest border border-[#D4AF37]/20">
+        <div className="text-center mb-20 reveal">
+          <div className="inline-block px-4 py-2 mb-6 rounded-lg bg-gold/10 text-gold text-[10px] font-black uppercase tracking-widest border border-gold/20">
             {content.badge[lang]}
           </div>
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
@@ -36,81 +30,44 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
           </h2>
         </div>
 
-        {/* Development Section - Strategic PMP Status */}
-        <div className="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
-           {devContent.items.map((dev, i) => (
-             <div key={i} className="p-10 glass-card rounded-[3rem] border-l-4 border-[#D4AF37] relative overflow-hidden group">
-                <div className="absolute top-6 right-6 text-[#D4AF37]/20 group-hover:text-[#D4AF37] transition-all">
-                  <Sparkles className="w-10 h-10" />
-                </div>
-                <div className="flex items-center gap-6 mb-8">
-                   <div className="p-4 bg-white/5 rounded-2xl text-[#D4AF37]">
-                     {dev.icon}
-                   </div>
-                   <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-1">{devContent.badge[lang]}</div>
-                      <h3 className="text-2xl font-black text-white">{dev.title[lang]}</h3>
-                   </div>
-                </div>
-                <div className="text-slate-400 font-medium mb-4 uppercase text-[10px] tracking-widest">{dev.issuer[lang]}</div>
-                <div className="bg-[#D4AF37]/10 p-5 rounded-2xl border border-[#D4AF37]/20">
-                  <p className="text-slate-100 font-bold text-sm leading-relaxed">
-                    {dev.status[lang]}
-                  </p>
-                </div>
-             </div>
-           ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {CERTIFICATIONS.map((cert, i) => (
+            <a 
+              key={i} 
+              href={cert.url} 
+              target={cert.url === '#' ? undefined : "_blank"} 
+              rel="noopener noreferrer"
+              className="group p-8 glass-card rounded-[2.5rem] border border-white/5 hover:border-gold/30 transition-all flex flex-col h-full active:scale-95"
+            >
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all mb-8 shadow-xl">
+                {getIcon(cert.title.en)}
+              </div>
+              <h3 className="text-lg font-black text-white mb-2 leading-tight group-hover:text-gold transition-colors">{cert.title[lang]}</h3>
+              <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">{cert.issuer[lang]}</p>
+              
+              <div className="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+                <span className="text-[10px] font-bold text-slate-400">{cert.date[lang]}</span>
+                {cert.url !== '#' && <ExternalLink className="w-4 h-4 text-gold opacity-50 group-hover:opacity-100" />}
+              </div>
+            </a>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {CERTIFICATIONS.map((cert, i) => {
-            const isBachelor = cert.title.en.toLowerCase().includes('bachelor') || cert.title.ar.includes('بكالوريوس');
-            
-            return (
-              <a 
-                key={i} 
-                href={cert.url} 
-                target={cert.url === '#' ? undefined : "_blank"} 
-                rel="noopener noreferrer"
-                className={`group p-10 rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.05] flex flex-col h-full border-2 ${isBachelor ? 'bg-[#002366]/40 border-blue-400 shadow-[0_0_50px_rgba(37,99,235,0.3)]' : 'bg-slate-900/40 border-white/5 hover:border-[#D4AF37]/30'}`}
-              >
-                {/* Royal Blue Gradient for Bachelor */}
-                {isBachelor && <div className="absolute inset-0 bg-gradient-to-br from-[#0033a0]/20 via-transparent to-[#002366]/40 pointer-events-none"></div>}
-
-                <div className="flex justify-between items-start mb-10 relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all shadow-xl ${isBachelor ? 'bg-blue-600 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
-                    {getIcon(cert.title.en, cert.issuer.en)}
-                  </div>
-                  {cert.url !== '#' && (
-                    <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ExternalLink className={`w-5 h-5 ${isBachelor ? 'text-blue-300' : 'text-[#D4AF37]'}`} />
-                    </div>
-                  )}
-                </div>
-                
-                <h3 className={`text-xl font-black mb-4 leading-tight transition-colors relative z-10 ${isBachelor ? 'text-blue-100' : 'text-white group-hover:text-[#D4AF37]'}`}>
-                  {cert.title[lang]}
-                </h3>
-                
-                <p className={`mb-2 uppercase text-[10px] font-black tracking-widest relative z-10 ${isBachelor ? 'text-blue-400 font-bold' : 'text-slate-500'}`}>
-                  {cert.issuer[lang]}
-                </p>
-                
-                <div className="mt-auto pt-8 flex justify-between items-end border-t border-white/5 relative z-10">
-                  <div>
-                    <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">{content.verifyLabel[lang]}</div>
-                    <div className={`${isBachelor ? 'text-blue-300' : 'text-[#D4AF37]'} text-[10px] font-bold uppercase tracking-widest`}>{cert.date[lang]}</div>
-                  </div>
-                  <div className={`px-4 py-1.5 rounded-full border text-[9px] font-black tracking-widest uppercase ${isBachelor ? 'bg-blue-500/20 border-blue-400 text-blue-100' : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'}`}>
-                    {isBachelor ? (lang === 'ar' ? 'أعلى درجة أكاديمية' : 'Highest Academic Degree') : content.approved[lang]}
-                  </div>
-                </div>
-
-                {/* Decorative Glow for Bachelor */}
-                <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity ${isBachelor ? 'bg-blue-500/30' : 'bg-[#D4AF37]/5'}`}></div>
-              </a>
-            );
-          })}
+        <div className="flex justify-center">
+           <a 
+            href={CONTACT_INFO.resume} // رابط مجلد الشهادات أو السيرة
+            target="_blank"
+            className="flex items-center gap-4 px-10 py-6 glass-card rounded-2xl border border-white/10 text-white font-black hover:bg-white/5 transition-all group"
+           >
+             <div className="p-3 bg-gold/10 rounded-xl group-hover:bg-gold group-hover:text-black transition-all">
+               <FileText className="w-6 h-6" />
+             </div>
+             <div className="text-right">
+                <div className="text-[10px] font-black uppercase tracking-widest text-gold mb-1">Google Drive Access</div>
+                <div className="text-lg">{content.folderCta[lang]}</div>
+             </div>
+             <ChevronRight className={`w-6 h-6 text-slate-500 group-hover:text-gold transition-all ${lang === 'ar' ? 'rotate-180' : ''}`} />
+           </a>
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Language } from './types';
-import { UI_STRINGS } from './constants';
-import { Menu, X, Globe } from 'lucide-react';
+import { Language } from './types.ts';
+import { UI_STRINGS } from './constants.tsx';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   lang: Language;
@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
             >
               {lang === 'ar' ? 'EN' : 'AR'}
             </button>
-            <a href="#" onClick={(e) => handleLinkClick(e, '#')} className="text-xl font-black tracking-tighter text-white">
+            <a href="#" onClick={(e) => handleLinkClick(e, '#')} className="text-xl font-black tracking-tighter text-white uppercase">
               {UI_STRINGS.brand[lang]}<span className="text-[#D4AF37]">.</span>
             </a>
           </div>

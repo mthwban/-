@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Language } from '../types.ts';
 import { UI_STRINGS } from '../constants.tsx';
-import { Factory, Camera, Code, Sparkles, Snowflake, Target, Briefcase, ChevronRight } from 'lucide-react';
+import { Factory, Camera, Sparkles, Target, ChevronRight, Zap, Award } from 'lucide-react';
 
 interface AboutProps {
   lang: Language;
@@ -9,6 +10,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ lang }) => {
   const content = UI_STRINGS.about;
+  const hobbies = UI_STRINGS.hobbies;
 
   return (
     <section id="about" className="py-32 bg-[#020617] scroll-mt-24 relative overflow-hidden">
@@ -25,6 +27,30 @@ const About: React.FC<AboutProps> = ({ lang }) => {
             {content.title[lang]}
           </h2>
           <div className="h-2 w-32 bg-[#D4AF37] mx-auto rounded-full"></div>
+        </div>
+
+        {/* PMP / Project Management Mastery Box - المستطيل المطلوب */}
+        <div className="reveal mb-20">
+           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col md:flex-row items-center gap-10 shadow-[0_0_80px_rgba(212,175,55,0.1)]">
+              <div className="w-24 h-24 bg-[#D4AF37] rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 animate-pulse">
+                <Award className="w-12 h-12" />
+              </div>
+              <div className="flex-1 text-center md:text-right rtl:text-right">
+                <h3 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter">
+                  {lang === 'ar' ? 'احترافية إدارة المشاريع' : 'Project Management Mastery'}
+                </h3>
+                <p className="text-slate-300 text-lg font-medium leading-relaxed max-w-2xl">
+                  {lang === 'ar' 
+                    ? 'حاصل على شهادة Google Project Management، مع خبرة عملية في قيادة العمليات الميدانية وتطبيق أفضل الممارسات لضمان الجودة والامتثال.' 
+                    : 'Google Project Management Certified, with hands-on experience in leading field operations and implementing best practices to ensure quality and compliance.'}
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                 <div className="px-6 py-3 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-xl text-[#D4AF37] font-black text-xs uppercase tracking-widest">
+                   Verified Specialist
+                 </div>
+              </div>
+           </div>
         </div>
 
         {/* Pillars Grid */}
@@ -53,6 +79,19 @@ const About: React.FC<AboutProps> = ({ lang }) => {
           ))}
         </div>
         
+        {/* Hobbies Section */}
+        <div className="reveal mb-24">
+           <h4 className="text-center text-slate-500 font-black uppercase tracking-[0.5em] text-xs mb-10">{hobbies.title[lang]}</h4>
+           <div className="flex flex-wrap justify-center gap-6">
+              {hobbies.items.map((hobby, i) => (
+                <div key={i} className="px-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] flex items-center gap-4 hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/30 transition-all group">
+                   <div className="text-[#D4AF37] group-hover:scale-110 transition-transform">{hobby.icon}</div>
+                   <span className="text-white font-black text-[11px] uppercase tracking-widest">{hobby.label[lang]}</span>
+                </div>
+              ))}
+           </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-t border-white/5 pt-24 reveal">
           <div className="p-12 bg-slate-900/40 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-10 group hover:border-[#D4AF37]/20 transition-all border-l-8 border-[#D4AF37]">
             <div className="w-24 h-24 bg-slate-800 rounded-[2.5rem] flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all shadow-2xl flex-shrink-0">

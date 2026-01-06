@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types.ts';
 import { UI_STRINGS } from '../constants.tsx';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 
 interface NavbarProps {
   lang: Language;
@@ -25,7 +24,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
       e.preventDefault();
       const targetId = href.replace('#', '');
       const elem = document.getElementById(targetId);
-      if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -44,8 +45,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#D4AF37]/20 transition-all text-[10px] font-black text-white"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#D4AF37]/20 transition-all text-[10px] font-black text-white gap-1 group"
             >
+              <Globe className="w-3 h-3 text-[#D4AF37] group-hover:rotate-12 transition-transform" />
               {lang === 'ar' ? 'EN' : 'AR'}
             </button>
             <a href="#" onClick={(e) => handleLinkClick(e, '#')} className="text-xl font-black tracking-tighter text-white uppercase">
@@ -59,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-[#D4AF37] transition-all"
+                className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer"
               >
                 {link.name}
               </a>
@@ -86,12 +88,21 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
             key={link.href}
             href={link.href}
             onClick={(e) => handleLinkClick(e, link.href)}
-            className="text-3xl font-black uppercase tracking-[0.1em] text-white hover:text-[#D4AF37]"
+            className="text-3xl font-black uppercase tracking-[0.1em] text-white hover:text-[#D4AF37] cursor-pointer"
           >
             {link.name}
           </a>
         ))}
-        <button onClick={() => setIsMobileMenuOpen(false)} className="px-10 py-4 border border-white/10 rounded-full text-[#D4AF37] font-black uppercase text-xs">
+        <button 
+          onClick={() => {
+            setLang(lang === 'ar' ? 'en' : 'ar');
+            setIsMobileMenuOpen(false);
+          }} 
+          className="text-gold font-black uppercase text-xl"
+        >
+          {lang === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
+        </button>
+        <button onClick={() => setIsMobileMenuOpen(false)} className="px-10 py-4 border border-white/10 rounded-full text-white/50 font-black uppercase text-xs">
           {lang === 'ar' ? 'إغلاق القائمة' : 'Close Menu'}
         </button>
       </div>
