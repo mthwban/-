@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Language } from '../types';
-import { UI_STRINGS } from '../constants';
-import { Menu, X, Globe } from 'lucide-react';
+import { Language } from '../types.ts';
+import { UI_STRINGS } from '../constants.tsx';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   lang: Language;

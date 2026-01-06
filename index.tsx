@@ -15,20 +15,15 @@ const mountApp = () => {
       </React.StrictMode>
     );
 
-    // إخفاء شاشة التحميل فوراً عند بدء التنفيذ
-    setTimeout(() => {
-      const hideLoader = (window as any).hideAppLoader;
-      if (typeof hideLoader === 'function') {
-        hideLoader();
-      }
-    }, 100);
+    // إخفاء شاشة التحميل بمجرد محاولة الرندر
+    const hideLoader = (window as any).hideAppLoader;
+    if (typeof hideLoader === 'function') {
+      setTimeout(hideLoader, 200);
+    }
   } catch (error) {
-    console.error('Critical Render Error:', error);
+    console.error('Render Error:', error);
     const hideLoader = (window as any).hideAppLoader;
     if (typeof hideLoader === 'function') hideLoader();
-    
-    const fallback = document.getElementById('fallback-error');
-    if (fallback) fallback.style.display = 'flex';
   }
 };
 
@@ -38,8 +33,8 @@ if (document.readyState === 'loading') {
   mountApp();
 }
 
-// صمام أمان نهائي
+// صمام أمان نهائي لضمان اختفاء السواد مهما حدث
 setTimeout(() => {
   const hideLoader = (window as any).hideAppLoader;
   if (typeof hideLoader === 'function') hideLoader();
-}, 2500);
+}, 3000);
