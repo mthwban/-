@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 
-const startApp = () => {
+const mountApp = () => {
   const container = document.getElementById('root');
   if (!container) return;
 
@@ -14,28 +14,26 @@ const startApp = () => {
       </React.StrictMode>
     );
 
-    // إخفاء الشاشة السوداء فوراً بعد الرندر
+    // إخفاء الشاشة السوداء فوراً
     if ((window as any).hideAppLoader) {
       (window as any).hideAppLoader();
     }
   } catch (error) {
-    console.error('Render Error:', error);
-    document.getElementById('app-loader')!.style.display = 'none';
-    document.getElementById('fallback-error')!.style.display = 'flex';
+    console.error('Critical Render Error:', error);
+    if ((window as any).hideAppLoader) (window as any).hideAppLoader();
+    const fallback = document.getElementById('fallback-error');
+    if (fallback) fallback.style.display = 'flex';
   }
 };
 
-// التأكد من تشغيل الكود حتى لو تأخر تحميل الصفحة
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  startApp();
+// تشغيل عند الجاهزية
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountApp);
 } else {
-  window.addEventListener('DOMContentLoaded', startApp);
+  mountApp();
 }
 
-// مؤقت احتياطي نهائي
+// محاولة أخيرة للإخفاء
 setTimeout(() => {
-  const loader = document.getElementById('app-loader');
-  if (loader && loader.style.display !== 'none') {
-    (window as any).hideAppLoader?.();
-  }
-}, 3500);
+  if ((window as any).hideAppLoader) (window as any).hideAppLoader();
+}, 2000);

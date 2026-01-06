@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Language } from '../types';
 import { UI_STRINGS } from '../constants';
@@ -17,7 +18,7 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
         <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
           <div className="reveal">
             <div className="inline-block px-5 py-2 mb-6 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] text-[10px] font-black uppercase tracking-[0.4em] border border-[#D4AF37]/20">
-              Operational Insight Engine v3.1
+              {content.insightEngine[lang]}
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight uppercase">
               {content.title[lang]}<span className="text-[#D4AF37]">.</span>
@@ -26,8 +27,8 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
           </div>
           <div className="flex items-center gap-5 reveal">
             <div className="flex flex-col items-end">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">System Status</span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Live & Optimal</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">{content.systemStatus[lang]}</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{content.liveOptimal[lang]}</span>
             </div>
             <div className="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)] animate-pulse"></div>
           </div>
@@ -59,17 +60,17 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
            <div className="lg:col-span-8 p-12 glass-card rounded-[4rem] border border-white/5 reveal">
               <div className="flex items-center justify-between mb-12">
                  <div>
-                    <h4 className="text-white font-black uppercase text-sm tracking-[0.4em] mb-2">Operational Throughput Analysis</h4>
-                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Monthly Units Scaled (Projected vs Actual)</p>
+                    <h4 className="text-white font-black uppercase text-sm tracking-[0.4em] mb-2">{content.throughputTitle[lang]}</h4>
+                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">{content.throughputSubtitle[lang]}</p>
                  </div>
                  <div className="flex gap-4">
                     <div className="flex items-center gap-2">
                        <div className="w-3 h-3 gold-bg rounded-sm"></div>
-                       <span className="text-[9px] font-black text-slate-500">ACTUAL</span>
+                       <span className="text-[9px] font-black text-slate-500">{content.actual[lang]}</span>
                     </div>
                     <div className="flex items-center gap-2">
                        <div className="w-3 h-3 bg-white/10 rounded-sm"></div>
-                       <span className="text-[9px] font-black text-slate-500">PROJECTED</span>
+                       <span className="text-[9px] font-black text-slate-500">{content.projected[lang]}</span>
                     </div>
                  </div>
               </div>
@@ -85,9 +86,9 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
                  ))}
               </div>
               <div className="mt-8 pt-8 border-t border-white/5 flex justify-between text-[9px] font-black text-slate-600 uppercase tracking-[0.3em]">
-                 <span>JAN 2024</span>
-                 <span>HAJJ PEAK SURGE (JUN)</span>
-                 <span>SEP 2025</span>
+                 <span>{lang === 'ar' ? 'يناير ٢٠٢٤' : 'JAN 2024'}</span>
+                 <span>{lang === 'ar' ? 'ذروة الحج (يونيو)' : 'HAJJ PEAK SURGE (JUN)'}</span>
+                 <span>{lang === 'ar' ? 'سبتمبر ٢٠٢٥' : 'SEP 2025'}</span>
               </div>
            </div>
 
@@ -101,12 +102,12 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
                    </svg>
                    <div className="absolute inset-0 flex flex-col items-center justify-center">
                       <span className="text-4xl font-black text-white">100%</span>
-                      <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Compliance</span>
+                      <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{content.compliance[lang]}</span>
                    </div>
                 </div>
-                <h4 className="text-white font-black uppercase text-xs tracking-[0.3em] mb-4">Strategic ROI Metric</h4>
+                <h4 className="text-white font-black uppercase text-xs tracking-[0.3em] mb-4">{content.riskTitle[lang]}</h4>
                 <p className="text-slate-500 text-[10px] font-medium leading-relaxed uppercase tracking-widest px-4">
-                   Zero-violation track record maintained across multi-seasonal Hajj operations and industrial projects.
+                   {content.complianceDesc[lang]}
                 </p>
               </div>
 
@@ -115,16 +116,13 @@ const OperationsDashboard: React.FC<Props> = ({ lang }) => {
                     <ShieldCheck className="w-7 h-7" />
                  </div>
                  <div>
-                    <div className="text-white font-black uppercase text-xs tracking-widest mb-1">Risk Management</div>
-                    <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">Global Standards Applied</div>
+                    <div className="text-white font-black uppercase text-xs tracking-widest mb-1">{content.riskTitle[lang]}</div>
+                    <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{content.riskSubtitle[lang]}</div>
                  </div>
               </div>
            </div>
         </div>
       </div>
-      <style>{`
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-      `}</style>
     </section>
   );
 };

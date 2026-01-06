@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { Bot, X, Send, MessageSquare, Sparkles, UserCheck } from 'lucide-react';
@@ -16,6 +17,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
   const [jdInput, setJdInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  
+  const content = UI_STRINGS.matcher;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -99,9 +102,9 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
                 <Bot className="w-7 h-7" />
               </div>
               <div>
-                <span className="font-black text-sm text-white block">Strategic Advisor</span>
+                <span className="font-black text-sm text-white block">{content.advisorTitle[lang]}</span>
                 <span className="text-[10px] text-[#D4AF37] uppercase font-bold tracking-widest flex items-center gap-1">
-                  <UserCheck className="w-3 h-3" /> Profile Verified
+                  <UserCheck className="w-3 h-3" /> {content.verifiedProfile[lang]}
                 </span>
               </div>
             </div>
@@ -111,8 +114,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
           </div>
 
           <div className="flex bg-white/5 p-3 gap-2">
-             <button onClick={() => setTab('chat')} className={`flex-1 py-3 text-[11px] font-black uppercase rounded-2xl transition-all ${tab === 'chat' ? 'gold-bg text-black shadow-lg' : 'text-slate-400 hover:bg-white/5'}`}>Interactive Chat</button>
-             <button onClick={() => setTab('matcher')} className={`flex-1 py-3 text-[11px] font-black uppercase rounded-2xl transition-all ${tab === 'matcher' ? 'gold-bg text-black shadow-lg' : 'text-slate-400 hover:bg-white/5'}`}>JD Matcher</button>
+             <button onClick={() => setTab('chat')} className={`flex-1 py-3 text-[11px] font-black uppercase rounded-2xl transition-all ${tab === 'chat' ? 'gold-bg text-black shadow-lg' : 'text-slate-400 hover:bg-white/5'}`}>{content.chatTab[lang]}</button>
+             <button onClick={() => setTab('matcher')} className={`flex-1 py-3 text-[11px] font-black uppercase rounded-2xl transition-all ${tab === 'matcher' ? 'gold-bg text-black shadow-lg' : 'text-slate-400 hover:bg-white/5'}`}>{content.matcherTab[lang]}</button>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 space-y-6">
@@ -128,24 +131,24 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
               <div className="space-y-8">
                  <div className="text-center p-6 glass-card rounded-3xl border border-[#D4AF37]/20">
                     <Sparkles className="w-10 h-10 text-[#D4AF37] mx-auto mb-4 animate-pulse" />
-                    <h4 className="text-white font-black uppercase tracking-widest text-xs">{UI_STRINGS.matcher.title[lang]}</h4>
-                    <p className="text-slate-500 text-[10px] mt-2 leading-relaxed">Our AI will audit Mohamed's dossier against your JD requirements.</p>
+                    <h4 className="text-white font-black uppercase tracking-widest text-xs">{content.title[lang]}</h4>
+                    <p className="text-slate-500 text-[10px] mt-2 leading-relaxed">{content.matcherNote[lang]}</p>
                  </div>
                  <textarea 
                    value={jdInput}
                    onChange={e => setJdInput(e.target.value)}
                    className="w-full h-40 bg-white/5 border border-white/10 rounded-2xl p-5 text-xs text-white outline-none focus:border-[#D4AF37] transition-all"
-                   placeholder={UI_STRINGS.matcher.placeholder[lang]}
+                   placeholder={content.placeholder[lang]}
                  />
                  <button onClick={handleMatch} disabled={isTyping} className="w-full py-5 gold-bg text-black font-black rounded-2xl uppercase tracking-widest text-[12px] flex items-center justify-center gap-4 active:scale-95 transition-transform">
-                    {isTyping ? 'Generating Report...' : 'Launch Match Audit'}
+                    {isTyping ? content.generatingReport[lang] : content.matchReportBtn[lang]}
                  </button>
               </div>
             )}
             {isTyping && (
               <div className="flex items-center gap-3 text-[#D4AF37] text-[11px] font-black animate-pulse uppercase tracking-[0.2em]">
                 <div className="w-2 h-2 bg-[#D4AF37] rounded-full"></div>
-                Analyzing Credential Vault...
+                {content.matchStatus[lang]}
               </div>
             )}
           </div>
@@ -156,7 +159,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
                 value={input} onChange={e => setInput(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && handleSend()}
                 className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm text-white outline-none focus:border-[#D4AF37]"
-                placeholder="Ask about 150k units, PMP, or Economics..."
+                placeholder={lang === 'ar' ? 'اسأل عن الـ 150 ألف وحدة، أو PMP...' : 'Ask about 150k units, PMP, or Economics...'}
               />
               <button onClick={handleSend} className="p-4 gold-bg rounded-2xl text-black shadow-lg hover:scale-105 active:scale-95 transition-all"><Send className="w-6 h-6" /></button>
             </div>

@@ -63,47 +63,54 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {CERTIFICATIONS.map((cert, i) => (
-            <a 
-              key={i} 
-              href={cert.url} 
-              target={cert.url === '#' ? undefined : "_blank"} 
-              rel="noopener noreferrer"
-              className="group p-10 glass-card rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.02] flex flex-col h-full border border-white/5 hover:border-[#D4AF37]/30"
-            >
-              <div className="flex justify-between items-start mb-10">
-                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all shadow-xl">
-                  {getIcon(cert.title.en, cert.issuer.en)}
-                </div>
-                {cert.url !== '#' && (
-                  <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink className="w-5 h-5 text-[#D4AF37]" />
-                  </div>
-                )}
-              </div>
-              
-              <h3 className="text-xl font-black text-white mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
-                {cert.title[lang]}
-              </h3>
-              
-              <p className="text-slate-500 mb-2 uppercase text-[10px] font-black tracking-widest">
-                {cert.issuer[lang]}
-              </p>
-              
-              <div className="mt-auto pt-8 flex justify-between items-end border-t border-white/5">
-                <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">{content.verifyLabel[lang]}</div>
-                  <div className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest">{cert.date[lang]}</div>
-                </div>
-                <div className="px-4 py-1.5 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-[9px] font-black text-emerald-400 tracking-widest uppercase">
-                  {content.approved[lang]}
-                </div>
-              </div>
+          {CERTIFICATIONS.map((cert, i) => {
+            const isBachelor = cert.title.en.toLowerCase().includes('bachelor') || cert.title.ar.includes('بكالوريوس');
+            
+            return (
+              <a 
+                key={i} 
+                href={cert.url} 
+                target={cert.url === '#' ? undefined : "_blank"} 
+                rel="noopener noreferrer"
+                className={`group p-10 rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.05] flex flex-col h-full border-2 ${isBachelor ? 'bg-blue-600/20 border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.2)]' : 'bg-slate-900/40 border-white/5 hover:border-[#D4AF37]/30'}`}
+              >
+                {/* Royal Blue Background Accent for Bachelor */}
+                {isBachelor && <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-blue-900/20 pointer-events-none"></div>}
 
-              {/* Decorative Glow */}
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#D4AF37]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </a>
-          ))}
+                <div className="flex justify-between items-start mb-10 relative z-10">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all shadow-xl ${isBachelor ? 'bg-blue-500 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
+                    {getIcon(cert.title.en, cert.issuer.en)}
+                  </div>
+                  {cert.url !== '#' && (
+                    <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ExternalLink className={`w-5 h-5 ${isBachelor ? 'text-blue-400' : 'text-[#D4AF37]'}`} />
+                    </div>
+                  )}
+                </div>
+                
+                <h3 className={`text-xl font-black mb-4 leading-tight transition-colors relative z-10 ${isBachelor ? 'text-blue-100' : 'text-white group-hover:text-[#D4AF37]'}`}>
+                  {cert.title[lang]}
+                </h3>
+                
+                <p className={`mb-2 uppercase text-[10px] font-black tracking-widest relative z-10 ${isBachelor ? 'text-blue-400' : 'text-slate-500'}`}>
+                  {cert.issuer[lang]}
+                </p>
+                
+                <div className="mt-auto pt-8 flex justify-between items-end border-t border-white/5 relative z-10">
+                  <div>
+                    <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">{content.verifyLabel[lang]}</div>
+                    <div className={`${isBachelor ? 'text-blue-300' : 'text-[#D4AF37]'} text-[10px] font-bold uppercase tracking-widest`}>{cert.date[lang]}</div>
+                  </div>
+                  <div className={`px-4 py-1.5 rounded-full border text-[9px] font-black tracking-widest uppercase ${isBachelor ? 'bg-blue-500/20 border-blue-500/40 text-blue-100' : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'}`}>
+                    {isBachelor ? (lang === 'ar' ? 'أعلى درجة أكاديمية' : 'Highest Academic Degree') : content.approved[lang]}
+                  </div>
+                </div>
+
+                {/* Decorative Glow */}
+                <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity ${isBachelor ? 'bg-blue-400/20' : 'bg-[#D4AF37]/5'}`}></div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
