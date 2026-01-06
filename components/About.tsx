@@ -2,7 +2,7 @@
 import React from 'react';
 import { Language } from '../types.ts';
 import { UI_STRINGS } from '../constants.tsx';
-import { Factory, Camera, Sparkles, Target, ChevronRight, Zap, Award } from 'lucide-react';
+import { Factory, Camera, Sparkles, Target, ChevronRight, Zap, Award, ShieldCheck } from 'lucide-react';
 
 interface AboutProps {
   lang: Language;
@@ -31,22 +31,29 @@ const About: React.FC<AboutProps> = ({ lang }) => {
 
         {/* PMP / Project Management Mastery Box - المستطيل المطلوب */}
         <div className="reveal mb-20">
-           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col md:flex-row items-center gap-10 shadow-[0_0_80px_rgba(212,175,55,0.1)]">
-              <div className="w-24 h-24 bg-[#D4AF37] rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 animate-pulse">
-                <Award className="w-12 h-12" />
+           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col md:flex-row items-center gap-10 shadow-[0_0_80px_rgba(212,175,55,0.15)] relative group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              
+              <div className="w-24 h-24 bg-[#D4AF37] rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 relative z-10 animate-pulse">
+                <ShieldCheck className="w-12 h-12" />
               </div>
-              <div className="flex-1 text-center md:text-right rtl:text-right">
-                <h3 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter">
-                  {lang === 'ar' ? 'احترافية إدارة المشاريع' : 'Project Management Mastery'}
+              
+              <div className="flex-1 text-center md:text-right rtl:text-right relative z-10">
+                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter flex flex-col md:flex-row items-center gap-4">
+                  <span className="gold-gradient">PMP Strategy & Mastery</span>
+                  <span className="hidden md:block w-px h-8 bg-white/10"></span>
+                  <span className="text-xl text-slate-400">{lang === 'ar' ? 'احترافية إدارة المشاريع' : 'Project Management Professional'}</span>
                 </h3>
-                <p className="text-slate-300 text-lg font-medium leading-relaxed max-w-2xl">
+                <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
                   {lang === 'ar' 
-                    ? 'حاصل على شهادة Google Project Management، مع خبرة عملية في قيادة العمليات الميدانية وتطبيق أفضل الممارسات لضمان الجودة والامتثال.' 
-                    : 'Google Project Management Certified, with hands-on experience in leading field operations and implementing best practices to ensure quality and compliance.'}
+                    ? 'خبير معتمد في إدارة المشاريع (Google Certified)، مع سجل حافل في قيادة العمليات الميدانية المعقدة وتطبيق منهجيات Agile لضمان الكفاءة القصوى تحت الضغط.' 
+                    : 'Certified Project Management expert with a proven track record in leading complex field operations and implementing Agile methodologies to ensure peak efficiency under pressure.'}
                 </p>
               </div>
-              <div className="flex-shrink-0">
-                 <div className="px-6 py-3 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-xl text-[#D4AF37] font-black text-xs uppercase tracking-widest">
+              
+              <div className="flex-shrink-0 relative z-10">
+                 <div className="px-8 py-4 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-2xl text-[#D4AF37] font-black text-[10px] uppercase tracking-widest flex items-center gap-2">
+                   <Award className="w-4 h-4" />
                    Verified Specialist
                  </div>
               </div>
@@ -72,7 +79,7 @@ const About: React.FC<AboutProps> = ({ lang }) => {
               </p>
               
               <div className="mt-auto pt-10 flex items-center gap-4 text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 duration-700">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Explore Domain</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Domain Insight</span>
                 <ChevronRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
               </div>
             </div>
