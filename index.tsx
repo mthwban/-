@@ -12,7 +12,7 @@ const hideLoader = () => {
     loader.style.opacity = '0';
     setTimeout(() => {
       loader.style.display = 'none';
-    }, 1200);
+    }, 800);
   }
 };
 
@@ -26,24 +26,23 @@ const initializeApp = () => {
       </React.StrictMode>
     );
     
-    // Check if the window is already loaded
+    // Attempt to hide loader as soon as possible
     if (document.readyState === 'complete') {
-      setTimeout(hideLoader, 500);
+      hideLoader();
     } else {
-      window.addEventListener('load', () => {
-        setTimeout(hideLoader, 500);
-      });
+      window.addEventListener('load', hideLoader);
+      // Fallback: Force hide after 3 seconds if load event fails to fire
+      setTimeout(hideLoader, 3000);
     }
   }
 };
 
-// Error handling to prevent blank screens
 try {
   initializeApp();
 } catch (error) {
   console.error('Core Initialization Failure:', error);
+  const loader = document.getElementById('app-loader');
+  if (loader) loader.style.display = 'none'; // Force hide on error
   const fallback = document.getElementById('fallback-error');
   if (fallback) fallback.style.display = 'flex';
-  const loader = document.getElementById('app-loader');
-  if (loader) loader.style.display = 'none';
 }
