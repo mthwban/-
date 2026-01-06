@@ -1,9 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
-import { Bot, X, Send, MessageSquare, Sparkles, User, Briefcase, GraduationCap } from 'lucide-react';
-import { Language } from '../types';
-import { UI_STRINGS } from '../constants';
+import { Bot, X, Send, MessageSquare } from 'lucide-react';
+import { Language } from '../types.ts';
 
 interface AIAssistantProps {
   lang: Language;
@@ -23,8 +22,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
   }, [messages, isTyping]);
 
   const initialGreeting = lang === 'ar' 
-    ? 'أهلاً بك في منصة محمد ثوبان الاستراتيجية. أنا مستشارك الرقمي، سأساعدك في استكشاف كيف يمكن لمحمد أن يكون الأصل الأهم في فريقك.'
-    : "Welcome to Mohamed Thwban’s Strategic Platform. I am your Digital Advisor. I’ll help you explore how Mohamed can be your team’s most valuable asset.";
+    ? 'أهلاً بك. أنا المستشار الرقمي لمحمد ثوبان، كيف يمكنني مساعدتك في استكشاف خبراته؟'
+    : "Welcome. I am Mohamed Thwban’s Digital Advisor. How can I help you explore his expertise?";
 
   const handleToggle = () => {
     if (!isOpen && messages.length === 0) {
@@ -33,29 +32,33 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
     setIsOpen(!isOpen);
   };
 
-  const handleSend = async (customText?: string) => {
-    const textToSend = customText || input;
-    if (!textToSend.trim() || isTyping) return;
+  const handleSend = async () => {
+    if (!input.trim() || isTyping) return;
     
-    if (!customText) setInput('');
-    setMessages(prev => [...prev, { role: 'user', text: textToSend }]);
+    const userMessage = input;
+    setInput('');
+    setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
     setIsTyping(true);
 
     try {
-      // Use the required direct initialization with process.env.API_KEY
+      // Direct initialization as required
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
-        contents: textToSend,
+        contents: userMessage,
         config: {
-          systemInstruction: lang === 'ar' ? "أنت مستشار توظيف خبير، وظيفتك الترويج لمهارات محمد ثوبان بناءً على سيرته الذاتية." : "You are an expert recruiter, your job is to promote Mohamed Thwban's skills.",
+          systemInstruction: lang === 'ar' 
+            ? "أنت مساعد ذكي لموقع محمد ثوبان الشخصي. محمد خبير في تحليل العمليات والاقتصاد وإدارة المشاريع. أجب باحترافية." 
+            : "You are an AI assistant for Mohamed Thwban's portfolio. He is an expert in operations analysis and economics. Answer professionally.",
         }
       });
-      // Correctly access .text property from GenerateContentResponse
-      setMessages(prev => [...prev, { role: 'bot', text: response.text || "..." }]);
+      
+      // Accessing .text property directly as per latest guidelines
+      const botText = response.text || (lang === 'ar' ? "عذراً، لم أستطع معالجة الطلب." : "Sorry, I couldn't process that.");
+      setMessages(prev => [...prev, { role: 'bot', text: botText }]);
     } catch (e) {
-      // Removed mention of API Key in error message to comply with security requirements
-      setMessages(prev => [...prev, { role: 'bot', text: lang === 'ar' ? 'الخدمة غير متوفرة حالياً.' : "Service unavailable." }]);
+      console.error("AI Error:", e);
+      setMessages(prev => [...prev, { role: 'bot', text: lang === 'ar' ? 'حدث خطأ في الاتصال.' : "Connection error." }]);
     } finally {
       setIsTyping(false);
     }
@@ -64,36 +67,35 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
   return (
     <div className={`fixed bottom-8 z-[100] no-print ${lang === 'ar' ? 'left-8' : 'right-8'}`}>
       {isOpen && (
-        <div className="mb-6 w-80 md:w-[420px] h-[600px] bg-[#161b2c] border border-white/10 rounded-[3rem] flex flex-col overflow-hidden shadow-2xl">
-          <div className="p-6 bg-[#0b0d17] flex justify-between items-center border-b border-white/5">
-            <div className="flex items-center gap-4">
-              <Bot className="w-7 h-7 text-[#c29b40]" />
-              <span className="font-black text-[12px] uppercase tracking-widest text-white">
-                {lang === 'ar' ? 'المستشار الرقمي' : 'Digital Advisor'}
-              </span>
+        <div className="mb-6 w-80 md:w-[400px] h-[550px] bg-[#0f172a] border border-white/10 rounded-[2.5rem] flex flex-col overflow-hidden shadow-2xl">
+          <div className="p-6 bg-slate-900 flex justify-between items-center border-b border-white/5">
+            <div className="flex items-center gap-3">
+              <Bot className="w-6 h-6 text-[#D4AF37]" />
+              <span className="font-bold text-sm text-white">{lang === 'ar' ? 'المساعد الذكي' : 'AI Assistant'}</span>
             </div>
-            <button onClick={() => setIsOpen(false)}><X className="w-6 h-6 text-white/50" /></button>
+            <button onClick={() => setIsOpen(false)}><X className="w-5 h-5 text-white/50" /></button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#0b0d17]/50">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`p-4 rounded-3xl text-sm ${m.role === 'user' ? 'bg-[#c29b40] text-black' : 'bg-white/5 text-slate-200'}`}>
+                <div className={`max-w-[85%] p-4 rounded-2xl text-sm ${m.role === 'user' ? 'bg-[#D4AF37] text-black' : 'bg-white/5 text-slate-200'}`}>
                   {m.text}
                 </div>
               </div>
             ))}
+            {isTyping && <div className="text-[#D4AF37] text-xs animate-pulse">{lang === 'ar' ? 'جاري التفكير...' : 'Thinking...'}</div>}
           </div>
           
-          <div className="p-6 bg-[#161b2c] border-t border-white/5 flex gap-3">
+          <div className="p-4 border-t border-white/5 flex gap-2">
             <input 
               value={input} 
               onChange={e => setInput(e.target.value)}
               onKeyPress={e => e.key === 'Enter' && handleSend()}
-              className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-sm text-white"
-              placeholder="..."
+              className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white outline-none focus:border-[#D4AF37]"
+              placeholder={lang === 'ar' ? 'اسأل شيئاً...' : 'Ask something...'}
             />
-            <button onClick={() => handleSend()} className="p-4 bg-[#c29b40] rounded-2xl text-black disabled:opacity-50" disabled={isTyping}>
+            <button onClick={handleSend} className="p-2 bg-[#D4AF37] rounded-xl text-black hover:scale-105 transition-transform shadow-lg">
               <Send className="w-5 h-5" />
             </button>
           </div>
@@ -102,9 +104,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ lang }) => {
       
       <button 
         onClick={handleToggle}
-        className="w-16 h-16 md:w-20 md:h-20 bg-white text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all border-4 border-[#0b0d17]"
+        className="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all border-4 border-[#020617] relative group"
       >
-        <MessageSquare className="w-8 h-8" />
+        <MessageSquare className="w-7 h-7" />
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping group-hover:hidden"></span>
       </button>
     </div>
   );

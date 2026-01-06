@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Language } from './types.ts';
-import Navbar from './Navbar.tsx';
+import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
 import About from './components/About.tsx';
 import Visionary from './components/Visionary.tsx';
@@ -14,6 +14,7 @@ import Contact from './components/Contact.tsx';
 import AIAssistant from './components/AIAssistant.tsx';
 import FloatingContact from './components/FloatingContact.tsx';
 import Process from './components/Process.tsx';
+import Gallery from './components/Gallery.tsx';
 import { UI_STRINGS } from './constants.tsx';
 
 const Hobbies = ({ lang }: { lang: Language }) => (
@@ -58,6 +59,7 @@ const App: React.FC = () => {
         <Experience lang={lang} />
         <FieldEvidence lang={lang} />
         <Services lang={lang} />
+        <Gallery lang={lang} />
         <Skills lang={lang} />
         <Certifications lang={lang} />
         <Hobbies lang={lang} />
