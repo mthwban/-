@@ -4,8 +4,17 @@ import App from './App.tsx';
 
 /**
  * Main Entry Point for Mohamed Thoban's Dossier.
- * This file is automatically imported by index.html as an ES6 module.
  */
+
+const hideLoader = () => {
+  const loader = document.getElementById('app-loader');
+  if (loader) {
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 1200);
+  }
+};
 
 const initializeApp = () => {
   const container = document.getElementById('root');
@@ -17,18 +26,14 @@ const initializeApp = () => {
       </React.StrictMode>
     );
     
-    // Hide the app loader once React has mounted and the window is loaded
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const loader = document.getElementById('app-loader');
-        if (loader) {
-          loader.style.opacity = '0';
-          setTimeout(() => {
-            loader.style.display = 'none';
-          }, 1200);
-        }
-      }, 1000);
-    });
+    // Check if the window is already loaded
+    if (document.readyState === 'complete') {
+      setTimeout(hideLoader, 500);
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(hideLoader, 500);
+      });
+    }
   }
 };
 
