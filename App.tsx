@@ -19,7 +19,7 @@ import LeadershipQuiz from './components/LeadershipQuiz.tsx';
 import OperationsDashboard from './components/OperationsDashboard.tsx';
 import ExecutiveMode from './components/ExecutiveMode.tsx';
 import { UI_STRINGS } from './constants.tsx';
-import { X, ChevronUp, Boxes, Briefcase, Palette } from 'lucide-react';
+import { X, ChevronUp, Boxes, Briefcase, Palette, Dumbbell, Camera, Film } from 'lucide-react';
 
 const Hobbies = ({ lang }: { lang: Language }) => (
   <section className="py-24 bg-[#020617] border-t border-white/5 relative z-10">
@@ -49,7 +49,6 @@ const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeTab, setActiveTab] = useState<'ops' | 'creative' | 'career'>('ops');
 
-  // دالة موحدة لتنشيط مراقب التمرير
   const refreshRevealObserver = useCallback(() => {
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
@@ -67,14 +66,9 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (typeof (window as any).hideAppLoader === 'function') {
-      (window as any).hideAppLoader();
-    }
-
     const handleScroll = () => setShowScrollTop(window.scrollY > 800);
     window.addEventListener('scroll', handleScroll);
 
-    // تفعيل المراقب عند التحميل وعند تغيير التبويبات
     const observer = refreshRevealObserver();
 
     return () => {
@@ -87,6 +81,7 @@ const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen bg-[#020617] text-slate-100 selection:bg-[#D4AF37] selection:text-black ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+      {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-15%] left-[-10%] w-[60%] h-[60%] bg-[#D4AF37]/5 blur-[140px] rounded-full animate-pulse"></div>
         <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-blue-600/5 blur-[140px] rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
@@ -113,7 +108,7 @@ const App: React.FC = () => {
             
             <div className="reveal"><About lang={lang} /></div>
 
-            {/* Strategic Hub - Reduced Page Length Logic */}
+            {/* Strategic Hub */}
             <section id="strategic-hub" className="py-24 bg-[#050816] scroll-mt-24 border-y border-white/5 relative z-10">
               <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16 reveal">
@@ -121,7 +116,6 @@ const App: React.FC = () => {
                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.5em]">{UI_STRINGS.common.hubSubtitle[lang]}</p>
                 </div>
 
-                {/* Modern Tab Switcher */}
                 <div className="flex flex-wrap justify-center gap-4 mb-20 reveal">
                   {[
                     { id: 'ops', label: { ar: 'مركز العمليات', en: 'Ops Hub' }, icon: <Boxes /> },
@@ -139,8 +133,7 @@ const App: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Tab Content Areas */}
-                <div className="min-h-[800px]">
+                <div className="min-h-[600px]">
                   {activeTab === 'ops' && (
                     <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
                       <div className="reveal active"><OperationsDashboard lang={lang} /></div>
@@ -207,7 +200,6 @@ const App: React.FC = () => {
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.2, 0, 0.2, 1); }
         .reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
         ::selection { background: #D4AF37; color: #020617; }
-        section { position: relative; }
       `}</style>
     </div>
   );

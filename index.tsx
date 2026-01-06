@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
@@ -14,26 +15,30 @@ const mountApp = () => {
       </React.StrictMode>
     );
 
-    // إخفاء الشاشة السوداء فوراً
-    if ((window as any).hideAppLoader) {
-      (window as any).hideAppLoader();
+    // إخفاء شاشة التحميل بمجرد بدء رندر React
+    const hideLoader = (window as any).hideAppLoader;
+    if (typeof hideLoader === 'function') {
+      hideLoader();
     }
   } catch (error) {
     console.error('Critical Render Error:', error);
-    if ((window as any).hideAppLoader) (window as any).hideAppLoader();
+    const hideLoader = (window as any).hideAppLoader;
+    if (typeof hideLoader === 'function') hideLoader();
+    
     const fallback = document.getElementById('fallback-error');
     if (fallback) fallback.style.display = 'flex';
   }
 };
 
-// تشغيل عند الجاهزية
+// التأكد من التشغيل عند جاهزية المستند
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', mountApp);
 } else {
   mountApp();
 }
 
-// محاولة أخيرة للإخفاء
+// أمان إضافي: إخفاء اللودر بعد وقت قصير جداً مهما حدث
 setTimeout(() => {
-  if ((window as any).hideAppLoader) (window as any).hideAppLoader();
-}, 2000);
+  const hideLoader = (window as any).hideAppLoader;
+  if (typeof hideLoader === 'function') hideLoader();
+}, 1500);
