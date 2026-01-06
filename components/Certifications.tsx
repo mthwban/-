@@ -72,18 +72,18 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
                 href={cert.url} 
                 target={cert.url === '#' ? undefined : "_blank"} 
                 rel="noopener noreferrer"
-                className={`group p-10 rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.05] flex flex-col h-full border-2 ${isBachelor ? 'bg-blue-600/20 border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.2)]' : 'bg-slate-900/40 border-white/5 hover:border-[#D4AF37]/30'}`}
+                className={`group p-10 rounded-[3rem] relative overflow-hidden transition-all duration-500 hover:scale-[1.05] flex flex-col h-full border-2 ${isBachelor ? 'bg-[#002366]/40 border-blue-400 shadow-[0_0_50px_rgba(37,99,235,0.3)]' : 'bg-slate-900/40 border-white/5 hover:border-[#D4AF37]/30'}`}
               >
-                {/* Royal Blue Background Accent for Bachelor */}
-                {isBachelor && <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-blue-900/20 pointer-events-none"></div>}
+                {/* Royal Blue Gradient for Bachelor */}
+                {isBachelor && <div className="absolute inset-0 bg-gradient-to-br from-[#0033a0]/20 via-transparent to-[#002366]/40 pointer-events-none"></div>}
 
                 <div className="flex justify-between items-start mb-10 relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all shadow-xl ${isBachelor ? 'bg-blue-500 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all shadow-xl ${isBachelor ? 'bg-blue-600 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
                     {getIcon(cert.title.en, cert.issuer.en)}
                   </div>
                   {cert.url !== '#' && (
                     <div className="p-3 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ExternalLink className={`w-5 h-5 ${isBachelor ? 'text-blue-400' : 'text-[#D4AF37]'}`} />
+                      <ExternalLink className={`w-5 h-5 ${isBachelor ? 'text-blue-300' : 'text-[#D4AF37]'}`} />
                     </div>
                   )}
                 </div>
@@ -92,7 +92,7 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
                   {cert.title[lang]}
                 </h3>
                 
-                <p className={`mb-2 uppercase text-[10px] font-black tracking-widest relative z-10 ${isBachelor ? 'text-blue-400' : 'text-slate-500'}`}>
+                <p className={`mb-2 uppercase text-[10px] font-black tracking-widest relative z-10 ${isBachelor ? 'text-blue-400 font-bold' : 'text-slate-500'}`}>
                   {cert.issuer[lang]}
                 </p>
                 
@@ -101,13 +101,13 @@ const Certifications: React.FC<CertificationsProps> = ({ lang }) => {
                     <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">{content.verifyLabel[lang]}</div>
                     <div className={`${isBachelor ? 'text-blue-300' : 'text-[#D4AF37]'} text-[10px] font-bold uppercase tracking-widest`}>{cert.date[lang]}</div>
                   </div>
-                  <div className={`px-4 py-1.5 rounded-full border text-[9px] font-black tracking-widest uppercase ${isBachelor ? 'bg-blue-500/20 border-blue-500/40 text-blue-100' : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'}`}>
+                  <div className={`px-4 py-1.5 rounded-full border text-[9px] font-black tracking-widest uppercase ${isBachelor ? 'bg-blue-500/20 border-blue-400 text-blue-100' : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'}`}>
                     {isBachelor ? (lang === 'ar' ? 'أعلى درجة أكاديمية' : 'Highest Academic Degree') : content.approved[lang]}
                   </div>
                 </div>
 
-                {/* Decorative Glow */}
-                <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity ${isBachelor ? 'bg-blue-400/20' : 'bg-[#D4AF37]/5'}`}></div>
+                {/* Decorative Glow for Bachelor */}
+                <div className={`absolute -bottom-10 -right-10 w-32 h-32 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity ${isBachelor ? 'bg-blue-500/30' : 'bg-[#D4AF37]/5'}`}></div>
               </a>
             );
           })}

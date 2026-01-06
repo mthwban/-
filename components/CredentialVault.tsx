@@ -51,7 +51,7 @@ const CredentialVault: React.FC<Props> = ({ lang, isOpen, onClose }) => {
         {/* Content - Scrollable */}
         <div className="flex-1 overflow-y-auto p-8 md:p-12 space-y-8 custom-scrollbar">
           
-          {/* Ongoing/In Progress Section - PMP Status Highlighted */}
+          {/* Ongoing/In Progress Section */}
           <div className="mb-12">
             <h3 className="text-white/30 text-[11px] font-black uppercase tracking-[0.5em] mb-6 flex items-center gap-4">
               <span className="w-8 h-px bg-white/10"></span>
@@ -90,17 +90,17 @@ const CredentialVault: React.FC<Props> = ({ lang, isOpen, onClose }) => {
                     key={i} 
                     href={cert.url} 
                     target={cert.url === '#' ? undefined : "_blank"}
-                    className={`p-8 rounded-[2.5rem] group transition-all flex items-start gap-6 border-2 ${isBachelor ? 'bg-blue-600/20 border-blue-500 shadow-[0_0_40px_rgba(37,99,235,0.2)]' : 'bg-white/5 border-white/5 hover:border-[#D4AF37]/30'}`}
+                    className={`p-8 rounded-[2.5rem] group transition-all flex items-start gap-6 border-2 ${isBachelor ? 'bg-[#002366]/60 border-blue-500 shadow-[0_0_40px_rgba(37,99,235,0.4)]' : 'bg-white/5 border-white/5 hover:border-[#D4AF37]/30'}`}
                   >
-                    <div className={`w-14 h-14 rounded-2xl flex flex-shrink-0 items-center justify-center transition-all ${isBachelor ? 'bg-blue-500 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
+                    <div className={`w-14 h-14 rounded-2xl flex flex-shrink-0 items-center justify-center transition-all ${isBachelor ? 'bg-blue-600 text-white' : 'bg-white/5 text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black'}`}>
                       {getIcon(cert.title.en, cert.issuer.en)}
                     </div>
                     <div className="flex-1">
                       <h4 className={`text-lg font-black leading-tight mb-2 transition-colors ${isBachelor ? 'text-blue-100' : 'text-white group-hover:text-[#D4AF37]'}`}>{cert.title[lang]}</h4>
-                      <p className={`text-[9px] font-black uppercase tracking-widest mb-4 ${isBachelor ? 'text-blue-400' : 'text-slate-500'}`}>{cert.issuer[lang]}</p>
+                      <p className={`text-[9px] font-black uppercase tracking-widest mb-4 ${isBachelor ? 'text-blue-300 font-bold' : 'text-slate-500'}`}>{cert.issuer[lang]}</p>
                       <div className="flex justify-between items-center">
-                        <span className={`text-[10px] font-bold ${isBachelor ? 'text-blue-300' : 'text-slate-400'}`}>{cert.date[lang]}</span>
-                        {cert.url !== '#' && <ExternalLink className={`w-4 h-4 transition-opacity ${isBachelor ? 'text-blue-400 opacity-100' : 'text-[#D4AF37] opacity-0 group-hover:opacity-100'}`} />}
+                        <span className={`text-[10px] font-bold ${isBachelor ? 'text-blue-200' : 'text-slate-400'}`}>{cert.date[lang]}</span>
+                        {cert.url !== '#' && <ExternalLink className={`w-4 h-4 transition-opacity ${isBachelor ? 'text-blue-300 opacity-100' : 'text-[#D4AF37] opacity-0 group-hover:opacity-100'}`} />}
                       </div>
                     </div>
                   </a>

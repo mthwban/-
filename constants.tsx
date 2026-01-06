@@ -66,7 +66,7 @@ export const UI_STRINGS = {
     nameLast: { en: "Thwban", ar: "ثوبان" },
     headline: { 
       en: "Operations Analyst with an Economic background, managing industrial surges of 150k units. A multi-disciplinary specialist bridging large-scale logistics with elite cinematography and digital architecture.", 
-      ar: "محلل أعمال بخلفية اقتصادية، خبير في إدارة العمليات الصناعية الضخمة لـ 150 ألف وحدة. أجمع بين الكفاءة اللوجستية، الإبداع السينمائي، والابتكار الرقمي." 
+      ar: "محلل أعمال بخلفية اقتصادية، خبير في إدارة العمليات الصناعية الضخمة لـ 150 ألف وحدة. أجمع في مساري المهني بين الكفاءة اللوجستية، الإبداع السينمائي، والابتكار الرقمي." 
     },
     ctaPrimary: { en: "Analyze Dossier", ar: "تحليل الملف" },
     ctaSecondary: { en: "Verified Credentials", ar: "الاعتمادات الموثقة" },
@@ -78,7 +78,7 @@ export const UI_STRINGS = {
       marketing: { en: "Marketing Strategy", ar: "استراتيجية التسويق" },
       pmpStatus: { 
         en: "Exp Approved | Completing Study & Scheduling Exam", 
-        ar: "تم الموافقة على الخبرات السابقة وجاري العمل على إكمال الدراسة وتحديد الاختبار" 
+        ar: "تم الموافقة على الخبرات السابقة وجاري التحضير لاختبار PMP" 
       },
       marketingStatus: { en: "Advanced Track", ar: "مسار التخصص المتقدم" }
     }
@@ -188,7 +188,7 @@ export const UI_STRINGS = {
         issuer: { en: "PMI Global Standards", ar: "معايير معهد إدارة المشاريع العالمي" },
         status: { 
           en: "Prior experience verified and approved. Currently finalizing course requirements and scheduling the PMP exam.", 
-          ar: "تم الموافقة على الخبرات السابقة وجاري العمل على إكمال الدراسة وتحديد الاختبار" 
+          ar: "تم الموافقة على الخبرات السابقة وجاري التحضير لاختبار PMP" 
         }
       },
       {
@@ -198,12 +198,6 @@ export const UI_STRINGS = {
         status: { en: "Completing Advanced Strategic Tracks", ar: "استكمال المسارات الاستراتيجية المتقدمة" }
       }
     ]
-  },
-  contact: {
-    title: { en: "Strategic Connection.", ar: "اتصال استراتيجي." },
-    subtitle: { en: "Ready for high-stakes operational and creative roles.", ar: "جاهز لأدوار تشغيلية وإبداعية عالية التأثير." },
-    linkedin: { en: "Official LinkedIn Profile", ar: "الملف الشخصي الرسمي" },
-    footer: { en: "Mohamed Thwban Imijine | Strategic Operations Analyst", ar: "محمد ثوبان اميجن | محلل عمليات استراتيجية" }
   },
   hobbies: {
     title: { en: "Personal Discipline", ar: "الانضباط الشخصي" },
@@ -342,6 +336,12 @@ export const UI_STRINGS = {
         desc: { en: "High-performance digital architecture focusing on conversion and clarity.", ar: "عمارة رقمية عالية الأداء تركز على التحويل والوضوح البصري." }
       }
     ]
+  },
+  contact: {
+    title: { en: "Strategic Connection.", ar: "اتصال استراتيجي." },
+    subtitle: { en: "Ready for high-stakes operational and creative roles.", ar: "جاهز لأدوار تشغيلية وإبداعية عالية التأثير." },
+    linkedin: { en: "Official LinkedIn Profile", ar: "الملف الشخصي الرسمي" },
+    footer: { en: "Mohamed Thwban Imijine | Strategic Operations Analyst", ar: "محمد ثوبان اميجن | محلل عمليات استراتيجية" }
   }
 };
 
