@@ -15,7 +15,7 @@ const mountApp = () => {
       </React.StrictMode>
     );
 
-    // إخفاء شاشة التحميل بمجرد بدء رندر React
+    // إخفاء شاشة التحميل فور بدء الرندر
     const hideLoader = (window as any).hideAppLoader;
     if (typeof hideLoader === 'function') {
       hideLoader();
@@ -30,15 +30,14 @@ const mountApp = () => {
   }
 };
 
-// التأكد من التشغيل عند جاهزية المستند
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', mountApp);
 } else {
   mountApp();
 }
 
-// أمان إضافي: إخفاء اللودر بعد وقت قصير جداً مهما حدث
+// أمان إضافي لإخفاء اللودر في حال تأخر الاستجابة
 setTimeout(() => {
   const hideLoader = (window as any).hideAppLoader;
   if (typeof hideLoader === 'function') hideLoader();
-}, 1500);
+}, 2000);
