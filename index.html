@@ -3,45 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمد ثوبان | أخصائي عمليات واستراتيجي تسويق</title>
+    <title>Mohamed Thoban | Operations Specialist & Creative Strategist</title>
+    
+    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    
     <style>
-      :root {
-        --midnight-blue: #020617;
-        --gold: #D4AF37;
+      :root { 
+        --midnight-blue: #020617; 
+        --gold: #D4AF37; 
       }
-      body {
-        background-color: var(--midnight-blue);
-        color: #f1f5f9;
-        margin: 0;
-        overflow-x: hidden;
+      body { 
+        background-color: var(--midnight-blue); 
+        color: #f1f5f9; 
+        margin: 0; 
+        overflow-x: hidden; 
       }
-      .font-arabic { font-family: 'Cairo', sans-serif; }
-      .font-sans { font-family: 'Inter', sans-serif; }
       
+      /* Custom Scrollbar */
       ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #020617; }
-      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+      ::-webkit-scrollbar-track { background: var(--midnight-blue); }
+      ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+      #app-loader {
+        position: fixed; inset: 0; background: #020617;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 10000; transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .loader-container {
+        position: relative; display: flex; align-items: center; justify-content: center;
+      }
+      .spinner {
+        width: 100px; height: 100px; border: 2px solid rgba(212, 175, 55, 0.05);
+        border-top-color: #D4AF37; border-radius: 50%; animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.1);
+      }
+      .loader-logo {
+        position: absolute; font-family: 'Inter', sans-serif; font-weight: 900;
+        color: #D4AF37; font-size: 1.5rem; letter-spacing: -1px;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      #fallback-error {
+        display: none; position: fixed; inset: 0; background: #080a15; color: white;
+        flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; z-index: 9999; font-family: 'Cairo', sans-serif; padding: 40px;
+      }
+
+      .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+      .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
+
     <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react",
+    "@google/genai": "https://esm.sh/@google/genai@1.3.0",
+    "react/": "https://esm.sh/react@^19.0.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
   </head>
   <body>
+    <!-- Initial Loading State -->
+    <div id="app-loader">
+      <div class="loader-container">
+        <div class="spinner"></div>
+        <div class="loader-logo">M.T</div>
+      </div>
+      <p style="margin-top: 32px; font-family: 'Cairo'; color: #D4AF37; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem; opacity: 0.6;">
+        Initializing Strategic Interface...
+      </p>
+    </div>
+
+    <!-- React Root -->
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    
+    <!-- Global Error Fallback -->
+    <div id="fallback-error">
+      <h1 style="color: #D4AF37; font-weight: 900; font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: -1px;">System Offline</h1>
+      <p style="color: #94a3b8; max-width: 450px; font-weight: 500; line-height: 1.6;">The technical environment encountered a core error. Please ensure your browser supports modern ESM modules.</p>
+      <button onclick="location.reload()" style="margin-top: 40px; padding: 18px 48px; background: #D4AF37; color: black; border: none; border-radius: 50px; cursor: pointer; font-weight: 900; font-family: 'Inter'; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;">Re-Initialize Dossier</button>
+    </div>
+
+    <!-- Scroll reveal logic -->
+    <script>
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      });
+
+      // Periodically check for any new elements that need reveal observation
+      setInterval(() => {
+        document.querySelectorAll('.reveal:not(.observed)').forEach(el => {
+          el.classList.add('observed');
+          observer.observe(el);
+        });
+      }, 1000);
+    </script>
   </body>
 </html>
