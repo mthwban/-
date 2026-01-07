@@ -195,9 +195,14 @@ export const UI_STRINGS = {
   development: {
     items: [
       {
+        title: { en: "PMP Certification (Exam Preparation)", ar: "شهادة PMP (مرحلة التحضير للاختبار)" },
+        issuer: { en: "Project Management Institute", ar: "معهد إدارة المشاريع" },
+        status: { en: "Hours accepted, currently studying and scheduling exam.", ar: "تم قبول الساعات، حالياً في مرحلة المراجعة وتحديد موعد الاختبار." }
+      },
+      {
         title: { en: "Google Digital Marketing & E-Commerce", ar: "التسويق الرقمي والتجارة الإلكترونية من جوجل" },
         issuer: { en: "Coursera", ar: "كورسيرا" },
-        status: { en: "Expected completion in the upcoming months", ar: "من المتوقع الانتهاء في الأشهر القادمة" }
+        status: { en: "Working on completing the remaining hours.", ar: "أعمل حالياً على إكمال الساعات المتبقية للحصول على الاعتماد." }
       }
     ]
   }
@@ -223,6 +228,17 @@ export const EXPERIENCES: Experience[] = [
       { en: "Ensured compliance with official standards in a high-responsibility environment.", ar: "ضمان الامتثال للمعايير الرسمية في بيئة ذات مسؤولية كبيرة." }
     ],
     tags: [{ en: "Organization", ar: "تنظيم" }, { en: "Diplomatic Logistics", ar: "لوجستيات دبلوماسية" }]
+  },
+  {
+    title: { en: "Seasonal Operations & Crowd Management Leader", ar: "قائد عمليات موسمية وإدارة حشود" },
+    company: { en: "Hajj & Umrah Seasonal Projects", ar: "مشاريع مواسم الحج والعمرة" },
+    period: { en: "10 Years (Seasonal Experience)", ar: "١٠ سنوات (خبرة موسمية)" },
+    description: [
+      { en: "Expertly managed large-scale crowd movements and logistics across multiple seasons.", ar: "إدارة تحركات الحشود الكبيرة واللوجستيات بمهارة عبر مواسم متعددة." },
+      { en: "Served as a Health Leader during the COVID-19 pandemic, ensuring safety protocols.", ar: "عمل كقائد صحي خلال جائحة كورونا، لضمان تطبيق البروتوكولات الصحية." },
+      { en: "Coordinated crowd dispatching, reception, and seeing-off ceremonies with high efficiency.", ar: "تنسيق تفويج الحشود، الاستقبال، والتوديع بكفاءة عالية." }
+    ],
+    tags: [{ en: "Crowd Management", ar: "إدارة حشود" }, { en: "Crisis Leadership", ar: "قيادة أزمات" }, { en: "10 Seasons", ar: "١٠ مواسم" }]
   },
   {
     title: { en: "Marketing Specialist", ar: "أخصائي تسويق" },

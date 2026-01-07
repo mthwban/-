@@ -2,7 +2,7 @@
 import React from 'react';
 import { Language } from '../types.ts';
 import { UI_STRINGS } from '../constants.tsx';
-import { Factory, Camera, Sparkles, Target, ChevronRight, Zap, Award, ShieldCheck } from 'lucide-react';
+import { Factory, Camera, Sparkles, Target, ChevronRight, Zap, Award, ShieldCheck, GraduationCap, TrendingUp } from 'lucide-react';
 
 interface AboutProps {
   lang: Language;
@@ -11,6 +11,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ lang }) => {
   const content = UI_STRINGS.about;
   const hobbies = UI_STRINGS.hobbies;
+  const development = UI_STRINGS.development;
 
   return (
     <section id="about" className="py-32 bg-[#020617] scroll-mt-24 relative overflow-hidden">
@@ -29,33 +30,52 @@ const About: React.FC<AboutProps> = ({ lang }) => {
           <div className="h-2 w-32 bg-[#D4AF37] mx-auto rounded-full"></div>
         </div>
 
-        {/* PMP / Project Management Mastery Box - المستطيل المطلوب */}
+        {/* Continuous Learning & Professional Development Mastery Box */}
         <div className="reveal mb-20">
-           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col md:flex-row items-center gap-10 shadow-[0_0_80px_rgba(212,175,55,0.15)] relative group overflow-hidden">
+           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col gap-10 shadow-[0_0_80px_rgba(212,175,55,0.15)] relative group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
               
-              <div className="w-24 h-24 bg-[#D4AF37] rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 relative z-10 animate-pulse">
-                <ShieldCheck className="w-12 h-12" />
-              </div>
-              
-              <div className="flex-1 text-center md:text-right rtl:text-right relative z-10">
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter flex flex-col md:flex-row items-center gap-4">
-                  <span className="gold-gradient">PMP Strategy & Mastery</span>
-                  <span className="hidden md:block w-px h-8 bg-white/10"></span>
-                  <span className="text-xl text-slate-400">{lang === 'ar' ? 'احترافية إدارة المشاريع' : 'Project Management Professional'}</span>
-                </h3>
-                <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
-                  {lang === 'ar' 
-                    ? 'خبير معتمد في إدارة المشاريع (Google Certified)، مع سجل حافل في قيادة العمليات الميدانية المعقدة وتطبيق منهجيات Agile لضمان الكفاءة القصوى تحت الضغط.' 
-                    : 'Certified Project Management expert with a proven track record in leading complex field operations and implementing Agile methodologies to ensure peak efficiency under pressure.'}
-                </p>
-              </div>
-              
-              <div className="flex-shrink-0 relative z-10">
-                 <div className="px-8 py-4 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-2xl text-[#D4AF37] font-black text-[10px] uppercase tracking-widest flex items-center gap-2">
-                   <Award className="w-4 h-4" />
-                   Verified Specialist
-                 </div>
+              <div className="flex flex-col md:flex-row items-center gap-10 relative z-10">
+                <div className="w-24 h-24 bg-[#D4AF37] rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 animate-pulse">
+                  <GraduationCap className="w-12 h-12" />
+                </div>
+                
+                <div className="flex-1 text-center md:text-right rtl:text-right">
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tighter">
+                    <span className="gold-gradient">{lang === 'ar' ? 'رحلة التعلم المستمر' : 'Continuous Learning Journey'}</span>
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* PMP Focus */}
+                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all">
+                      <div className="flex items-center gap-3 mb-3 text-[#D4AF37]">
+                        <ShieldCheck className="w-5 h-5" />
+                        <span className="font-black text-xs uppercase tracking-widest">{development.items[0].title[lang]}</span>
+                      </div>
+                      <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                        {development.items[0].status[lang]}
+                      </p>
+                    </div>
+
+                    {/* Google Marketing Focus */}
+                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all">
+                      <div className="flex items-center gap-3 mb-3 text-[#D4AF37]">
+                        <TrendingUp className="w-5 h-5" />
+                        <span className="font-black text-xs uppercase tracking-widest">{development.items[1].title[lang]}</span>
+                      </div>
+                      <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                        {development.items[1].status[lang]}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex-shrink-0 relative z-10 hidden lg:block">
+                   <div className="px-8 py-4 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-2xl text-[#D4AF37] font-black text-[10px] uppercase tracking-widest flex items-center gap-2">
+                     <Award className="w-4 h-4" />
+                     Strategic Development
+                   </div>
+                </div>
               </div>
            </div>
         </div>
