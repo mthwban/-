@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمد ثوبان | أخصائي عمليات واستراتيجي إبداعي</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -29,6 +33,19 @@
         html[lang="en"] .lang-en { display: block; }
         [dir="ltr"] .rtl-flip { transform: scaleX(-1); }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
 </head>
 <body>
     <!-- Ambient Background -->
@@ -59,4 +76,402 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-24 pb-20 px-6 z-10">
-        <div class="max-
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <div class="inline-flex items-center gap-3 px-4 py-2 mb-8 rounded-xl bg-gold/10 border border-gold/30">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-gold animate-pulse"></i>
+                    <span class="text-[10px] font-black uppercase tracking-widest">
+                        <span class="lang-ar">أخصائي عمليات | استراتيجي إبداعي</span>
+                        <span class="lang-en">OPERATIONS SPECIALIST | CREATIVE STRATEGIST</span>
+                    </span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-none uppercase">
+                    <span class="lang-ar">محمد</span><span class="lang-en">MOHAMED</span> 
+                    <span class="gold-gradient underline decoration-gold/30 underline-offset-8">
+                        <span class="lang-ar">ثوبان</span><span class="lang-en">THWBAN</span>
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-xl leading-relaxed font-medium">
+                    <span class="lang-ar">محترف طموح بخبرة عملية قوية في العمليات الميدانية، التنظيم اليومي، وإدارة المهام الدقيقة.</span>
+                    <span class="lang-en">Motivated professional with strong hands-on experience in field operations and precise task management.</span>
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#experience" class="px-8 py-4 gold-bg text-black font-black rounded-2xl hover:scale-105 transition-all flex items-center gap-3 shadow-lg">
+                        <span class="lang-ar">استعراض المسيرة</span><span class="lang-en">View Journey</span>
+                        <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1x0cn40NvPvJuYFmlmFIjDbccFW1xc5kR/view?usp=sharing" target="_blank" class="px-8 py-4 bg-white/5 border border-white/10 font-black rounded-2xl hover:bg-white/10 transition-all flex items-center gap-3">
+                        <i data-lucide="file-text" class="w-5 h-5 text-gold"></i>
+                        <span class="lang-ar">السيرة الذاتية (PDF)</span><span class="lang-en">Full CV (PDF)</span>
+                    </a>
+                </div>
+            </div>
+            <div class="relative reveal hidden lg:block">
+                <div class="aspect-[4/5] rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-2xl relative group">
+                    <img src="https://lh3.googleusercontent.com/d/1Zijt_bmcVaL1Tqk9oiRXTuG5Cm4jPK30" class="w-full h-full object-cover grayscale transition-all duration-700" alt="Mohamed Thwban">
+                    <div class="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 p-8 glass-card rounded-3xl border-t-4 border-gold z-20 shadow-2xl">
+                    <div class="text-4xl font-black">150k</div>
+                    <div class="text-[10px] font-black text-gold uppercase tracking-widest leading-tight">
+                        <span class="lang-ar">وحدة مدارة في الحج</span><span class="lang-en">Units Managed at Hajj</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Mastery Box (PMP & Continuous Learning) -->
+    <section id="about" class="py-32 bg-navy/30 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 uppercase">
+                    <span class="lang-ar">رحلة الاحتراف والتعلم المستمر</span>
+                    <span class="lang-en">Professional Mastery Journey</span>
+                </h2>
+                <div class="h-1.5 w-24 gold-bg mx-auto rounded-full"></div>
+            </div>
+
+            <div class="p-8 md:p-12 glass-card rounded-[3.5rem] border-2 border-gold/40 bg-gradient-to-br from-gold/10 to-transparent shadow-2xl reveal">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-20 h-20 gold-bg rounded-[2rem] flex items-center justify-center text-black shadow-2xl flex-shrink-0 animate-pulse">
+                        <i data-lucide="graduation-cap" class="w-10 h-10"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-right">
+                        <h3 class="text-3xl font-black mb-6 gold-gradient uppercase tracking-tighter">Strategic Development</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- PMP Progress -->
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-right">
+                                <div class="flex items-center gap-3 mb-3 text-gold">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                    <span class="font-black text-xs uppercase tracking-widest">PMP Preparation</span>
+                                </div>
+                                <p class="text-slate-300 text-sm font-bold leading-relaxed">
+                                    <span class="lang-ar">تم قبول ساعات الخبرة من معهد PMI، حالياً في مرحلة المراجعة النهائية وتحديد موعد الاختبار الدولي.</span>
+                                    <span class="lang-en">Experience hours accepted by PMI. Currently in final study phase for the international exam.</span>
+                                </p>
+                            </div>
+                            <!-- Google Progress -->
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-right">
+                                <div class="flex items-center gap-3 mb-3 text-gold">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                    <span class="font-black text-xs uppercase tracking-widest">Google Digital Marketing</span>
+                                </div>
+                                <p class="text-slate-300 text-sm font-bold leading-relaxed">
+                                    <span class="lang-ar">أعمل حالياً على إكمال الساعات المتبقية للحصول على شهادة جوجل الاحترافية في التسويق الرقمي.</span>
+                                    <span class="lang-en">Currently completing the remaining modules for Google Digital Marketing Professional Certificate.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Experience Section (Recovered 100%) -->
+    <section id="experience" class="py-32 px-6 relative z-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+                    <span class="lang-ar">الخبرات المهنية</span><span class="lang-en">Work History</span>
+                </h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Role 1: Royal Commission -->
+                <div class="reveal group p-8 md:p-12 glass-card rounded-[3rem] border-r-8 border-gold hover:bg-white/5 transition-all">
+                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-black group-hover:text-gold transition-colors">
+                                <span class="lang-ar">مسؤول التشغيل والصيانة</span><span class="lang-en">Operations & Maintenance Officer</span>
+                            </h3>
+                            <p class="text-slate-400 font-bold">
+                                <span class="lang-ar">شركة مناسك الملبي – مشروع الهيئة الملكية للأضاحي</span><span class="lang-en">Manasik Al-Mulabbi Co. – Royal Commission</span>
+                            </p>
+                        </div>
+                        <div class="text-gold font-black text-sm uppercase flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i> <span>2025</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 text-sm font-medium leading-relaxed">
+                        <li class="flex gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="lang-ar">الإشراف الميداني الشامل وضمان استمرارية العمل لـ ١٥٠ ألف وحدة خلال ذروة موسم الحج.</span>
+                            <span class="lang-en">Full field oversight ensuring workflow continuity for 150k units during Hajj peak.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Role 2: The 10 Years Experience -->
+                <div class="reveal group p-8 md:p-12 glass-card rounded-[3rem] border-r-8 border-gold hover:bg-white/5 transition-all">
+                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-black group-hover:text-gold transition-colors">
+                                <span class="lang-ar">قائد عمليات موسمية وإدارة حشود</span><span class="lang-en">Seasonal Operations & Crowd Leader</span>
+                            </h3>
+                            <p class="text-slate-400 font-bold">
+                                <span class="lang-ar">مشاريع مواسم الحج والعمرة</span><span class="lang-en">Hajj & Umrah Seasonal Projects</span>
+                            </p>
+                        </div>
+                        <div class="text-gold font-black text-sm uppercase flex items-center gap-2">
+                            <i data-lucide="award" class="w-5 h-5"></i> <span><span class="lang-ar">١٠ سنوات</span><span class="lang-en">10 Years</span></span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 text-sm font-medium leading-relaxed">
+                        <li class="flex gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="lang-ar">إدارة اللوجستيات وتحركات الحشود الكبيرة عبر مواسم متعددة طيلة عقد من الزمان.</span>
+                            <span class="lang-en">Managed logistics and massive crowd movements across a decade of seasonal projects.</span>
+                        </li>
+                        <li class="flex gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="lang-ar">قائد صحي خلال جائحة كورونا لضمان تطبيق أعلى بروتوكولات السلامة.</span>
+                            <span class="lang-en">Served as Health Leader during COVID-19 ensuring strict safety protocols.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Role 3: Consulate -->
+                <div class="reveal group p-8 md:p-12 glass-card rounded-[3rem] border-r-8 border-gold hover:bg-white/5 transition-all">
+                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-black group-hover:text-gold transition-colors">
+                                <span class="lang-ar">عضو لجنة – الانتخابات الرئاسية</span><span class="lang-en">Committee Member – Presidential Elections</span>
+                            </h3>
+                            <p class="text-slate-400 font-bold">
+                                <span class="lang-ar">القنصلية الموريتانية العامة بجدة</span><span class="lang-en">Mauritanian Consulate General, Jeddah</span>
+                            </p>
+                        </div>
+                        <div class="text-gold font-black text-sm uppercase flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i> <span>2023</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 text-sm font-medium leading-relaxed">
+                        <li class="flex gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="lang-ar">تنظيم تسجيل الناخبين والقوائم الانتخابية بدقة متناهية وضمان الامتثال للمعايير الدبلوماسية.</span>
+                            <span class="lang-en">Organized voter registration and electoral lists with extreme accuracy and transparency.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Role 4: Marketing -->
+                <div class="reveal group p-8 md:p-12 glass-card rounded-[3rem] border-r-8 border-gold hover:bg-white/5 transition-all">
+                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-black group-hover:text-gold transition-colors">
+                                <span class="lang-ar">أخصائي تسويق</span><span class="lang-en">Marketing Specialist</span>
+                            </h3>
+                            <p class="text-slate-400 font-bold">
+                                <span class="lang-ar">شركات المقاولات والنقل</span><span class="lang-en">Construction & Transportation Firms</span>
+                            </p>
+                        </div>
+                        <div class="text-gold font-black text-sm uppercase flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i> <span>2020 - 2023</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 text-sm font-medium leading-relaxed">
+                        <li class="flex gap-4"><i data-lucide="check-circle" class="w-5 h-5 text-gold flex-shrink-0"></i>
+                            <span class="lang-ar">تطوير استراتيجيات التسويق الرقمي لتعزيز الوعي بالعلامة التجارية في القطاعات الصناعية.</span>
+                            <span class="lang-en">Developed digital marketing strategies to increase brand awareness in industrial sectors.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive IQ Quiz Section -->
+    <section id="quiz" class="py-32 bg-navy px-6 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/5 border border-white/10">
+                    <i data-lucide="help-circle" class="w-4 h-4 text-gold"></i>
+                    <span class="text-gold text-[10px] font-black uppercase tracking-[0.3em]">Operational IQ Test</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 uppercase">
+                    <span class="lang-ar">اختبار القيادة التشغيلية</span><span class="lang-en">Leadership Challenge</span>
+                </h2>
+            </div>
+
+            <div id="quiz-container" class="glass-card rounded-[3rem] p-8 md:p-12 border border-white/10 min-h-[400px] flex flex-col justify-center transition-all">
+                <div id="quiz-intro" class="text-center space-y-8">
+                    <div class="w-24 h-24 gold-bg rounded-3xl mx-auto flex items-center justify-center text-black shadow-2xl rotate-6">
+                        <i data-lucide="shield-alert" class="w-12 h-12"></i>
+                    </div>
+                    <p class="text-slate-300 text-lg font-bold">
+                        <span class="lang-ar">هل تمتلك سرعة البديهة المطلوبة لإدارة العمليات الميدانية الكبرى؟</span>
+                        <span class="lang-en">Do you have the quick thinking required for major field operations?</span>
+                    </p>
+                    <button onclick="startQuiz()" class="px-12 py-5 gold-bg text-black font-black rounded-2xl hover:scale-105 transition-all shadow-xl">
+                        <span class="lang-ar">ابدأ الاختبار</span><span class="lang-en">Start Quiz</span>
+                    </button>
+                </div>
+
+                <div id="quiz-content" class="hidden space-y-8">
+                    <div id="quiz-progress" class="text-gold font-black text-xs uppercase tracking-widest">Question 1 / 3</div>
+                    <h3 id="quiz-question" class="text-2xl md:text-3xl font-black text-white leading-tight"></h3>
+                    <div id="quiz-options" class="grid grid-cols-1 gap-4"></div>
+                    <div id="quiz-feedback" class="hidden p-6 rounded-2xl border bg-white/5 border-gold/30 flex gap-4">
+                        <i data-lucide="info" class="w-5 h-5 text-gold mt-1"></i>
+                        <p id="quiz-tip" class="text-sm font-bold text-slate-300 leading-relaxed italic"></p>
+                    </div>
+                    <button id="quiz-next-btn" onclick="nextQuestion()" class="hidden w-full py-5 gold-bg text-black font-black rounded-2xl flex items-center justify-center gap-4">
+                        <span class="lang-ar">التالي</span><span class="lang-en">Next</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div id="quiz-result" class="hidden text-center space-y-10">
+                    <div class="text-7xl font-black text-white" id="final-score">0</div>
+                    <p class="text-xl text-slate-300 font-bold" id="result-msg"></p>
+                    <button onclick="resetQuiz()" class="px-10 py-4 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-white/10 transition-all">
+                        <span class="lang-ar">إعادة الاختبار</span><span class="lang-en">Retry</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="py-32 bg-midnight border-t border-white/5 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-6xl md:text-8xl font-black mb-12 tracking-tighter uppercase">
+                <span class="lang-ar">تواصل</span><span class="lang-en">Connect</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-12 mb-20">
+                <a href="mailto:M.THWBAN@GMAIL.COM" class="flex items-center gap-4 text-slate-400 hover:text-gold transition-colors">
+                    <i data-lucide="mail" class="w-8 h-8"></i>
+                    <span class="text-xl font-bold uppercase tracking-widest">M.THWBAN@GMAIL.COM</span>
+                </a>
+                <a href="https://wa.me/966566162529" target="_blank" class="flex items-center gap-4 text-slate-400 hover:text-gold transition-colors">
+                    <i data-lucide="message-circle" class="w-8 h-8"></i>
+                    <span class="text-xl font-bold uppercase tracking-widest">+966 56 616 2529</span>
+                </a>
+            </div>
+            <div class="text-slate-600 text-[10px] font-black uppercase tracking-[0.6em]">
+                © 2025 MOHAMED THWBAN • ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/966566162529" target="_blank" class="fixed bottom-8 right-8 z-[150] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all active:scale-95 group">
+        <i data-lucide="message-circle" class="w-9 h-9"></i>
+        <div class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"></div>
+    </a>
+
+    <!-- Main Scripts -->
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const isAr = html.getAttribute('lang') === 'ar';
+            html.setAttribute('lang', isAr ? 'en' : 'ar');
+            html.setAttribute('dir', isAr ? 'ltr' : 'rtl');
+            localStorage.setItem('lang', isAr ? 'en' : 'ar');
+            if (isQuizStarted) initQuiz(); 
+        }
+
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('lang') || 'ar';
+            if (savedLang === 'en') toggleLanguage();
+            lucide.createIcons();
+            
+            // Scroll reveal animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+
+        // Interactive Quiz Logic
+        const quizData = [
+            {
+                q: { ar: "حدث تعطل مفاجئ في العمليات الميدانية في وقت الذروة. ما هو إجراءك الأول؟", en: "A field bottleneck occurs at peak surge. First action?" },
+                options: [
+                    { text: { ar: "تقييم وترتيب أولويات العمل فوراً", en: "Assess and prioritize workflow immediately" }, isCorrect: true },
+                    { text: { ar: "انتظار التعليمات من الإدارة المركزية", en: "Wait for central management instructions" }, isCorrect: false }
+                ],
+                tip: { ar: "التقييم الاستباقي هو مفتاح الاستمرارية في المشاريع الكبرى.", en: "Proactive assessment is key to continuity in mega-projects." }
+            },
+            {
+                q: { ar: "لديك ١٥٠ ألف وحدة وحدث نقص مفاجئ في الكادر. كيف تتصرف؟", en: "150k units to manage but short-staffed. Action?" },
+                options: [
+                    { text: { ar: "إعادة توزيع الكوادر بناءً على نقاط الضغط القصوى", en: "Redistribute staff based on peak pressure points" }, isCorrect: true },
+                    { text: { ar: "إيقاف العمل حتى اكتمال العدد", en: "Stop work until full staffing is restored" }, isCorrect: false }
+                ],
+                tip: { ar: "المرونة في توزيع الموارد هي جوهر الكفاءة التشغيلية.", en: "Resource flexibility is the core of operational efficiency." }
+            },
+            {
+                q: { ar: "ما هو الأهم لضمان الجودة في إدارة مواقع الحج؟", en: "Most important for quality in Hajj site management?" },
+                options: [
+                    { text: { ar: "التقارير اليومية الدقيقة والرقابة الصارمة", en: "Accurate daily reporting and strict control" }, isCorrect: true },
+                    { text: { ar: "الاعتماد على سرعة التنفيذ فقط", en: "Relying only on speed of execution" }, isCorrect: false }
+                ],
+                tip: { ar: "التوثيق والانضباط يضمنان نجاح أكبر التحديات الميدانية.", en: "Documentation and discipline ensure success in massive field challenges." }
+            }
+        ];
+
+        let currentQ = 0; let score = 0; let isQuizStarted = false; let selected = null;
+
+        function startQuiz() {
+            isQuizStarted = true;
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-content').classList.remove('hidden');
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const lang = document.documentElement.getAttribute('lang');
+            const data = quizData[currentQ];
+            document.getElementById('quiz-question').innerText = data.q[lang];
+            document.getElementById('quiz-progress').innerText = `Question ${currentQ + 1} / ${quizData.length}`;
+            const optionsDiv = document.getElementById('quiz-options');
+            optionsDiv.innerHTML = '';
+            data.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-6 rounded-2xl border border-white/5 bg-white/5 text-right flex justify-between items-center transition-all hover:bg-white/10";
+                btn.innerHTML = `<span>${opt.text[lang]}</span>`;
+                btn.onclick = () => selectOption(idx);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function selectOption(idx) {
+            if (selected !== null) return;
+            selected = idx;
+            const data = quizData[currentQ];
+            const isCorrect = data.options[idx].isCorrect;
+            if (isCorrect) score += 100;
+            const btns = document.getElementById('quiz-options').children;
+            btns[idx].classList.add(isCorrect ? 'border-emerald-500' : 'border-red-500');
+            btns[idx].classList.add(isCorrect ? 'bg-emerald-500/10' : 'bg-red-500/10');
+            document.getElementById('quiz-tip').innerText = data.tip[document.documentElement.getAttribute('lang')];
+            document.getElementById('quiz-feedback').classList.remove('hidden');
+            document.getElementById('quiz-next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQ++; selected = null;
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next-btn').classList.add('hidden');
+            if (currentQ < quizData.length) initQuiz(); else showResult();
+        }
+
+        function showResult() {
+            document.getElementById('quiz-content').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').innerText = score;
+            const lang = document.documentElement.getAttribute('lang');
+            document.getElementById('result-msg').innerText = score >= 300 
+                ? (lang === 'ar' ? "ذكاء تشغيلي استثنائي! أنت مستعد للقيادة." : "Exceptional operational IQ! You are ready to lead.")
+                : (lang === 'ar' ? "أداء جيد، الخبرة الميدانية تصنع الفارق." : "Good performance, field experience makes the difference.");
+        }
+
+        function resetQuiz() {
+            currentQ = 0; score = 0; selected = null;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-intro').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
