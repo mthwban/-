@@ -6,43 +6,57 @@
     <title>محمد ثوبان | أخصائي عمليات واستراتيجي إبداعي</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        midnight: '#010409',
-                        gold: '#D4AF37',
-                    },
-                    fontFamily: {
-                        arabic: ['Cairo', 'sans-serif'],
-                    },
+                    colors: { midnight: '#010409', gold: '#D4AF37', navy: '#020617' },
+                    fontFamily: { cairo: ['Cairo', 'sans-serif'] },
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #010409; margin: 0; padding: 0; }
-        #root { min-height: 100vh; }
-        /* تحسينات لضمان عدم حدوث وميض أثناء التحميل */
-        .loading-bg { background: radial-gradient(circle at center, #1a1a1a 0%, #010409 100%); }
+        body { font-family: 'Cairo', sans-serif; background-color: #010409; color: #f1f5f9; overflow-x: hidden; scroll-behavior: smooth; }
+        .glass-card { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-bg { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 100%); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .lang-en { display: none; }
+        html[lang="en"] .lang-ar { display: none; }
+        html[lang="en"] .lang-en { display: block; }
+        [dir="ltr"] .rtl-flip { transform: scaleX(-1); }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "vite": "https://esm.sh/vite@^7.3.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
 </head>
-<body class="font-arabic">
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
-</body>
-</html>
+<body>
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#D4AF37]/5 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-0 w-full z-[100] px-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center px-6 py-3 rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="w-12 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold/20 transition-all text-[10px] font-black">
+                    <span class="lang-ar">EN</span><span class="lang-en">AR</span>
+                </button>
+                <a href="#" class="text-xl font-black tracking-tighter uppercase">ثوبان<span class="text-gold">.</span></a>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <a href="#about" class="hover:text-gold transition-colors"><span class="lang-ar">عني</span><span class="lang-en">About</span></a>
+                <a href="#experience" class="hover:text-gold transition-colors"><span class="lang-ar">الخبرة</span><span class="lang-en">Experience</span></a>
+                <a href="#quiz" class="hover:text-gold transition-colors"><span class="lang-ar">الاختبار</span><span class="lang-en">IQ Test</span></a>
+                <a href="#contact" class="px-6 py-2 gold-bg text-black rounded-full hover:scale-105 transition-all">
+                    <span class="lang-ar">تواصل</span><span class="lang-en">Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-20 px-6 z-10">
+        <div class="max-
