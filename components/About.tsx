@@ -30,9 +30,9 @@ const About: React.FC<AboutProps> = ({ lang }) => {
           <div className="h-2 w-32 bg-[#D4AF37] mx-auto rounded-full"></div>
         </div>
 
-        {/* Continuous Learning & Professional Development Mastery Box */}
+        {/* Strategic Mastery Box: PMP & Continuous Development */}
         <div className="reveal mb-20">
-           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/30 bg-gradient-to-br from-[#D4AF37]/10 to-transparent flex flex-col gap-10 shadow-[0_0_80px_rgba(212,175,55,0.15)] relative group overflow-hidden">
+           <div className="p-8 md:p-12 glass-card rounded-[3rem] border-2 border-[#D4AF37]/40 bg-gradient-to-br from-[#D4AF37]/15 to-transparent flex flex-col gap-10 shadow-[0_0_80px_rgba(212,175,55,0.15)] relative group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
               
               <div className="flex flex-col md:flex-row items-center gap-10 relative z-10">
@@ -42,12 +42,12 @@ const About: React.FC<AboutProps> = ({ lang }) => {
                 
                 <div className="flex-1 text-center md:text-right rtl:text-right">
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tighter">
-                    <span className="gold-gradient">{lang === 'ar' ? 'رحلة التعلم المستمر' : 'Continuous Learning Journey'}</span>
+                    <span className="gold-gradient">{lang === 'ar' ? 'رحلة الاحتراف والتعلم المستمر' : 'Journey of Mastery & Continuous Learning'}</span>
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* PMP Focus */}
-                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all">
+                    {/* PMP Focus Box */}
+                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all group/box">
                       <div className="flex items-center gap-3 mb-3 text-[#D4AF37]">
                         <ShieldCheck className="w-5 h-5" />
                         <span className="font-black text-xs uppercase tracking-widest">{development.items[0].title[lang]}</span>
@@ -57,8 +57,8 @@ const About: React.FC<AboutProps> = ({ lang }) => {
                       </p>
                     </div>
 
-                    {/* Google Marketing Focus */}
-                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all">
+                    {/* Google Digital Marketing Focus Box */}
+                    <div className="p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-[#D4AF37]/40 transition-all group/box">
                       <div className="flex items-center gap-3 mb-3 text-[#D4AF37]">
                         <TrendingUp className="w-5 h-5" />
                         <span className="font-black text-xs uppercase tracking-widest">{development.items[1].title[lang]}</span>

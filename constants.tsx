@@ -100,6 +100,20 @@ export const UI_STRINGS = {
     approved: { en: "APPROVED", ar: "معتمد" },
     folderCta: { en: "View All Certificates on Drive", ar: "عرض كافة الشهادات على جوجل درايف" }
   },
+  development: {
+    items: [
+      {
+        title: { en: "PMP Certification (Exam Preparation)", ar: "شهادة PMP (مرحلة التحضير للاختبار)" },
+        issuer: { en: "Project Management Institute", ar: "معهد إدارة المشاريع" },
+        status: { en: "Hours accepted, currently studying and scheduling exam.", ar: "تم قبول الساعات، حالياً في مرحلة المراجعة وتحديد موعد الاختبار." }
+      },
+      {
+        title: { en: "Google Digital Marketing & E-Commerce", ar: "التسويق الرقمي والتجارة الإلكترونية من جوجل" },
+        issuer: { en: "Coursera", ar: "كورسيرا" },
+        status: { en: "Working on completing the remaining hours for full accreditation.", ar: "أعمل حالياً على إكمال الساعات المتبقية للحصول على الاعتماد الكامل." }
+      }
+    ]
+  },
   contact: {
     title: { en: "Connect", ar: "تواصل" },
     subtitle: { en: "Available for strategic operational roles or creative visual projects.", ar: "متاح للأدوار التشغيلية الاستراتيجية أو المشاريع البصرية الإبداعية." },
@@ -191,20 +205,6 @@ export const UI_STRINGS = {
   executive: {
     exit: { en: "Exit Dossier", ar: "خروج" },
     subtitle: { en: "Strategic summary for stakeholders.", ar: "ملخص استراتيجي لأصحاب المصلحة." }
-  },
-  development: {
-    items: [
-      {
-        title: { en: "PMP Certification (Exam Preparation)", ar: "شهادة PMP (مرحلة التحضير للاختبار)" },
-        issuer: { en: "Project Management Institute", ar: "معهد إدارة المشاريع" },
-        status: { en: "Hours accepted, currently studying and scheduling exam.", ar: "تم قبول الساعات، حالياً في مرحلة المراجعة وتحديد موعد الاختبار." }
-      },
-      {
-        title: { en: "Google Digital Marketing & E-Commerce", ar: "التسويق الرقمي والتجارة الإلكترونية من جوجل" },
-        issuer: { en: "Coursera", ar: "كورسيرا" },
-        status: { en: "Working on completing the remaining hours.", ar: "أعمل حالياً على إكمال الساعات المتبقية للحصول على الاعتماد." }
-      }
-    ]
   }
 };
 
@@ -215,7 +215,7 @@ export const EXPERIENCES: Experience[] = [
     period: { en: "04/2025 – 09/2025", ar: "أبريل ٢٠٢٥ – سبتمبر ٢٠٢٥" },
     description: [
       { en: "Oversaw year-round site operations and maintenance, ensuring workflow continuity during Hajj season.", ar: "الإشراف على عمليات تشغيل وصيانة المواقع طوال العام، وضمان استمرارية سير العمل خلال موسم الحج." },
-      { en: "Implemented structured planning and daily reporting to coordinate massive logistics.", ar: "تطبيق التخطيط الهيكلي والتقارير اليومية لتنسيق اللوجستيات الضخمة." }
+      { en: "Implemented structured planning and daily reporting to coordinate massive logistics for 150k units.", ar: "تطبيق التخطيط الهيكلي والتقارير اليومية لتنسيق اللوجستيات الضخمة لـ ١٥٠ ألف وحدة." }
     ],
     tags: [{ en: "Operations", ar: "عمليات" }, { en: "Hajj Logistics", ar: "لوجستيات الحج" }, { en: "Maintenance", ar: "صيانة" }]
   },
